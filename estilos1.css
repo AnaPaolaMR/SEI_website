@@ -27,6 +27,10 @@ h1{
 	text-transform: uppercase;
 }
 
+.roboto{
+	font-family: 'Roboto Slab';
+}
+
 .text-boton{
 	text-transform: uppercase;
 	font-weight: bold;

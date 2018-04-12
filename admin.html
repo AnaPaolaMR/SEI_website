@@ -20,14 +20,36 @@
           <div class="row text-right">
             <div class="col edit">
 				          <div class="row justify-content-between">
+
 					           <div class="col-md-2">
 						            <img class="img-fluid" src="logo.png">
-					           </div>	
-					           <div class="col-md-8 align-self-center">
-						            <p class="text-admin text-subtitulo">¡ hola gladys patrón !
-	             		          <img class="img-fluid" src="sesion.png" alt="Logo SEI" width="50">
-                        </p>
 					           </div>
+
+                     <div class="col-md-5">
+                       
+                     </div>
+
+					           <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
+						            <p class="text-admin text-subtitulo">¡ hola gladys patrón ! </p>   
+					           </div>
+
+                     <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
+
+                        <img class="img-fluid" src="sesion.png" alt="Logo SEI" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="50">
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
+                          <a class="dropdown-item" href="#">Configuracion de la cuenta</a>
+
+                          <li class="dropdown-divider"></li>
+                          
+                          <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                        </div>  
+                     </div>
+
+                      <div class="col-md-1">
+                       
+                     </div>
+
 				          </div>            
         	   </div>
           </div>
@@ -89,30 +111,79 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="recibir.php" method="POST"> 
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Regular</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea6" rows="3" name="regular"></textarea>
-	  		   </div>
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Semestral</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea7" rows="3"></textarea>
-	  		</div>
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Sabatino</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea8" rows="3"></textarea>
-	  		</div>
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Verano</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea9" rows="3"></textarea>
-	  		</div>	  		  		
-  			</form>
-  			<a href="#" class="btn btn-lg btn-success text-right text-guardar">
-          Guardar
-        </a>
-        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" >
-         Cancelar
-        </button>		
+      	  <form action="recibir.php" method="POST">
+
+            <h5> Curso Regular </h5>
+
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" class="form-control">
+            </div> 
+
+  	      	<div class="form-group">
+  	   			   <label for="exampleFormControlTextarea6">Información del curso</label>
+  	   				 <textarea class="form-control" id="exampleFormControlTextarea6" rows="3" name="regular"></textarea>
+  	  		  </div>
+
+            <div class="form-group">
+              <label>Enlace del video: </label>
+              <input type="text" class="form-control">
+            </div>
+
+            <h5> Curso Semestral </h5>
+
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label for="exampleFormControlTextarea7">Información del curso</label>
+               <textarea class="form-control" id="exampleFormControlTextarea7" rows="3" name="regular"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Enlace del video: </label>
+              <input type="text" class="form-control">
+            </div>
+
+            <h5> Curso Sabatino </h5>
+
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label for="exampleFormControlTextarea8">Información del curso</label>
+               <textarea class="form-control" id="exampleFormControlTextarea8" rows="3" name="regular"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Enlace del video: </label>
+              <input type="text" class="form-control">
+            </div>
+
+            <h5> Curso de Verano </h5>
+
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label for="exampleFormControlTextarea9">Información del curso</label>
+               <textarea class="form-control" id="exampleFormControlTextarea9" rows="3" name="regular"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Enlace del video: </label>
+              <input type="text" class="form-control">
+            </div>
+
+  			  </form>
+  			  <a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
+          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" > Cancelar </button>		
       </div>
     </div>
   </div>
@@ -127,17 +198,23 @@
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       	  <form>
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Descripción</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea0" rows="3"></textarea>
-	  		</div>
-  			</form>
-  			<a href="#" class="btn btn-lg btn-success text-right text-guardar">
-          Guardar
-        </a>
-        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" >
-         Cancelar
-        </button>		
+            <div class="form-group">
+              <label>Titulo</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label for="exampleFormControlTextarea10">Información del curso</label>
+               <textarea class="form-control" id="exampleFormControlTextarea10" rows="3" name="regular"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label>Enlace del video: </label>
+              <input type="text" class="form-control">
+            </div>
+  			  </form>
+  			  <a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
+          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" > Cancelar </button>		
       </div>
     </div>
   </div>
@@ -176,18 +253,52 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-      	  <form>
-	      	  <div class="form-group">
-	   			 <label for="exampleFormControlTextarea1">Datos</label>
-	   				 <textarea class="form-control" id="exampleFormControlTextarea10" rows="3"></textarea>
-	  		</div>
+        <form>
+          <div class="form-group">
+
+            <h5> Datos de Contacto </h5>
+
+            <div class="form-group">
+              <label>Telefono</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label>Celular</label>
+               <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label>Correo Electronico </label>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+               <label for="exampleFormControlTextarea11">Direccion</label>
+               <textarea class="form-control" id="exampleFormControlTextarea11" rows="3" name="regular"></textarea>
+            </div>
+
+            <h5> Redes Sociales </h5>
+
+            <div class="form-group">
+              <label>Enlace a Facebook</label>
+              <input type="text" class="form-control">
+            </div> 
+
+            <div class="form-group">
+               <label>Enlace a Twitter</label>
+               <input type="text" class="form-control">
+            </div>
+
+            <div class="form-group">
+              <label>Enlace a Instagram </label>
+              <input type="text" class="form-control">
+            </div>
+            
+          </div>
   			</form>
-  			<a href="#" class="btn btn-lg btn-success text-right text-guardar">
-          Guardar
-        </a>
-        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" >
-         Cancelar
-        </button>		
+  			<a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
+        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" > Cancelar </button>		
       </div>
     </div>
   </div>
