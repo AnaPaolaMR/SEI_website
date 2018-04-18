@@ -133,16 +133,17 @@
 
                 <div class="form-group">
                        <label for="exampleFormControlTextarea6">Información del curso</label>
-                         <textarea class="form-control ocultar" id="exampleFormControlTextarea6" rows="3" name="regular_info">
-
-                         </textarea>
-                         <?php
+                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info">
+                          <?php
                                   include("consulta.php");
                                   $con = new conexion();
                                   $con->recuperarDatos();
 
                           ?>   
                             
+
+                         </textarea>
+                         
 
                 </div>
 

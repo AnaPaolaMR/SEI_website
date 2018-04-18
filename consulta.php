@@ -7,7 +7,6 @@
 			$user = "root";
 			$pw = "";
 			$db = "sei_bd";
-			$result_type = "MYSQL_BOTH";
 
 			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
 
@@ -16,9 +15,8 @@
 
 			$fila = mysqli_fetch_array($resultado);
 				
-			//echo "$fila[info_curso]";
-			echo '<textarea class="form-control" id="exampleFormControlTextarea6" rows="3" name="regular_info">'.$fila[info_curso].'</textarea>';
-
+			echo "$fila[info_curso]";
+			
 			mysqli_close($con);
 
 		}
