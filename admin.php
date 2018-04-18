@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="estilos.css">
   <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <?php include("consulta.php"); ?>
 
     <title>Configuracion | Smart English Institute</title>
   </head>
@@ -128,16 +129,21 @@
                 <div class="form-group">
                     <br>
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="regular_titulo">
+                    <input type="text" class="form-control" name="regular_titulo" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarTitulo();   
+
+
+                          ?>">
                 </div> 
 
                 <div class="form-group">
                        <label for="exampleFormControlTextarea6">Información del curso</label>
                          <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info">
                           <?php
-                                  include("consulta.php");
-                                  $con = new conexion();
-                                  $con->recuperarDatos();
+                                  
+                                  $con = new cursos();
+                                  $con->recuperarInfo();
 
                           ?>   
                             
@@ -149,7 +155,12 @@
 
                 <div class="form-group">
                   <label>Enlace del video: </label>
-                  <input type="text" class="form-control" name="regular_enlace">
+                  <input type="text" class="form-control" name="regular_enlace" value="<?php
+                                  
+                                  $con = new cursos();
+                                  $con->recuperarEnlace();
+
+                          ?>">
                 </div>
             </div>
 
