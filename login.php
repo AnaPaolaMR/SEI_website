@@ -15,7 +15,7 @@
   </head>
 
   <body class="text-center login">
-    <form class="form-signin border border-success rounded">
+    <form class="form-signin border border-success rounded" action="login-in.php" method="POST">
       <img class="mb-4" src="Logo.png" alt="Smart English Institute" width="80%" height="autofocus"><br>
       <img class="mb-4" src="sesion.png" alt="" width="70" height="70">
       
@@ -23,11 +23,12 @@
       <hr class="my-4">
 
       <label for="inputEmail" class="sr-only">Correo Electónico</label>
-      <input type="email" id="inputEmail" class="form-control" placeholder="Correo Electónico" required autofocus>
+      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo Electónico" required autofocus>
+
       <label for="inputPassword" class="sr-only">Contraseña</label>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
+      <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
       <br>
-      <button class="btn btn-lg btn-success btn-block" type="submit">Entrar</button>
+      <button class="btn btn-lg btn-success btn-block" type="submit" >Entrar</button>
       <p class="text-center mt-5 mb-3 text-muted">Smart English Institute &copy;</p>
     </form>
   </body>

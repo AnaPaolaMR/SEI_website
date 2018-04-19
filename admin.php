@@ -31,7 +31,7 @@
                      </div>
 
 					           <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
-						            <p class="text-admin text-subtitulo">¡ hola gladys patrón ! </p>   
+						            <a href="#" class="text-admin text-subtitulo">¡ hola gladys patrón ! </a>   
 					           </div>
 
                      <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
@@ -43,7 +43,7 @@
 
                           <li class="dropdown-divider"></li>
                           
-                          <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                          <a class="dropdown-item" href="login.php">Cerrar Sesion</a>
                         </div>  
                      </div>
 
@@ -386,7 +386,7 @@
     </div>
   </div>
 </div>
- 	<a href="login.html" class="btn btn-lg btn-outline-success text-center text-volver">
+ 	<a href="login.php" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
 </section>
