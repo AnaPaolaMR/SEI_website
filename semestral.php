@@ -8,6 +8,7 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<?php include("consulta.php");?>
 
 	<title>Curso Semestral | SEI</title>
 </head>
@@ -314,38 +315,29 @@
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
 			
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="https://streamable.com/s/nkxrz/htjijg" allowfullscreen></iframe>
+  					<iframe class="embed-responsive-item" src="<?php
+                        $con = new cursos();
+                        $con->recuperarEnlace('semestral');
+
+                    ?>" allowfullscreen></iframe>
 				</div>
 
 			</article>
 
 			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
 				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
+					<h3><?php
+                        $con = new cursos();
+                        $con->recuperarTitulo('semestral');
 
-					<h3>Inscribete ahora</h3>
+                    ?> </h3>
 					<hr class="my-4">
 
-					<p>
-						<ul>
-							<li>Curso para jóvenes y adultos. </li>
-							<li>Éste curso está diseñado de forma semestral basado en el curso de Interchange de Cambridge,  El cual consta de siete niveles continuos pasando por principiante básico, intermedio y avanzado.</li>
-							<li>Trabajamos en grupos reducidos una hora diaria de lunes a jueves.</li>
-							<li>Los alumnos son ubicados dependiendo del nivel de inglés que manejan.</li>
-						</ul>
-					</p>	
+					<?php
+                        $con = new cursos();
+                        $con->recuperarInfo('semestral');
 
-					<p>
-						Para ubicar  en el nivel adecuado es necesario que los alumnos presenten un examen de colocación, el cual no tiene ningún costo y el único requisito es que debe apartar cita y presentarse con puntualidad a la misma.
-					</p>
-
-					<p>
-						Los costos del curso son los siguientes:
-						<ul>
-							<li>El costo de inscripción para el semestre es de $200 pesos.</li>
-							<li>La colegiatura semanal es de $80 pesos.</li>
-							<li>Además, se deberá de cubrir una cuota mensual de $35 pesos por concepto de materiales.</li>
-						</ul>
-					</p>
+                    ?>
 
 				</div>
 			</aside>

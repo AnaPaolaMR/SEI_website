@@ -8,6 +8,7 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<?php include("consulta.php");?>
 
 	<title>Curso de Verano | SEI</title>
 </head>
@@ -314,42 +315,29 @@
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
 			
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="https://streamable.com/s/nkxrz/htjijg" allowfullscreen></iframe>
+  					<iframe class="embed-responsive-item" src="<?php
+                        $con = new cursos();
+                        $con->recuperarEnlace('verano');
+
+                    ?>" allowfullscreen></iframe>
 				</div>
 
 			</article>
 
 			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
 				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
+					<h3><?php
+                        $con = new cursos();
+                        $con->recuperarTitulo('verano');
 
-					<h3>Inscribete ahora</h3>
+                    ?> </h3>
 					<hr class="my-4">
 
-					<p>
+					<?php
+                        $con = new cursos();
+                        $con->recuperarInfo('verano');
 
-						<ul>
-							<li>Este curso está diseñado para jóvenes de secundaria, preparatoria, universitarios y adultos.</li>
-							<li>Exclusivamente para alumnos de nivel principiante básico.</li>
-						</ul>
-					</p>
-
-					<p>
-						Manejamos dos horarios:
-
-						<ul>
-							<li>Matutino de 9:00 AM a 11:00 AM.</li>
-							<li>Vespertino de 5:00 PM a 7:00 PM.</li>
-						</ul>
-
-						<ul>
-							<li> El costo de inscripción es de $200 pesos y la cuota semanal es de $160, siendo así un total de $1000 pesos por todo el curso.</li> 
-							<li>El curso abarca cinco semanas de dos horas diarias de lunes a viernes.</li>
-							<li>Además, este curso puede ser cubierto en una sola exhibición por $900 pesos.</li>
-						</ul>
-							
-						El curso intensivo de verano 2018 inicia el próximo lunes 11 de junio y finaliza el viernes 13 de julio.						
-
-					</p>
+                    ?>
 
 				</div>
 			</aside>

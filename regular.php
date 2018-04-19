@@ -316,7 +316,7 @@
 				<div class="embed-responsive embed-responsive-16by9">
   					<iframe class="embed-responsive-item" src="<?php
                         $con = new cursos();
-                        $con->recuperarEnlace();
+                        $con->recuperarEnlace('regular');
 
                     ?>" allowfullscreen></iframe>
 				</div>
@@ -330,36 +330,16 @@
 
 					<h3><?php
                         $con = new cursos();
-                        $con->recuperarTitulo();
+                        $con->recuperarTitulo('regular');
 
                     ?> </h3>
 					<hr class="my-4">
 
 					<?php
                         $con = new cursos();
-                        $con->recuperarInfo();
+                        $con->recuperarInfo('regular');
 
                     ?>  
-
-					<!-- <p>
-						<ul>
-							<li>Este curso está diseñado para niños de primaria.</li> 
-							<li>Son bienvenidos todos los pequeños de seis años cumplidos en adelante.</li>
-							<li>El curso consiste una hora diaria de lunes a viernes respetando el calendario de la Secretaría que comprende de septiembre a junio.</li>
-							<li>Impartimos nuestras clases en grupos pequeños, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00</li>
-							<li>Como objetivo buscamos para los niños la manera en que su aprendizaje sea divertido a través de dibujos, canciones y prácticas constantes en el aula.</li>
-							<li>Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</li>
-						</ul>
-						
-					</p>
-
-					<p>
-						Los costos para el ciclo escolar 2018-2019 son:
-						<ul> 
-							<li>Inscripción por todo el ciclo escolar: $300.00.</li>
-							<li>Colegiatura semanal: $80.00.</li>
-							<li>Y una cuota de material mensual:  $35.00.</li>
-					</p> -->
 
 				</div>
 			</aside>

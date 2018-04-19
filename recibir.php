@@ -1,4 +1,5 @@
-<?php 
+<?php
+	
 	//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
 	$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
 	$sql_1="UPDATE cursos SET id_curso=100, tipo_curso='regular', info_curso='".$_POST["regular_info"]."', titulo_curso='".$_POST["regular_titulo"]."', video_curso='".$_POST["regular_enlace"]."' WHERE id_curso=100";

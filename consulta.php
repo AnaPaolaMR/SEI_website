@@ -45,8 +45,7 @@
 			$user = "root";
 			$pw = "";
 			$db = "sei_bd";
-			$curso = "";
-
+			
 			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
 
 			$query = "SELECT * from cursos WHERE tipo_curso='$curso'";
