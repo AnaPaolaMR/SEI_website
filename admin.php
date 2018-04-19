@@ -11,7 +11,7 @@
   <link rel="stylesheet" type="text/css" href="estilos.css">
   <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <?php include("consulta.php"); ?>
+  <?php include("consulta.php");?>
 
     <title>Configuracion | Smart English Institute</title>
   </head>
@@ -131,8 +131,7 @@
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="regular_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarTitulo();   
-
+                                  $con->recuperarTitulo('regular');  
 
                           ?>">
                 </div> 
@@ -143,7 +142,7 @@
                           <?php
                                   
                                   $con = new cursos();
-                                  $con->recuperarInfo();
+                                  $con->recuperarInfo('regular');
 
                           ?>   
                             
@@ -158,7 +157,7 @@
                   <input type="text" class="form-control" name="regular_enlace" value="<?php
                                   
                                   $con = new cursos();
-                                  $con->recuperarEnlace();
+                                  $con->recuperarEnlace('regular');
 
                           ?>">
                 </div>
@@ -168,17 +167,29 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="semestral_titulo" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarTitulo('semestral');  
+
+                          ?>"> 
                 </div> 
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea7">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea7" rows="3" name="regular"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="semestral_info"><?php
+                                  $con = new cursos();
+                                  $con->recuperarInfo('semestral');  
+
+                          ?></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="semestral_enlace" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarEnlace('semestral');  
+
+                          ?>">
                 </div>
             </div>
 
@@ -186,17 +197,31 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="sabatino_titulo" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarTitulo('sabatino');  
+
+                          ?>">
                 </div> 
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea8">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea8" rows="3" name="regular_"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="sabatino_info" ><?php
+                                  $con = new cursos();
+                                  $con->recuperarInfo('sabatino');  
+
+                          ?>
+                            
+                          </textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="sabatino_enlace" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarEnlace('sabatino');  
+
+                          ?>">
                 </div>
             </div>
 
@@ -205,25 +230,39 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="verano_titulo" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarTitulo('verano');  
+
+                          ?>">
                 </div> 
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="3" name="regular"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info">
+                      <?php
+                                  $con = new cursos();
+                                  $con->recuperarInfo('verano');  
+
+                          ?>
+                    </textarea>
                 </div>
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="verano_enlace" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarEnlace('verano');  
+
+                          ?>">
                 </div>
 
             </div>
           </div>
                         
 
-            <input type="submit" name="enviar" value="Enviar">
-            <a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
+ 
+          <button type="submit" class="btn btn-lg btn-success text-right text-guardar"> Guardar </button>
           <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" > Cancelar </button>
 
   			  </form>
