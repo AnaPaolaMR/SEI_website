@@ -8,9 +8,8 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
 
-	<title>Curso Regular | SEI</title>
+	<title>Club de Conversacion | SEI</title>
 </head>
 <body>
 
@@ -22,7 +21,7 @@
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/Regular.png" class="img-fluid" alt="Regular" width="40%">
+					<img src="SVG/club_conv.png" class="img-fluid" alt="Club de Conversacion" width="40%">
 				</div>
 
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
@@ -314,52 +313,42 @@
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
 			
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="<?php
-                        $con = new cursos();
-                        $con->recuperarEnlace();
-
-                    ?>" allowfullscreen></iframe>
+  					<iframe class="embed-responsive-item" src="https://streamable.com/s/nkxrz/htjijg" allowfullscreen></iframe>
 				</div>
-
-			<!-- https://streamable.com/s/nkxrz/htjijg -->
 
 			</article>
 
 			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
-				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
+				<div class="container container-white margin-custom border-custom rounded-custom padding-custom text text-justify">
 
-					<h3><?php
-                        $con = new cursos();
-                        $con->recuperarTitulo();
-
-                    ?> </h3>
+					<h3>Inscribete ahora</h3>
 					<hr class="my-4">
-
-					<?php
-                        $con = new cursos();
-                        $con->recuperarInfo();
-
-                    ?>  
-
-					<!-- <p>
-						<ul>
-							<li>Este curso está diseñado para niños de primaria.</li> 
-							<li>Son bienvenidos todos los pequeños de seis años cumplidos en adelante.</li>
-							<li>El curso consiste una hora diaria de lunes a viernes respetando el calendario de la Secretaría que comprende de septiembre a junio.</li>
-							<li>Impartimos nuestras clases en grupos pequeños, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00</li>
-							<li>Como objetivo buscamos para los niños la manera en que su aprendizaje sea divertido a través de dibujos, canciones y prácticas constantes en el aula.</li>
-							<li>Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</li>
+					<p>
+						<ul class="text-left">
+							<li>El club de conversación ha sido establecido y orientado para todos aquellos alumnos que han superado el nivel "Intermedio Básico", o superior a este. </li> 
+							<li>El  propósito de este club es que los alumnos se reúnan con el afán de practicar el idioma dirigidos por un asesor. </li> 
+							<li>Se promueven diversas dinámicas comunicativas y se abordan temas de interés para los miembros del club. </li>
+							<li>La sesión del club consta de dos horas a la semana los viernes, y, los alumnos atienden el club a lo largo del semestre.</li>
 						</ul>
-						
+					</p>
+
+					<br>
+
+					<h3>¿Como me inscribo?</h3>
+					<hr class="my-4">
+					<p>
+						El proceso inscripción para el club es muy sencillo. Solo debe: 
+						<ul class="text-left">
+							<li>Haber acreditado el nivel cuatro aquí en nuestro instituto. </li>
+							<li>O, haber presentado el examen de colocación si es alumno externo.</li>
+						</ul>
+
+						A mayor horas de práctica mejor resultado, por ello, la recomendación siempre es la asistencia regular a este club. 
 					</p>
 
 					<p>
-						Los costos para el ciclo escolar 2018-2019 son:
-						<ul> 
-							<li>Inscripción por todo el ciclo escolar: $300.00.</li>
-							<li>Colegiatura semanal: $80.00.</li>
-							<li>Y una cuota de material mensual:  $35.00.</li>
-					</p> -->
+						A todo el alumno que le interese, sin importar la edad la  edad le damos la mas cordial bienvenida.
+					</p>
 
 				</div>
 			</aside>
@@ -368,12 +357,12 @@
 	</div>
 
 	<footer>
-		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center footer-custom">
+		<div class="container-fluid footer-custom align-self-center text-center footer-custom">
 			<p>
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
-		<a href="cursos.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
+		<a href="index.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
 	</footer>

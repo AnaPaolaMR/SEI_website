@@ -3,14 +3,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" href="smart.ico">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
+	<link rel="stylesheet" type="text/css" href="estilos1.css">
+	<link rel="stylesheet" type="text/css" href="estilos.css">
 
-	<title>Curso Regular | SEI</title>
+	<title>Cursos | Smart English Institute</title>
 </head>
 <body>
 
@@ -22,7 +22,8 @@
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/Regular.png" class="img-fluid" alt="Regular" width="40%">
+					<img src="SVG/cursos.png" class="img-fluid" alt="Cursos" width="40%">
+					
 				</div>
 
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
@@ -33,6 +34,7 @@
 						</button>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
+
 							<a class="dropdown-item" href="cursos.php">Cursos</a>
 							<a class="dropdown-item" href="club.php">Club de conversacion</a>
 							<a class="dropdown-item" href="galeria.php">Galeria</a>
@@ -309,81 +311,60 @@
 	
 	</header>
 		
-	<div class="container-fluid">
+	<div class="container">
 		<section class="main row">
-			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
-			
-				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="<?php
-                        $con = new cursos();
-                        $con->recuperarEnlace();
-
-                    ?>" allowfullscreen></iframe>
+			<article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+				<div class="text-center">
+					<a href="regular.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						regular
+						<p class="text-ingles">regular</p>
+					</a>
 				</div>
 
-			<!-- https://streamable.com/s/nkxrz/htjijg -->
+				<div class="text-center">
+					<a href="verano.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						verano
+						<p class="text-ingles">summer</p>
+					</a>
+				</div>
+				
 
 			</article>
 
-			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
-				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
+			<aside class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-					<h3><?php
-                        $con = new cursos();
-                        $con->recuperarTitulo();
-
-                    ?> </h3>
-					<hr class="my-4">
-
-					<?php
-                        $con = new cursos();
-                        $con->recuperarInfo();
-
-                    ?>  
-
-					<!-- <p>
-						<ul>
-							<li>Este curso está diseñado para niños de primaria.</li> 
-							<li>Son bienvenidos todos los pequeños de seis años cumplidos en adelante.</li>
-							<li>El curso consiste una hora diaria de lunes a viernes respetando el calendario de la Secretaría que comprende de septiembre a junio.</li>
-							<li>Impartimos nuestras clases en grupos pequeños, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00</li>
-							<li>Como objetivo buscamos para los niños la manera en que su aprendizaje sea divertido a través de dibujos, canciones y prácticas constantes en el aula.</li>
-							<li>Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</li>
-						</ul>
-						
-					</p>
-
-					<p>
-						Los costos para el ciclo escolar 2018-2019 son:
-						<ul> 
-							<li>Inscripción por todo el ciclo escolar: $300.00.</li>
-							<li>Colegiatura semanal: $80.00.</li>
-							<li>Y una cuota de material mensual:  $35.00.</li>
-					</p> -->
-
+				<div class="text-center">
+					<a href="semestral.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						Semestral
+						<p class="text-ingles">biannual</p>
+					</a>
 				</div>
-			</aside>
-		</section>
 
+				<div class="text-center">
+					<a href="sabatino.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						sabatino
+						<p class="text-ingles">sabbatine</p>
+					</a>
+				</div>
+
+			</aside>
+		
+		</section>
 	</div>
 
 	<footer>
-		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center footer-custom">
-			<p>
-				<br> Smart English Institute &copy;
-			</p>		
+		<div class="container">
+			<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p>  -->
 		</div>
-		<a href="cursos.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
+
+		<a href="index.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
+
 	</footer>
-	
+
+	<script src="js\jquery.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js\bootstrap.min.js"></script> 
 </body>
-
-<script src="js/jquery.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
 </html>
-
-

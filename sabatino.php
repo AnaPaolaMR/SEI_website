@@ -8,9 +8,8 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
 
-	<title>Curso Regular | SEI</title>
+	<title>Curso Sabatino | SEI</title>
 </head>
 <body>
 
@@ -22,13 +21,14 @@
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/Regular.png" class="img-fluid" alt="Regular" width="40%">
+					<img src="svg/Sabatino.png" class="img-fluid" alt="Sabatino" width="40%">
 				</div>
 
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<div class="dropdown text text-menu">
 						<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i style="font-size: 48px" class="icon-menu material-icons">menu</i>
+						<!-- <img class="icon-menu" src="menu.svg"> -->
 							
 						</button>
 
@@ -314,53 +314,37 @@
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
 			
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="<?php
-                        $con = new cursos();
-                        $con->recuperarEnlace();
-
-                    ?>" allowfullscreen></iframe>
+  					<iframe class="embed-responsive-item" src="https://streamable.com/s/nkxrz/htjijg" allowfullscreen></iframe>
 				</div>
-
-			<!-- https://streamable.com/s/nkxrz/htjijg -->
 
 			</article>
 
 			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
 				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
 
-					<h3><?php
-                        $con = new cursos();
-                        $con->recuperarTitulo();
-
-                    ?> </h3>
+					<h3>Inscribete ahora</h3>
 					<hr class="my-4">
-
-					<?php
-                        $con = new cursos();
-                        $con->recuperarInfo();
-
-                    ?>  
-
-					<!-- <p>
+					<p>
 						<ul>
-							<li>Este curso está diseñado para niños de primaria.</li> 
-							<li>Son bienvenidos todos los pequeños de seis años cumplidos en adelante.</li>
-							<li>El curso consiste una hora diaria de lunes a viernes respetando el calendario de la Secretaría que comprende de septiembre a junio.</li>
-							<li>Impartimos nuestras clases en grupos pequeños, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00</li>
-							<li>Como objetivo buscamos para los niños la manera en que su aprendizaje sea divertido a través de dibujos, canciones y prácticas constantes en el aula.</li>
-							<li>Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</li>
+							<li>Curso para jóvenes y adultos. </li>
+							<li>Éste curso está diseñado de forma semestral basado en el curso de Interchange de Cambridge,  El cual consta de siete niveles continuos pasando por principiante básico, intermedio y avanzado.</li>
+							<li>Trabajamos en grupos reducidos 3 horas cada sábado en un horario de 9:00 AM a 12:00 PM.</li>
+							<li>Los alumnos son ubicados dependiendo del nivel de inglés que manejan.</li>
 						</ul>
-						
+					</p>	
+
+					<p>
+						Para ubicar  en el nivel adecuado es necesario que los alumnos presenten un examen de colocación, el cual no tiene ningún costo y el único requisito es que debe apartar cita y presentarse con puntualidad a la misma.
 					</p>
 
 					<p>
-						Los costos para el ciclo escolar 2018-2019 son:
-						<ul> 
-							<li>Inscripción por todo el ciclo escolar: $300.00.</li>
-							<li>Colegiatura semanal: $80.00.</li>
-							<li>Y una cuota de material mensual:  $35.00.</li>
-					</p> -->
-
+						Los costos del curso son los siguientes:
+						<ul>
+							<li>El costo de inscripción para el semestre es de $200 pesos.</li>
+							<li>La colegiatura semanal es de $80 pesos.</li>
+							<li>Además, se deberá de cubrir una cuota mensual de $35 pesos por concepto de materiales.</li>
+						</ul>
+					</p>
 				</div>
 			</aside>
 		</section>

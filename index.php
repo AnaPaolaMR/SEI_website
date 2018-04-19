@@ -3,14 +3,14 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+	<link rel="icon" href="smart.ico">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="estilos1.css">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="icon" href="smart.ico">
-	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
-	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
 
-	<title>Curso Regular | SEI</title>
+	<title>Inicio | SEI</title>
 </head>
 <body>
 
@@ -22,23 +22,18 @@
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/Regular.png" class="img-fluid" alt="Regular" width="40%">
+					<div><h1 class="coiny title title-md title-lg title-lg"></h1></div>
 				</div>
 
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<div class="dropdown text text-menu">
-						<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<div class="dropdown text-menu text">
+						<button class="float-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						<i style="font-size: 48px" class="icon-menu material-icons">menu</i>
 							
 						</button>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
-							<a class="dropdown-item" href="cursos.php">Cursos</a>
-							<a class="dropdown-item" href="club.php">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria.php">Galeria</a>
-							<a class="dropdown-item" href="contacto.php">contacto</a>
-							<li class="dropdown-divider"></li>
-							
+		
 						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
 						    <a class="dropdown-item" href="#mision" data-toggle="modal">Mision</a>
 							<a class="dropdown-item" href="#vision" data-toggle="modal">Vision</a>
@@ -308,82 +303,61 @@
 		</div>
 	
 	</header>
-		
-	<div class="container-fluid">
+	<div class="container">
 		<section class="main row">
-			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
-			
-				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="<?php
-                        $con = new cursos();
-                        $con->recuperarEnlace();
-
-                    ?>" allowfullscreen></iframe>
+			<article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+				
+				<div class="text-center">
+					<a href="cursos.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						Cursos
+						<p class="text-ingles">courses</p>
+					</a>
+				</div>
+				
+				<div class="text-center">
+					<a href="club.php" class="ocultar btn btn-lg btn-outline-success text-center text-boton btn-club-large btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					Club de <br>Conversacion<br>
+					<p class="text-ingles"> conversation club</p>
+					</a>
 				</div>
 
-			<!-- https://streamable.com/s/nkxrz/htjijg -->
+				<div class="text-center">
+					<a href="club.php" class="btn btn-lg btn-outline-success text-center text-boton btn-club-small btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					Club
+					<p class="text-ingles"> conversation club </p>
+					</a>
+				</div>
+				
 
 			</article>
 
-			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
-				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
+			<aside class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+				<div class="text-center">
+					<a href="galeria.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						Galeria
+						<p class="text-ingles">gallery</p>
+					</a>
+				</div>
 
-					<h3><?php
-                        $con = new cursos();
-                        $con->recuperarTitulo();
-
-                    ?> </h3>
-					<hr class="my-4">
-
-					<?php
-                        $con = new cursos();
-                        $con->recuperarInfo();
-
-                    ?>  
-
-					<!-- <p>
-						<ul>
-							<li>Este curso está diseñado para niños de primaria.</li> 
-							<li>Son bienvenidos todos los pequeños de seis años cumplidos en adelante.</li>
-							<li>El curso consiste una hora diaria de lunes a viernes respetando el calendario de la Secretaría que comprende de septiembre a junio.</li>
-							<li>Impartimos nuestras clases en grupos pequeños, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00</li>
-							<li>Como objetivo buscamos para los niños la manera en que su aprendizaje sea divertido a través de dibujos, canciones y prácticas constantes en el aula.</li>
-							<li>Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</li>
-						</ul>
-						
-					</p>
-
-					<p>
-						Los costos para el ciclo escolar 2018-2019 son:
-						<ul> 
-							<li>Inscripción por todo el ciclo escolar: $300.00.</li>
-							<li>Colegiatura semanal: $80.00.</li>
-							<li>Y una cuota de material mensual:  $35.00.</li>
-					</p> -->
-
+				<div class="text-center">
+					<a href="contacto.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+						Contacto
+						<p class="text-ingles">contact</p>
+					</a>
 				</div>
 			</aside>
+		
 		</section>
-
 	</div>
 
-	<footer>
-		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center footer-custom">
-			<p>
-				<br> Smart English Institute &copy;
-			</p>		
-		</div>
-		<a href="cursos.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
-			volver
-		</a>
+	<footer class="container">
+		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
-	
+
+	<script src="js\jquery.js"></script>
+	<script src="js\popper.min.js"></script>
+	<script src="js\bootstrap.min.js"></script> 
 </body>
-
-<script src="js/jquery.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
 </html>
 
 
