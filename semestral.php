@@ -317,7 +317,7 @@
 				<div class="embed-responsive embed-responsive-16by9">
   					<iframe class="embed-responsive-item" src="<?php
                         $con = new cursos();
-                        $con->recuperarEnlace('semestral');
+                        $con->recuperarCurso('semestral','video_curso');
 
                     ?>" allowfullscreen></iframe>
 				</div>
@@ -328,14 +328,14 @@
 				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
 					<h3><?php
                         $con = new cursos();
-                        $con->recuperarTitulo('semestral');
+                        $con->recuperarCurso('semestral','titulo_curso');
 
                     ?> </h3>
 					<hr class="my-4">
 
 					<?php
                         $con = new cursos();
-                        $con->recuperarInfo('semestral');
+                        $con->recuperarCurso('semestral','info_curso');
 
                     ?>
 

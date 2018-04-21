@@ -131,7 +131,7 @@
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="regular_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarTitulo('regular');  
+                                  $con->recuperarCurso('regular','titulo_curso');  
 
                           ?>">
                 </div> 
@@ -142,7 +142,7 @@
                           <?php
                                   
                                   $con = new cursos();
-                                  $con->recuperarInfo('regular');
+                                  $con->recuperarCurso('regular','info_curso');
 
                           ?>   
                             
@@ -157,7 +157,7 @@
                   <input type="text" class="form-control" name="regular_enlace" value="<?php
                                   
                                   $con = new cursos();
-                                  $con->recuperarEnlace('regular');
+                                  $con->recuperarCurso('regular','video_curso');
 
                           ?>">
                 </div>
@@ -169,7 +169,7 @@
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="semestral_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarTitulo('semestral');  
+                                  $con->recuperarCurso('semestral','titulo_curso');  
 
                           ?>"> 
                 </div> 
@@ -178,7 +178,7 @@
                     <label for="exampleFormControlTextarea7">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="semestral_info"><?php
                                   $con = new cursos();
-                                  $con->recuperarInfo('semestral');  
+                                  $con->recuperarCurso('semestral','info_curso');  
 
                           ?></textarea>
                 </div>
@@ -187,7 +187,7 @@
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="semestral_enlace" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarEnlace('semestral');  
+                                  $con->recuperarCurso('semestral','video_curso');  
 
                           ?>">
                 </div>
@@ -199,7 +199,7 @@
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="sabatino_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarTitulo('sabatino');  
+                                  $con->recuperarCurso('sabatino','titulo_curso');  
 
                           ?>">
                 </div> 
@@ -208,7 +208,7 @@
                     <label for="exampleFormControlTextarea8">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="sabatino_info" ><?php
                                   $con = new cursos();
-                                  $con->recuperarInfo('sabatino');  
+                                  $con->recuperarCurso('sabatino','info_curso');  
 
                           ?>
                             
@@ -219,7 +219,7 @@
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="sabatino_enlace" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarEnlace('sabatino');  
+                                  $con->recuperarCurso('sabatino','video_curso');  
 
                           ?>">
                 </div>
@@ -232,7 +232,7 @@
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="verano_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarTitulo('verano');  
+                                  $con->recuperarCurso('verano','titulo_curso');  
 
                           ?>">
                 </div> 
@@ -242,7 +242,7 @@
                     <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info">
                       <?php
                                   $con = new cursos();
-                                  $con->recuperarInfo('verano');  
+                                  $con->recuperarCurso('verano','info_curso');  
 
                           ?>
                     </textarea>
@@ -252,7 +252,7 @@
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="verano_enlace" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarEnlace('verano');  
+                                  $con->recuperarCurso('verano','video_curso');  
 
                           ?>">
                 </div>
@@ -280,24 +280,41 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-      	  <form>
+      	  <form action="recibir_club.php" method="POST">
             <div class="form-group">
               <label>Titulo</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="club_titulo" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarCurso('club','titulo_curso');  
+
+                          ?>">
             </div> 
 
             <div class="form-group">
                <label for="exampleFormControlTextarea10">Información del curso</label>
-               <textarea class="form-control" id="exampleFormControlTextarea10" rows="3" name="regular"></textarea>
+               <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info">
+
+                  <?php
+                    $con = new cursos();
+                    $con->recuperarCurso('club','info_curso');  
+
+                  ?>
+                  
+                </textarea>
             </div>
 
             <div class="form-group">
               <label>Enlace del video: </label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="club_enlace" value="<?php
+                                  $con = new cursos();
+                                  $con->recuperarCurso('club','video_curso');  
+
+                          ?>">
             </div>
+          <button type="submit" class="btn btn-lg btn-success text-right text-guardar"> Guardar </button>
+          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" > Cancelar </button> 
   			  </form>
-  			  <a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
-          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" > Cancelar </button>		
+  			  	
       </div>
     </div>
   </div>

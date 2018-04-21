@@ -8,6 +8,7 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+	<?php include("consulta.php");?>
 
 	<title>Club de Conversacion | SEI</title>
 </head>
@@ -313,7 +314,11 @@
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
 			
 				<div class="embed-responsive embed-responsive-16by9">
-  					<iframe class="embed-responsive-item" src="https://streamable.com/s/nkxrz/htjijg" allowfullscreen></iframe>
+  					<iframe class="embed-responsive-item" src="<?php
+                        $con = new cursos();
+                        $con->recuperarCurso('club','video_curso');
+
+                    ?>" allowfullscreen></iframe>
 				</div>
 
 			</article>
@@ -321,34 +326,18 @@
 			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
 				<div class="container container-white margin-custom border-custom rounded-custom padding-custom text text-justify">
 
-					<h3>Inscribete ahora</h3>
+					<h3><?php
+                        $con = new cursos();
+                        $con->recuperarCurso('club','titulo_curso');
+
+                    ?> </h3>
 					<hr class="my-4">
-					<p>
-						<ul class="text-left">
-							<li>El club de conversación ha sido establecido y orientado para todos aquellos alumnos que han superado el nivel "Intermedio Básico", o superior a este. </li> 
-							<li>El  propósito de este club es que los alumnos se reúnan con el afán de practicar el idioma dirigidos por un asesor. </li> 
-							<li>Se promueven diversas dinámicas comunicativas y se abordan temas de interés para los miembros del club. </li>
-							<li>La sesión del club consta de dos horas a la semana los viernes, y, los alumnos atienden el club a lo largo del semestre.</li>
-						</ul>
-					</p>
+					
+					<?php
+                        $con = new cursos();
+                        $con->recuperarCurso('club','info_curso');
 
-					<br>
-
-					<h3>¿Como me inscribo?</h3>
-					<hr class="my-4">
-					<p>
-						El proceso inscripción para el club es muy sencillo. Solo debe: 
-						<ul class="text-left">
-							<li>Haber acreditado el nivel cuatro aquí en nuestro instituto. </li>
-							<li>O, haber presentado el examen de colocación si es alumno externo.</li>
-						</ul>
-
-						A mayor horas de práctica mejor resultado, por ello, la recomendación siempre es la asistencia regular a este club. 
-					</p>
-
-					<p>
-						A todo el alumno que le interese, sin importar la edad la  edad le damos la mas cordial bienvenida.
-					</p>
+                    ?>
 
 				</div>
 			</aside>
