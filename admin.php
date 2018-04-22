@@ -138,18 +138,12 @@
 
                 <div class="form-group">
                        <label for="exampleFormControlTextarea6">Información del curso</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info">
-                          <?php
+                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info"><?php
                                   
                                   $con = new cursos();
                                   $con->recuperarCurso('regular','info_curso');
 
-                          ?>   
-                            
-
-                         </textarea>
-                         
-
+                          ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -210,9 +204,7 @@
                                   $con = new cursos();
                                   $con->recuperarCurso('sabatino','info_curso');  
 
-                          ?>
-                            
-                          </textarea>
+                          ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -239,13 +231,11 @@
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info">
-                      <?php
+                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info"><?php
                                   $con = new cursos();
                                   $con->recuperarCurso('verano','info_curso');  
 
-                          ?>
-                    </textarea>
+                          ?></textarea>
                 </div>
 
                 <div class="form-group">
@@ -259,12 +249,35 @@
 
             </div>
           </div>
-                        
+          
+          <!-- Boton de guardar -->
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">
+            Guardar
+          </button>
 
- 
-          <button type="submit" class="btn btn-lg btn-success text-right text-guardar"> Guardar </button>
-          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" > Cancelar </button>
+          <!-- Modal activado por el boton "Guardar"-->
+          <div class="modal fade" id="guardar_curso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Estas seguro de que deseas guardar cambios?
+                </div>
+                <div class="modal-footer">
 
+                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
   			  </form>
   			  	
       </div>
@@ -292,15 +305,11 @@
 
             <div class="form-group">
                <label for="exampleFormControlTextarea10">Información del curso</label>
-               <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info">
-
-                  <?php
+               <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info"><?php
                     $con = new cursos();
                     $con->recuperarCurso('club','info_curso');  
 
-                  ?>
-                  
-                </textarea>
+                  ?></textarea>
             </div>
 
             <div class="form-group">
@@ -311,8 +320,34 @@
 
                           ?>">
             </div>
-          <button type="submit" class="btn btn-lg btn-success text-right text-guardar"> Guardar </button>
-          <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" > Cancelar </button> 
+          <!-- Boton de guardar -->
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_club">
+            Guardar
+          </button>
+
+          <!-- Modal activado por el boton "Guardar"-->
+          <div class="modal fade" id="guardar_club" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Estas seguro de que deseas guardar cambios?
+                </div>
+                <div class="modal-footer">
+
+                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
   			  </form>
   			  	
       </div>
@@ -353,52 +388,107 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        <form>
+        <form action="recibir_contacto.php" method="POST">
           <div class="form-group">
 
             <h5> Datos de Contacto </h5>
 
             <div class="form-group">
               <label>Telefono</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="contacto_telefono" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('telefono');
+
+                    ?>">
             </div> 
 
             <div class="form-group">
                <label>Celular</label>
-               <input type="text" class="form-control">
+               <input type="text" class="form-control" name="contacto_celular" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('celular');
+
+                    ?>">
             </div>
 
             <div class="form-group">
               <label>Correo Electronico </label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="contacto_email" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('email_contacto');
+
+                    ?>">
             </div>
 
             <div class="form-group">
                <label for="exampleFormControlTextarea11">Direccion</label>
-               <textarea class="form-control" id="exampleFormControlTextarea11" rows="3" name="regular"></textarea>
+               <textarea class="form-control" id="exampleFormControlTextarea11" rows="2" name="contacto_direccion"><?php
+                        $con = new cursos();
+                        $con->recuperarContacto('direccion_contacto');
+
+                    ?></textarea>
             </div>
 
             <h5> Redes Sociales </h5>
 
             <div class="form-group">
               <label>Enlace a Facebook</label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="contacto_facebook" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_facebook');
+
+                    ?>">
             </div> 
 
             <div class="form-group">
                <label>Enlace a Twitter</label>
-               <input type="text" class="form-control">
+               <input type="text" class="form-control" name="contacto_twitter" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_twitter');
+
+                    ?>">
             </div>
 
             <div class="form-group">
               <label>Enlace a Instagram </label>
-              <input type="text" class="form-control">
+              <input type="text" class="form-control" name="contacto_instagram" value="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_instagram');
+
+                    ?>">
             </div>
             
           </div>
+          <!-- Boton de guardar -->
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_contacto">
+            Guardar
+          </button>
+
+          <!-- Modal activado por el boton "Guardar"-->
+          <div class="modal fade" id="guardar_contacto" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  ¿Estas seguro de que deseas guardar los cambios?
+                </div>
+                <div class="modal-footer">
+
+                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                  
+                </div>
+              </div>
+            </div>
+          </div> 
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/> 
   			</form>
-  			<a href="#" class="btn btn-lg btn-success text-right text-guardar"> Guardar </a>
-        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" > Cancelar </button>		
+  				
       </div>
     </div>
   </div>

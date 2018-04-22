@@ -10,6 +10,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<link rel="stylesheet" type="text/css" href="estilos1.css">
+	<?php include("consulta.php");?>
 
 	<title>Contacto | Smart English Institute</title>
 </head>
@@ -314,17 +315,28 @@
 		
 			<div class="col-sm-12 col-md-4 border border-success  container-white rounded-custom">
 					<h3><br>Telefono</h3>
-					<p class="contenido "><h2 style="text-align: center;">(662) 3 10 20 95</h2> </p>
+					<p class="contenido "><h2 style="text-align: center;"><?php
+                        $con = new cursos();
+                        $con->recuperarContacto('telefono');
+
+                    ?></h2> </p>
 					<hr class="my-4">
 					<h3>Celular</h3>
-					<p class="contenido "><h2 style="text-align: center;">6621 235271</h2> </p>
+					<p class="contenido "><h2 style="text-align: center;"><?php
+                        $con = new cursos();
+                        $con->recuperarContacto('celular');
+
+                    ?></h2> </p>
 					<hr class="my-4">
 					<h3>correo electronico</h3>
 					
 					<p class="contenido" style="text-align: center;">
 						<br> 
-						<a href="mailto:smart_eteacher@hotmail.com" class="align-middle ">
-						smart_eteacher@hotmail.com</a>
+						<a href="mailto:smart_eteacher@hotmail.com" class="align-middle "><?php
+                        $con = new cursos();
+                        $con->recuperarContacto('email_contacto');
+
+                    ?></a>
 					</p> 
 
 			</div>
@@ -337,10 +349,11 @@
 					</p>
 
 					<div class="row border-success border rounded-custom justify-content-center container-white padding-custom">
-						<p class="contenido text" style="text-align: center;" >Rep. de Haití #93 <br>
-						Col. Misión del Arco <br>
-						83120 Hermosillo, Sonora
-						</p>
+						<p class="contenido text" style="text-align: center;" ><?php
+                        $con = new cursos();
+                        $con->recuperarContacto('direccion_contacto');
+
+                    ?></p>
 					</div>
 
 
@@ -349,9 +362,21 @@
 			</div>
 
 			<div class="col-sm-12 col-md-2" >
-				<a target="_blank" href="http://www.facebook.com/SmartEnglishInstituteSEI/" style="margin: 10px;"><img src="facebook.png" alt="Facebook/SEI"></a>
-				<a target="_blank" href="http://www.twiter.com/#"><img src="twiter.png" alt="Twiter/SEI" style="margin: 10px;"></a>
-				<a target="_blank" href="http://www.instagram.com/sei_smart"><img src="instagram.png" alt="Facebook/SEI"style="margin: 10px;"></a>
+				<a target="_blank" href="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_facebook');
+
+                    ?>" style="margin: 10px;"><img src="facebook.png" alt="Facebook/SEI"></a>
+				<a target="_blank" href="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_twitter');
+
+                    ?>"><img src="twiter.png" alt="Twiter/SEI" style="margin: 10px;"></a>
+				<a target="_blank" href="<?php
+                        $con = new cursos();
+                        $con->recuperarContacto('enlace_instagram');
+
+                    ?>"><img src="instagram.png" alt="Facebook/SEI"style="margin: 10px;"></a>
 			</div>
 			
 
