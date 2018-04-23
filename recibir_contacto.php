@@ -1,15 +1,4 @@
 <?php
-	require'class/sessions.php';
-	$objses = new Sessions();
-	$objses->init();
-
-	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-
-	if($user == ''){
-	  header('Location: http://localhost:8081/login.php?error=2');
-	}
-
-	else{
 
 		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
 		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
@@ -22,6 +11,5 @@
 		mysqli_close($con);
 		header("location:admin.php"); 
 
-	}
 
  ?>

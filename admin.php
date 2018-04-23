@@ -1,3 +1,15 @@
+<?php
+	require'class/sessions.php';
+	$objses = new Sessions();
+	$objses->init();
+
+	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+	if($user == ''){
+	  header('Location: http://localhost:8081/login.php?error=2');
+	}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
