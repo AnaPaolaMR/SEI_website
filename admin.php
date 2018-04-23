@@ -43,7 +43,7 @@
 
                           <li class="dropdown-divider"></li>
                           
-                          <a class="dropdown-item" href="login.php">Cerrar Sesion</a>
+                          <a href="user/log_out.php" class="dropdown-item" href="login.php">Cerrar Sesion</a>
                         </div>  
                      </div>
 

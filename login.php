@@ -1,3 +1,9 @@
+<?php
+// Evitar los warnings the variables no definidas!!!
+$err = isset($_GET['error']) ? $_GET['error'] : null ;
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -15,7 +21,14 @@
   </head>
 
   <body class="text-center login">
-    <form class="form-signin border border-success rounded" action="login-in.php" method="POST">
+    <form class="form-signin border border-success rounded" action="session_init.php" method="POST">
+      <?php if($err==1){
+        echo "<script type='text/javascript'>alert('Usuario o Contraseña Erróneos.');</script>";
+      }
+      if($err==2){
+        echo "<script type='text/javascript'>alert('Debe iniciar sesion para poder acceder el sitio.');</script>";
+      }
+      ?>
       <img class="mb-4" src="Logo.png" alt="Smart English Institute" width="80%" height="autofocus"><br>
       <img class="mb-4" src="sesion.png" alt="" width="70" height="70">
       
