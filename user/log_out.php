@@ -7,7 +7,7 @@ $objses->init();
 
 $objses->destroy();
 
-header('Location: http://localhost:8081/login.php');
+header('Location: ../login.php');
 
 ?>
 
