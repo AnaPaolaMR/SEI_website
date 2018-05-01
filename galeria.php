@@ -11,6 +11,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+	
 
 	<title>Galeria | Smart English Institute</title>
 </head>
@@ -309,13 +311,36 @@
 		</div>
 	
 	</header>
-		
+	
 	<div class="container">
+
 		<section class="main row text-center">
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
+
+
 				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
+
+				<!-- Large modal -->
+				<button type="button" class="btn btn-succesS" data-toggle="modal" data-target=".bd-example-modal-lg">GRADUADOS</button>
+
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+				  <div class="modal-dialog modal-lg">
+				    <div class="modal-content">
+				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+						 	<img src="http://s.fotorama.io/1.jpg">
+							<img src="http://s.fotorama.io/2.jpg">
+							<img src="fondo_2.jpg">
+							<img src="fondo_bandera.jpg">
+						</div>
+				    </div>
+				  </div>
+				</div>
+
+
+
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
@@ -354,5 +379,7 @@
 	<script src="js\bootstrap.min.js"></script> 
 	<script src="/jquery/dist/jquery.js"></script>
 	<script src="/venobox/venobox.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 </body>
 </html>
