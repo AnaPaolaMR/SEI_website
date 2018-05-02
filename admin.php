@@ -13,22 +13,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="estilos.css">
-  <link rel="stylesheet" type="text/css" href="estilos1.css">
-  <link rel="icon" href="smart.ico">
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-  <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <?php include("consulta.php");?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
+    <link rel="icon" href="smart.ico">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+    <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+    <link rel="stylesheet" type="text/css" href="estilos1.css">
+    <?php include("consulta.php");?>
 
     <title>Configuracion | Smart English Institute</title>
   </head>
 
-  <body >
+  <body>
+    <header>
       <div class="container-fluid">
           <div class="row text-right">
             <div class="col edit">
@@ -73,22 +74,52 @@
                                             
                                         </div>
 
-                                        <div class="modal-body text-left">
-                                            <form>
-                                                <div class="form-group">
+                                        <form action="recibir_config.php" method="POST">
+                                          <div class="modal-body text-left">
+                                                  <div class="form-group">
+                                                    <label>Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre_usuario" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
+
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new cursos();
+                                                    $con->recuperarUsuario('nombre', $user);?>"><br>
+
                                                     <label>Correo Electronico</label>
-                                                    <input type="text" class="form-control" value=""><br>
+                                                    <input type="text" class="form-control" name="email_usuario" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
+
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new cursos();
+                                                    $con->recuperarUsuario('email', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
-                                                    <input type="text" class="form-control" value="">
-                                                </div>
-                                            </form>
-                                                                           
-                                        </div>
+                                                    <input type="password" class="form-control" name="pass_usuario" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
 
-                                        <div class="modal-footer">
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new cursos();
+                                                    $con->recuperarUsuario('contrasena', $user);?>" ><br>
+
+                                                    <label>Contraseña Actual*</label>
+                                                    <input type="text" class="form-control" value="" aria-describedby="passwordHelp" name="actualpass_usuario">
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small>
+
+                                                  </div>
+                                                                             
+                                          </div>
+
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
                                             <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
-                                        </div>
+                                          </div>
+                                      </form>
                                     </div>
                                 </div>
                         </div>
@@ -104,6 +135,7 @@
         	</div>
           </div>
       </div>
+    </header>
 
     <div class="container-fluid">
         <section class="row justify-content-lg-center">
