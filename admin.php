@@ -16,11 +16,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="estilos.css">
   <link rel="stylesheet" type="text/css" href="estilos1.css">
   <link rel="icon" href="smart.ico">
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="estilos.css">
   <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <?php include("consulta.php");?>
@@ -32,30 +32,26 @@
       <div class="container-fluid">
           <div class="row text-right">
             <div class="col edit">
-				<div class="row justify-content-between">
+				          <div class="row justify-content-between">
 
-					<div class="col-md-2">
-						<img class="img-fluid" src="logo.png">
-					</div>
+					           <div class="col-md-2">
+						            <img class="img-fluid" src="logo.png">
+					           </div>
 
                      <div class="col-md-5">
                        
                      </div>
 
 					           <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
-						            <div class="text-admin text-subtitulo">¡ hola <?php
-                                        $objses = new Sessions();
-                                        $objses->init();
-                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-                                        echo "$user";?>! </div>   
+						            <a href="#" class="text-admin text-subtitulo">¡ hola gladys patrón ! </a>   
 					           </div>
 
                      <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
 
-                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="sesion.png" alt="Logo SEI"  width="50"></button>
+                        <img class="img-fluid" src="sesion.png" alt="Logo SEI" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" width="50">
 
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
-                          <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
+                          <a class="dropdown-item" href="#">Configuracion de la cuenta</a>
 
                           <li class="dropdown-divider"></li>
                           
@@ -63,45 +59,12 @@
                         </div>  
                      </div>
 
-                     <div class="text">
-                        <div class="modal fade" id="configuracion">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal-header-custom">
-                                            <h4 class="modal-title">Configuracion de la cuenta</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            
-                                        </div>
-
-                                        <div class="modal-body text-left">
-                                            <form>
-                                                <div class="form-group">
-                                                    <label>Correo Electronico</label>
-                                                    <input type="text" class="form-control" value=""><br>
-
-                                                    <label>Contraseña</label>
-                                                    <input type="text" class="form-control" value="">
-                                                </div>
-                                            </form>
-                                                                           
-                                        </div>
-
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-
-
-                    <!-- Div solo para que la imagen de perfil no este totalmente pegada a la derecha -->
                       <div class="col-md-1">
                        
                      </div>
 
-				</div>            
-        	</div>
+				          </div>            
+        	   </div>
           </div>
       </div>
 
@@ -120,174 +83,34 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_ig.php" method="POST">
-
-            <nav>
-              <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#q_somos" role="tab" aria-controls="nav-home" aria-selected="true"><h5> ¿Quiénes Somos? </h5></a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#mision" role="tab" aria-controls="nav-profile" aria-selected="false"><h5> Misión </h5></a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#vision" role="tab" aria-controls="nav-contact" aria-selected="false"><h5> Visión </h5></a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#historia" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Historia </h5></a>
-            </div>
-          </nav>
-
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
-
-                <div class="form-group">
-                    <br>
-                    <label>Titulo</label>
-                    <input type="text" class="form-control" name="q_somos_titulo" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('quienes somos','titulo_ig');  
-
-                          ?>">
-                </div> 
-
-                <div class="form-group">
-                       <label for="exampleFormControlTextarea6">Información</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="q_somos_info"><?php
-                                  
-                                  $con = new cursos();
-                                  $con->recuperarIG('quienes somos','info_ig');
-
-                          ?></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label>Imagen</label>
-                  <input type="text" class="form-control" name="q_somos_img" value="<?php
-                                  
-                                  $con = new cursos();
-                                  $con->recuperarIG('quienes somos','img_ig');
-
-                          ?>">
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="mision" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <br>
-                <div class="form-group">
-                    <label>Titulo</label>
-                    <input type="text" class="form-control" name="mision_titulo" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('mision','titulo_ig');  
-
-                          ?>"> 
-                </div> 
-
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea7">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="mision_info"><?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('mision','info_ig');  
-
-                          ?></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Enlace del video</label>
-                    <input type="text" class="form-control" name="mision_img" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('mision','img_ig');  
-
-                          ?>">
-                </div>
-            </div>
-
-            <div class="tab-pane fade" id="vision" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <br>
-                <div class="form-group">
-                    <label>Titulo</label>
-                    <input type="text" class="form-control" name="vision_titulo" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('vision','titulo_ig');  
-
-                          ?>">
-                </div> 
-
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea8">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="vision_info" ><?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('vision','info_ig');  
-
-                          ?></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Imagen</label>
-                    <input type="text" class="form-control" name="vision_img" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('vision','img_ig');  
-
-                          ?>">
-                </div>
-            </div>
-
-
-            <div class="tab-pane fade" id="historia" role="tabpanel" aria-labelledby="nav-contact-tab">
-                <br>
-                <div class="form-group">
-                    <label>Titulo</label>
-                    <input type="text" class="form-control" name="historia_titulo" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('historia','titulo_ig');  
-
-                          ?>">
-                </div> 
-
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea9">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="historia_info"><?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('historia','info_ig');  
-
-                          ?></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label>Enlace del video: </label>
-                    <input type="text" class="form-control" name="historia_img" value="<?php
-                                  $con = new cursos();
-                                  $con->recuperarIG('historia','img_ig');  
-
-                          ?>">
-                </div>
-
-            </div>
-          </div>
-          
-          <!-- Boton de guardar -->
-          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">
-            Guardar
-          </button>
-
-          <!-- Modal activado por el boton "Guardar"-->
-          <div class="modal fade" id="guardar_curso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  ¿Estas seguro de que deseas guardar cambios?
-                </div>
-                <div class="modal-footer">
-
-                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
-                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
-                  
-                </div>
-              </div>
-            </div>
-          </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
-        </form>
-
+      	  <form>
+	      	  <div class="form-group">
+	   			 <label for="exampleFormControlTextarea1">Mision</label>
+	   				 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+	  		</div>
+	      	  <div class="form-group">
+	   			 <label for="exampleFormControlTextarea1">Vision</label>
+	   				 <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+  				</div>
+  				<div class="form-group">
+	   			 <label for="exampleFormControlTextarea1">Historia</label>
+	   				 <textarea class="form-control" id="exampleFormControlTextarea3" rows="3"></textarea>
+  				</div>
+  				<div class="form-group">
+	   			 <label for="exampleFormControlTextarea1">¿Quienes somos?</label>
+	   				 <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+  				</div>
+  				<div class="form-group">
+	   			 <label for="exampleFormControlTextarea1">Preguntas frecuentes</label>
+	   				 <textarea class="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
+  				</div>
+  			</form>
+  			<a href="#" class="btn btn-lg btn-success text-right text-guardar">
+					Guardar
+				</a>
+        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+         Cancelar
+        </button>
       </div>
     </div>
   </div>

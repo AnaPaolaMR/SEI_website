@@ -9,7 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="estilos1.css">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<?php include("consulta.php");?>
 
 	<title>Inicio | SEI</title>
 </head>
@@ -50,27 +49,25 @@
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
-						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('quienes somos','titulo_ig');?></h4>
+						    				<h4 class="modal-title">¿Quiénes somos?</h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
 						    			</div>
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="<?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('quienes somos','img_ig');  
-
-                          					?>" alt="Logo SEI" width="100%">
-						    				</p>
+						    					<img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%">
+											</p>
 
 						    				<p class="text-left">
-						    				<?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('quienes somos','info_ig');?>
-                          					</p>				    				
+						    					Somos una institución enfocada a capacitar en excelencia a personas de todas las edades en el desarrollo  comunicativo del idioma inglés. 
+						    				</p>
+						    				<p class="text-left">
+						    					A lo largo de 19 años hemos obtenido muy buenos resultados, evidentes y eficaces, en el progreso de las cuatro destrezas básicas del idioma, formando a nuestros alumnos para que alcancen altos estándares en las habilidades auditivas, orales escritas, y de comprensión de lectura.
+						    				</p>
+						    				<p class="text-left">
+						    					Hoy en día seguimos contando con la preferencia de nuestros alumnos y la recomendación de muchos de nuestros egresados. Asimismo contamos con la oportunidad de poner cada vez el inglés al alcance de más personas.
+						    				</p>				    				
 						    			</div>
 
 						    			<div class="modal-footer">
@@ -84,18 +81,14 @@
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
-						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('mision','titulo_ig');?></h4>
+						    				<h4 class="modal-title">Misión</h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
 						    			</div>
 
 						    			<div class="modal-body">
 						    				<p class="text-left">
-						    					<?php
-                                  					$con = new cursos();
-                                  					$con->recuperarIG('mision','info_ig');?>
+						    					Nuestra institución tiene como principal objetivo desarrollar las habilidades lingüísticas de nuestros alumnos proporcionándoles las herramientas necesarias del idioma Inglés a través de una educación de alta calidad para que alcancen un nivel comunicativo óptimo en todas las áreas del lenguaje.
 						    				</p>				    				
 						    			</div>
 
@@ -110,18 +103,14 @@
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
-						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('vision','titulo_ig');?></h4>
+						    				<h4 class="modal-title">Visión</h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
 						    			</div>
 
 						    			<div class="modal-body">
 						    				<p class="text-left">
-						    					<?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('vision','info_ig');?>
+						    					A través de nuestros esfuerzos y acciones pretendemos potenciar las capacidades de nuestros alumnos, donde ellos sientan el respaldo sólido que les proporcione la seguridad y confianza de un equipo de trabajo de primer nivel. Así mismo elevar nuestros estándares educativos hasta alcanzar el prestigio de una institución consolidada, donde sean nuestros egresados bilingües incorporados al sector productivo nuestra principal carta de recomendación.
 						    				</p>				    				
 						    			</div>
 
@@ -136,9 +125,7 @@
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
-						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('historia','titulo_ig');?></h4>
+						    				<h4 class="modal-title">Historia</h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
 						    			</div>
@@ -146,15 +133,14 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="<?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('historia','img_ig');?>" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="historia.jpg" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
-						    					<?php
-                                  				$con = new cursos();
-                                  				$con->recuperarIG('historia','info_ig');?>
+						    					Smart English institute fue fundada el 4 de febrero de 1999 con la finalidad de impartir asesorías y clases grupales que faciliten el aprendizaje del idioma inglés. Desde entonces a la fecha hemos recibido  niños, jóvenes y adultos  que se han interesado en asimilar o mejorar sus capacidades en el idioma. 
+						    				</p>
+						    				<p class="text-left">
+						    					Hoy en día, estamos ofreciendo clases presenciales en un ambiente agradable y sencillo donde los alumnos sientan la confianza y vean el avance constante de sus destrezas comunicativas. Impulsamos  de forma continua las habilidades del idioma tanto orales como escritas, es decir nuestros cursos están diseñados para que paso a paso el alumno pueda en inglés hablar, entender lo que escucha, escribir, y leer comprendiendo la lectura.
 						    				</p>				    				
 						    			</div>
 
