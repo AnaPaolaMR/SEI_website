@@ -4,6 +4,18 @@ $err = isset($_GET['error']) ? $_GET['error'] : null ;
 
 ?>
 
+<?php
+  require'class/sessions.php';
+  $objses = new Sessions();
+  $objses->init();
+
+  $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+  if($user != ''){
+    header('Location: admin.php');
+  }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
