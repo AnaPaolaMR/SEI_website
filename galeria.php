@@ -316,17 +316,17 @@
 
 		<section class="main row text-center">
 
-			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
+			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center" >
 
 
-				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#Mgraduados" data-toggle="modal"><img src="img-not-found.png" class="img-thumbnail img-fluid"></a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
 
-				<!-- Large modal -->
-				<button type="button" class="btn btn-succesS" data-toggle="modal" data-target=".bd-example-modal-lg">GRADUADOS</button>
+				<!-- Large modal 
+				<button type="button" class="btn btn-succesS"  data-target=".bd-example-modal-lg"></button>   -->
 
-				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-				  <div class="modal-dialog modal-lg">
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="Mgraduados">
+				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
@@ -334,14 +334,15 @@
 							<img src="http://s.fotorama.io/2.jpg">
 							<img src="fondo_2.jpg">
 							<img src="fondo_bandera.jpg">
+							<img src="fondo_3.jpg">
 						</div>
 				    </div>
 				  </div>
 				</div>
 
-
-
 			</div>
+
+
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
 				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
