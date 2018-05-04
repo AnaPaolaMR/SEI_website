@@ -31,8 +31,8 @@ class Users{
 				
 			switch($useropc){
 					
-				case 'Standard':
-					header('Location: user/index.php');
+				case 'estandar':
+					header('Location: estandar');
 					break;
 						
 				case 'admin':

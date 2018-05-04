@@ -11,14 +11,6 @@
 	if($user == ''){
 	  header('Location: login.php?error=2');
 	}
-
-  if($profile == 'estandar'){
-    header('Location: estandar');
-  }
-
-  if($err==1){
-     echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
-  }
       
 ?>
 
@@ -71,67 +63,12 @@
 
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
-                          <a class="dropdown-item" href="#crear_usuario" data-toggle="modal">Crear Usuario</a>
 
                           <li class="dropdown-divider"></li>
                           
                           <a href="user/log_out.php" class="dropdown-item" href="login.php">Cerrar Sesion</a>
                         </div>  
                      </div>
-
-                     <div class="text">
-                        <div class="modal fade" id="crear_usuario">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header modal-header-custom">
-                                            <h4 class="modal-title">Crear Usuario</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            
-                                        </div>
-
-                                        <form action="recibir_usuario_nuevo.php" method="POST">
-                                          <div class="modal-body text-left">
-                                                  <div class="form-group">
-                                                    <label>Nombre</label>
-                                                    <input required type="text" class="form-control" name="nombre_usuario_nuevo"><br>
-
-                                                    <label>Correo Electronico</label>
-                                                    <input required type="email" class="form-control" name="email_usuario_nuevo"><br>
-
-                                                    <label>Contraseña</label>
-                                                    <input required type="password" class="form-control" name="pass_usuario_nuevo"><br>
-
-                                                    <label>Tipo de usuario: </label><br>
-                                                    <div class="form-check form-check-inline">
-                                                      <input class="form-check-input" type="radio" name="tipo_usuario_nuevo" id="radios1" value="estandar" checked>
-                                                      <label class="form-check-label" for="radios1">
-                                                        Estandár
-                                                      </label>
-                                                    </div>
-                                                    <div class="form-check form-check-inline">
-                                                      <input class="form-check-input" type="radio" name="tipo_usuario_nuevo" id="radios2" value="admin">
-                                                      <label class="form-check-label" for="exampleRadios2">
-                                                        Administrador
-                                                      </label>
-                                                    </div><br><br>
-
-                                                    <label>Contraseña del Administrador*</label>
-                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario_nuevo" required>
-                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para crear usuario nuevo.</small>
-
-                                                  </div>
-                                                                             
-                                          </div>
-
-                                          <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
-                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
-                                          </div>
-                                      </form>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
 
                      <div class="text">
                         <div class="modal fade" id="configuracion">
