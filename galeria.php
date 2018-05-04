@@ -330,11 +330,12 @@
 				    <div class="modal-content">
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
-						 	<img src="http://s.fotorama.io/1.jpg">
-							<img src="http://s.fotorama.io/2.jpg">
-							<img src="fondo_2.jpg">
-							<img src="fondo_bandera.jpg">
-							<img src="fondo_3.jpg">
+						 	<img src="http://s.fotorama.io/1.jpg" data-caption="Ejemplo 1">
+							<img src="http://s.fotorama.io/2.jpg" data-caption="Ejemplo 2">
+							<img src="fondo_2.jpg" data-caption="Fondo favorito de Paola">
+							<img src="fondo_bandera.jpg" data-caption="Fondo de Banderas">
+							<img src="fondo_3.jpg" data-caption="Fondo cualquiera">
+
 						</div>
 				    </div>
 				  </div>
