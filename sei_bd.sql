@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-05-2018 a las 23:41:34
--- Versión del servidor: 10.1.26-MariaDB
--- Versión de PHP: 7.1.9
+-- Tiempo de generación: 04-05-2018 a las 06:18:22
+-- Versión del servidor: 10.1.22-MariaDB
+-- Versión de PHP: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,6 +77,21 @@ INSERT INTO `cursos` (`id_curso`, `tipo_curso`, `titulo_curso`, `info_curso`, `v
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `galeria`
+--
+
+CREATE TABLE `galeria` (
+  `id_foto` int(4) NOT NULL,
+  `categoria_foto` varchar(20) NOT NULL,
+  `nombre_foto` varchar(100) NOT NULL,
+  `descripcion_foto` text,
+  `fecha_mod_foto` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `FK_id_usuario` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `informacion_general`
 --
 
@@ -131,6 +146,12 @@ INSERT INTO `usuario` (`id_usuario`, `nombre`, `email`, `contrasena`, `img_usuar
 --
 ALTER TABLE `cursos`
   ADD PRIMARY KEY (`id_curso`);
+
+--
+-- Indices de la tabla `galeria`
+--
+ALTER TABLE `galeria`
+  ADD PRIMARY KEY (`id_foto`);
 
 --
 -- Indices de la tabla `usuario`
