@@ -4,20 +4,37 @@
 	$objses->init();
 
   $err = isset($_GET['error']) ? $_GET['error'] : null ;
+  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
-	  header('Location: login.php?error=2');
+	  header('Location: login?error=2');
 	}
 
-  if($profile == 'estandar'){
-    header('Location: estandar');
+  if($profile == 'estandar' and $err != ""){
+    header('Location: estandar?error='.$err);
+  }
+
+  if($profile == 'estandar' and $mensaje != ""){
+    header('Location: estandar?msg='.$mensaje);
   }
 
   if($err==1){
      echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+  }
+
+  if($err==2){
+     echo "<script type='text/javascript'>alert('El nickname de usuario elegido ya existe');</script>";
+  }
+
+  if($mensaje==1){
+     echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
+  }
+
+  if($mensaje==2){
+     echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
   }
       
 ?>
@@ -58,7 +75,7 @@
                        
                      </div>
 
-					           <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
+					           <div class="col-md-3 align-self-center text-right">
 						            <div class="text-admin text-subtitulo">¡ hola <?php
                                         $objses = new Sessions();
                                         $objses->init();
@@ -66,19 +83,25 @@
                                         echo "$user";?>! </div>   
 					           </div>
 
-                     <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
+                     <div class="dropdown col-md-1 align-self-center text-left">
 
                         <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="sesion.png" alt="Logo SEI"  width="50"></button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
+
+                          <li class="dropdown-divider"></li>
+
                           <a class="dropdown-item" href="#crear_usuario" data-toggle="modal">Crear Usuario</a>
+                          <a class="dropdown-item" href="#eliminar_usuario" data-toggle="modal">Eliminar Usuario</a>
 
                           <li class="dropdown-divider"></li>
                           
-                          <a href="user/log_out.php" class="dropdown-item" href="login.php">Cerrar Sesion</a>
+                          <a href="user/log_out" class="dropdown-item" href="login">Cerrar Sesion</a>
                         </div>  
                      </div>
+
+<!-- MODAL PARA CREAR USUARIO -->
 
                      <div class="text">
                         <div class="modal fade" id="crear_usuario">
@@ -90,14 +113,14 @@
                                             
                                         </div>
 
-                                        <form action="recibir_usuario_nuevo.php" method="POST">
+                                        <form action="recibir_usuario_nuevo" method="POST">
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
                                                     <input required type="text" class="form-control" name="nombre_usuario_nuevo"><br>
 
-                                                    <label>Correo Electronico</label>
-                                                    <input required type="email" class="form-control" name="email_usuario_nuevo"><br>
+                                                    <label>Nombre de usuario (Nickname):</label>
+                                                    <input required type="text" class="form-control" name="nickname_usuario_nuevo"><br>
 
                                                     <label>Contraseña</label>
                                                     <input required type="password" class="form-control" name="pass_usuario_nuevo"><br>
@@ -134,6 +157,43 @@
                         </div>
                     </div>
 
+<!-- MODAL PARA ELIMINAR USUARIO -->
+                    <div class="text">
+                        <div class="modal fade" id="eliminar_usuario">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header modal-header-custom">
+                                            <h4 class="modal-title">Eliminar Usuario</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            
+                                        </div>
+
+                                        <form action="eliminar_usuario" method="POST">
+                                          <div class="modal-body text-left">
+                                                  <div class="form-group">
+
+                                                    <label>Seleccione un usuario a eliminar </label><br>
+                                                    
+
+                                                    <label>Contraseña del Administrador*</label>
+                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario_nuevo" required>
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar usuario.</small>
+
+                                                  </div>
+                                                                             
+                                          </div>
+
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
+                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
+                                          </div>
+                                      </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+
+<!-- MODAL PARA CONFIGURAR CUENTA -->
                      <div class="text">
                         <div class="modal fade" id="configuracion">
                                 <div class="modal-dialog">
@@ -144,7 +204,7 @@
                                             
                                         </div>
 
-                                        <form action="recibir_config.php" method="POST">
+                                        <form action="recibir_config" method="POST">
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
@@ -157,15 +217,15 @@
                                                     $con = new cursos();
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
-                                                    <label>Correo Electronico</label>
-                                                    <input type="email" class="form-control" name="email_usuario" value="<?php
+                                                    <label>Nombre de usuario (Nickname)</label>
+                                                    <input type="text" class="form-control" name="nickname_usuario" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
                                                     $con = new cursos();
-                                                    $con->recuperarUsuario('email', $user);?>" ><br>
+                                                    $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
                                                     <input type="password" class="form-control" name="pass_usuario" value="<?php
@@ -207,6 +267,8 @@
       </div>
     </header>
 
+<!--  *****************************INFORMACION GENERAL******************************************** --> 
+
     <div class="container-fluid">
         <section class="row justify-content-lg-center">
             <article class="col-lg-10">
@@ -222,7 +284,7 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_ig.php" method="POST">
+        <form action="recibir_ig" method="POST">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -390,6 +452,8 @@
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
         </form>
 
+<!--  ****************************************CURSOS**************************************************** --> 
+
       </div>
     </div>
   </div>
@@ -403,7 +467,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="recibir.php" method="POST">
+      	  <form action="recibir" method="POST">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -567,10 +631,12 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
   			  </form>
-  			  	
+
+<!--  *******************************CLUB DE CONVERSACION***************************************** -->   			  	
       </div>
     </div>
   </div>
@@ -584,7 +650,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="recibir_club.php" method="POST">
+      	  <form action="recibir_club" method="POST">
             <div class="form-group">
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
@@ -658,6 +724,7 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
+<<<<<<< HEAD
       	<form action="recibir_galeria.php" method="POST" >
 
             <div class="row">
@@ -676,6 +743,11 @@
                         </select>
                     </div>
 
+=======
+      	<form action="recibir_galeria" method="POST" >
+                <div class="input-group-prepend">
+                    <label>Categoría</label>
+>>>>>>> 36e2e4163ff07cde4bde8742805a2ef3eaa5f6e0
                 </div>
 
             
@@ -745,7 +817,7 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_contacto.php" method="POST">
+        <form action="recibir_contacto" method="POST">
           <div class="form-group">
 
             <h5> Datos de Contacto </h5>
@@ -850,7 +922,7 @@
     </div>
   </div>
 </div>
- 	<a href="login.php" class="btn btn-lg btn-outline-success text-center text-volver">
+ 	<a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
 </section>

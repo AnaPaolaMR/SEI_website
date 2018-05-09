@@ -4,6 +4,7 @@
 	$objses->init();
 
   $err = isset($_GET['error']) ? $_GET['error'] : null ;
+  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
@@ -11,6 +12,18 @@
 	if($user == ''){
 	  header('Location: login.php?error=2');
 	}
+
+  if($err==1){
+     echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+  }
+
+  if($err==2){
+     echo "<script type='text/javascript'>alert('El nickname de usuario elegido ya existe');</script>";
+  }
+
+  if($mensaje==2){
+     echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
+  }
       
 ?>
 
@@ -92,15 +105,15 @@
                                                     $con = new cursos();
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
-                                                    <label>Correo Electronico</label>
-                                                    <input type="email" class="form-control" name="email_usuario" value="<?php
+                                                    <label>Nombre de usuario (Nickname)</label>
+                                                    <input type="text" class="form-control" name="nickname_usuario" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
                                                     $con = new cursos();
-                                                    $con->recuperarUsuario('email', $user);?>" ><br>
+                                                    $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
                                                     <input type="password" class="form-control" name="pass_usuario" value="<?php
@@ -328,6 +341,7 @@
       </div>
     </div>
   </div>
+
   <div class="card" >
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
@@ -503,12 +517,14 @@
               </div>
             </div>
           </div> 
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
   			  </form>
   			  	
       </div>
     </div>
   </div>
+
   <div class="card" >
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
@@ -573,7 +589,9 @@
               </div>
             </div>
           </div> 
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          
   			  </form>
   			  	
       </div>

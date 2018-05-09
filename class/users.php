@@ -10,7 +10,7 @@ class Users{
 
 		$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
 		
-		$query = "SELECT * FROM usuario WHERE email = '".$_POST['email']."' and contrasena = '".$_POST['password']."'";
+		$query = "SELECT * FROM usuario WHERE nickname = '".$_POST['nickname']."' and contrasena = '".$_POST['password']."'";
 
 		$result = mysqli_query($con, $query);
 		$row=mysqli_fetch_array($result);
@@ -36,7 +36,7 @@ class Users{
 					break;
 						
 				case 'admin':
-					header('Location: admin.php');
+					header('Location: admin');
 					break;
 			
 			

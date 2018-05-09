@@ -44,11 +44,11 @@ $err = isset($_GET['error']) ? $_GET['error'] : null ;
       <img class="mb-4" src="Logo.png" alt="Smart English Institute" width="80%" height="autofocus"><br>
       <img class="mb-4" src="sesion.png" alt="" width="70" height="70">
       
-      <h3>usuario</h3>
+      <h3>Iniciar Sesión</h3>
       <hr class="my-4">
 
-      <label for="inputEmail" class="sr-only">Correo Electónico</label>
-      <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Correo Electónico" required autofocus>
+      <label for="inputNickname" class="sr-only">Nombre de usuario:</label>
+      <input type="text" name="nickname" id="inputNickname" class="form-control" placeholder="Nombre de usuario" required autofocus>
 
       <label for="inputPassword" class="sr-only">Contraseña</label>
       <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Contraseña" required>
