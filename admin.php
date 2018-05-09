@@ -741,12 +741,9 @@
                             <option value="3">Otros</option>
                         </select>
                     </div>
-
-=======
       	<form action="recibir_galeria" method="POST" >
                 <div class="input-group-prepend">
                     <label>Categoría</label>
->>>>>>> 36e2e4163ff07cde4bde8742805a2ef3eaa5f6e0
                 </div>
 
             
