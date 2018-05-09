@@ -10,7 +10,6 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="estilos.css">
-	<link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
 	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 	
 
