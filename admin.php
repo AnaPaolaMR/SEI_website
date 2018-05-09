@@ -724,7 +724,6 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-<<<<<<< HEAD
       	<form action="recibir_galeria.php" method="POST" >
 
             <div class="row">
@@ -817,7 +816,7 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_contacto" method="POST">
+        <form action="recibir_contacto.php" method="POST">
           <div class="form-group">
 
             <h5> Datos de Contacto </h5>
