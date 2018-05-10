@@ -726,49 +726,51 @@
       <div class="card-body">
       	<form action="recibir_galeria.php" method="POST" >
 
-            <div class="row">
-                <div class="mb-3 col-md-3">
-                    <div class="input-group-prepend">
-                        <label>Categoría</label>
-                    </div>
-
-                    <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect01" name="categoria">
-                            <option selected>Escoja...</option>
-                            <option value="1">Graduados</option>
-                            <option value="2">Cuadro de Honor</option>
-                            <option value="3">Eventos Especiales</option>
-                            <option value="3">Otros</option>
-                        </select>
-                    </div>
-      	<form action="recibir_galeria" method="POST" >
-                <div class="input-group-prepend">
-                    <label>Categoría</label>
-                </div>
-
-            
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label>Seleccione Imagen</label>
-                     <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true">
-                    </div>
-                </div>        
-            </div>
-
-
-            <div class="row">
-                <div class="form-group col-md-7">
-                    <label>Descripcion</label>
-                        <div class="input-text">
-                            <textarea class="form-control"></textarea>
+            <div class="container-fluid">
+                
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+                        <div class="input-group-prepend">
+                            <label>Categoría</label>
                         </div>
-                </div>
-            </div>
 
-            <!-- Boton de guardar -->
-            <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
-              Guardar
-            </button>
+                        <div class="input-group">
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria">
+                                <option selected>Escoja...</option>
+                                <option value="1">Graduados</option>
+                                <option value="2">Cuadro de Honor</option>
+                                <option value="3">Eventos Especiales</option>
+                                <option value="3">Otros</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <div>
+                            <label>Seleccione Imagen</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <label>Descripcion</label>
+                            <div class="input-text">
+                                <textarea class="form-control"></textarea>
+                            </div>
+                    </div>
+                </div>
+
+            </div>
+            
+             <!-- Boton de guardar -->
+                        <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
+                            Guardar
+                        </button>
+                        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
+                        Cancelar
+                        </button>
 
             <!-- Modal activado por el boton "Guardar"-->
               <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -793,9 +795,7 @@
                 </div>
               </div> 
 
-            <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
-                Cancelar
-            </button>
+            
 		</form>
       </div>
     </div>

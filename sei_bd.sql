@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2018 a las 06:18:22
+-- Tiempo de generación: 10-05-2018 a las 05:06:01
 -- Versión del servidor: 10.1.22-MariaDB
 -- Versión de PHP: 7.1.4
 
@@ -45,7 +45,7 @@ CREATE TABLE `contacto` (
 --
 
 INSERT INTO `contacto` (`id_contacto`, `telefono`, `celular`, `email_contacto`, `direccion_contacto`, `enlace_facebook`, `enlace_twitter`, `enlace_instagram`, `FK_id_usuario`) VALUES
-(100, '2 19 55 25', '6621405180', 'anap_mirazo.ron@hotmail.com', 'Esperanza #1094 Col. Misioneros entre Rep. de Guatemala y Callejon Campillo', 'http://www.facebook.com/SmartEnglishInstituteSEI/', 'http://www.twitter.com/puppies', 'http://www.instagram.com/sei_smart', NULL);
+(100, '2 22 10 19', '6621405180', 'anap_mirazo.ron@hotmail.com', 'Esperanza #1094 Col. Misioneros entre Rep. de Guatemala y Callejon Campillo', 'http://www.facebook.com/SmartEnglishInstituteSEI/', 'http://www.twitter.com/puppies', 'http://www.instagram.com/sei_smart', NULL);
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ INSERT INTO `informacion_general` (`id_ig`, `tipo_ig`, `titulo_ig`, `info_ig`, `
 CREATE TABLE `usuario` (
   `id_usuario` int(3) NOT NULL,
   `nombre` varchar(100) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
+  `nickname` varchar(50) NOT NULL,
   `contrasena` varchar(100) DEFAULT NULL,
   `img_usuario` varchar(10) DEFAULT 'Sin imagen',
   `tipo_usuario` varchar(30) DEFAULT NULL
@@ -134,8 +134,8 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nombre`, `email`, `contrasena`, `img_usuario`, `tipo_usuario`) VALUES
-(1, 'Francisco CaÃ±ez', 'prueba@prueba.com', '123', 'Sin imagen', 'admin');
+INSERT INTO `usuario` (`id_usuario`, `nombre`, `nickname`, `contrasena`, `img_usuario`, `tipo_usuario`) VALUES
+(2, 'Paola', 'paola', '456', '', 'estandar');
 
 --
 -- Índices para tablas volcadas
