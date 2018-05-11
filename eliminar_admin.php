@@ -16,19 +16,31 @@
 
 	$fila_validacion = mysqli_fetch_array($resultado_validacion);
 
+	//Validacion para asegurarse de que haya al menos un usuario admin antes de borrar a otro admin
+	$sql_validacion_2 = "SELECT * FROM usuario WHERE id_usuario != '$iduser' AND tipo_usuario ='admin'";
+
+	$resultado_validacion_2 = mysqli_query($con, $sql_validacion_2) or die ('Error en el query database 1');
+
+	$fila_validacion_2 = mysqli_fetch_array($resultado_validacion_2);
+
 
 	if ($fila_validacion["contrasena"] != ""){
+		if ($fila_validacion_2["nombre"] != ""){
 
-			$sql="DELETE from usuario WHERE nombre='".$_POST["usuario_eliminar"]."'";
+			$sql="DELETE from usuario WHERE id_usuario = '$iduser'";
 
 			//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
 			$resultado_1 = mysqli_query($con, $sql) or die ('Error en el query');
 
 			//cierra la conexion
 			mysqli_close($con);
-			header("location:admin?msg=3"); 
+			header("location:user/log_out"); 
 			
 		}
+		else{
+			header("location:admin.php?error=3");
+		}
+	}
 	else {
 			header("location:admin.php?error=1");
 	}

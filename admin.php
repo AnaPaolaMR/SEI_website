@@ -21,22 +21,29 @@
     header('Location: estandar?msg='.$mensaje);
   }
 
-  if($err==1){
-     echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
-  }
+  switch ($err) {
+    case 1:
+        echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+        break;
+    case 2:
+        echo "<script type='text/javascript'>alert('Error: El nickname de usuario elegido ya existe');</script>";
+        break;
+      case 3:
+        echo "<script type='text/javascript'>alert('Error: No se puede eliminar el usuario por que es el unico administrador');</script>";
+        break;
+}     
 
-  if($err==2){
-     echo "<script type='text/javascript'>alert('El nickname de usuario elegido ya existe');</script>";
-  }
-
-  if($mensaje==1){
-     echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
-  }
-
-  if($mensaje==2){
-     echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
-  }
-      
+  switch ($mensaje) {
+    case 1:
+        echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
+        break;
+    case 2:
+        echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
+        break;
+    case 3:
+        echo "<script type='text/javascript'>alert('Usuario eliminado con exito');</script>";
+        break;
+}     
 ?>
 
 <!doctype html>
@@ -50,8 +57,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
     <?php include("consulta.php");?>
     
     <link rel="stylesheet" type="text/css" href="estilos.css">
@@ -85,10 +90,11 @@
 
                      <div class="dropdown col-md-1 align-self-center text-left">
 
-                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="sesion.png" alt="Logo SEI"  width="50"></button>
+                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="" src="sesion.png" alt="Logo SEI"  width="50"></button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
+                          <a class="dropdown-item" href="#eliminar_cuenta_admin" data-toggle="modal">Eliminar esta cuenta</a>
 
                           <li class="dropdown-divider"></li>
 
@@ -100,6 +106,40 @@
                           <a href="user/log_out" class="dropdown-item" href="login">Cerrar Sesion</a>
                         </div>  
                      </div>
+
+<!-- MODAL PARA ELIMINAR LA CUENTA DE ADMIN ACTUAL-->
+
+                     <div class="text">
+                        <div class="modal fade" id="eliminar_cuenta_admin">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header modal-header-custom">
+                                            <h4 class="modal-title">Eliminar Cuenta</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            
+                                        </div>
+
+                                        <form action="eliminar_admin" method="POST">
+                                          <div class="modal-body text-left">
+                                                  <div class="form-group">
+                                                    Introduza la contraseña para eliminar la cuenta actual:<br><br>
+                                                
+                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" placeholder="Contraseña" required>
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar esta cuenta.</small>
+
+                                                  </div>
+                                                                             
+                                          </div>
+
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#">Eliminar mi cuenta</button>
+                                            <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                          </div>
+                                      </form>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
 
 <!-- MODAL PARA CREAR USUARIO -->
 
@@ -148,8 +188,8 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
-                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#">Guardar</button>
+                                            <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
                                           </div>
                                       </form>
                                     </div>
@@ -172,11 +212,16 @@
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
 
-                                                    <label>Seleccione un usuario a eliminar </label><br>
-                                                    
+                                                    <label>Seleccione un usuario a eliminar: </label><br>
+                                                    <select class="form-control" name="usuario_eliminar">
+                                                    <?php
+
+                                                    $obj = new cursos();
+                                                    $obj->recuperarUsuariosStndr();?>
+                                                    </select><br>
 
                                                     <label>Contraseña del Administrador*</label>
-                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario_nuevo" required>
+                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
                                                     <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar usuario.</small>
 
                                                   </div>
@@ -184,8 +229,8 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
-                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-success text-right text-guardar">Eliminar</button>
+                                            <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
                                           </div>
                                       </form>
                                     </div>
@@ -246,8 +291,8 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
-                                            <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#">Guardar</button>
+                                            <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
                                           </div>
                                       </form>
                                     </div>
@@ -423,12 +468,12 @@
           </div>
           
           <!-- Boton de guardar -->
-          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_ig">
             Guardar
           </button>
 
           <!-- Modal activado por el boton "Guardar"-->
-          <div class="modal fade" id="guardar_curso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="guardar_ig" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
