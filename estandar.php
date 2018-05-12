@@ -10,7 +10,7 @@
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
-	  header('Location: login.php?error=2');
+	  header('Location: login?error=2');
 	}
 
   if($err==1){

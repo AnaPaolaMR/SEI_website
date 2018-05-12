@@ -18,7 +18,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -34,10 +34,10 @@
 						</button>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
-							<a class="dropdown-item" href="cursos.php">Cursos</a>
-							<a class="dropdown-item" href="club.php">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria.php">Galeria</a>
-							<a class="dropdown-item" href="contacto.php">contacto</a>
+							<a class="dropdown-item" href="cursos">Cursos</a>
+							<a class="dropdown-item" href="club">Club de conversacion</a>
+							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
 						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
@@ -186,7 +186,7 @@
 											</p>
 												<div class="collapse" id="collapse2">
 												  <div class="card card-body">
-												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos.php">aqui</a>
+												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos">aqui</a>
 												  </div>
 												</div>
 
@@ -290,7 +290,7 @@
 											<hr>
 
 											<p>
-	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto.php" role="button">
+	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
 	    											Ponte en contacto con Smart English Institute aqui
 	    										</a>
 	  										</p>
@@ -350,7 +350,7 @@
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
-		<a href="cursos.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
+		<a href="cursos" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
 	</footer>
