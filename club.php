@@ -3,12 +3,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
+	<?php include("class/consulta.php");?>
 
 	<title>Club de Conversacion | SEI</title>
 </head>
@@ -18,7 +18,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -33,10 +33,10 @@
 						</button>
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
-							<a class="dropdown-item" href="cursos.php">Cursos</a>
-							<a class="dropdown-item" href="club.php">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria.php">Galeria</a>
-							<a class="dropdown-item" href="contacto.php">contacto</a>
+							<a class="dropdown-item" href="cursos">Cursos</a>
+							<a class="dropdown-item" href="club">Club de conversacion</a>
+							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
 						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
@@ -61,7 +61,7 @@
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%">
 											</p>
 
 						    				<p class="text-left">
@@ -138,7 +138,7 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="historia.jpg" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/historia.jpg" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
@@ -185,7 +185,7 @@
 											</p>
 												<div class="collapse" id="collapse2">
 												  <div class="card card-body">
-												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos.php">aqui</a>
+												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos">aqui</a>
 												  </div>
 												</div>
 
@@ -289,7 +289,7 @@
 											<hr>
 
 											<p>
-	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto.php" role="button">
+	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
 	    											Ponte en contacto con Smart English Institute aqui
 	    										</a>
 	  										</p>
@@ -351,7 +351,7 @@
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
-		<a href="index.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
+		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
 	</footer>

@@ -16,7 +16,7 @@ class Users{
 		$row=mysqli_fetch_array($result);
 		
 		if($row == ""){
-			header('Location: login.php?error=1');
+			header('Location: ../login?error=1');
 			
 			}
 			
@@ -32,11 +32,11 @@ class Users{
 			switch($useropc){
 					
 				case 'estandar':
-					header('Location: estandar');
+					header('Location: ../estandar');
 					break;
 						
 				case 'admin':
-					header('Location: admin');
+					header('Location: ../admin');
 					break;
 			
 			

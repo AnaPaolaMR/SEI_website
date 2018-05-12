@@ -3,12 +3,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<?php include("consulta.php");?>
+	<?php include("class/consulta.php");?>
 
 	<title>Curso de Verano | SEI</title>
 </head>
@@ -18,7 +18,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index.php"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -62,7 +62,7 @@
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%">
 											</p>
 
 						    				<p class="text-left">
@@ -139,7 +139,7 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="historia.jpg" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/historia.jpg" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">

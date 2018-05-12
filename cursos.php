@@ -7,8 +7,8 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="estilos1.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 
 	<title>Cursos | Smart English Institute</title>
 </head>
@@ -18,7 +18,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -35,10 +35,10 @@
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
 
-							<a class="dropdown-item" href="cursos.php">Cursos</a>
-							<a class="dropdown-item" href="club.php">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria.php">Galeria</a>
-							<a class="dropdown-item" href="contacto.php">contacto</a>
+							<a class="dropdown-item" href="cursos">Cursos</a>
+							<a class="dropdown-item" href="club">Club de conversacion</a>
+							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
 						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
@@ -63,7 +63,7 @@
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%">
 											</p>
 
 						    				<p class="text-left">
@@ -140,7 +140,7 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="historia.jpg" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/historia.jpg" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
@@ -187,7 +187,7 @@
 											</p>
 												<div class="collapse" id="collapse2">
 												  <div class="card card-body">
-												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos.php">aqui</a>
+												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos">aqui</a>
 												  </div>
 												</div>
 
@@ -291,7 +291,7 @@
 											<hr>
 
 											<p>
-	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto.php" role="button">
+	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
 	    											Ponte en contacto con Smart English Institute aqui
 	    										</a>
 	  										</p>
@@ -315,14 +315,14 @@
 		<section class="main row">
 			<article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 				<div class="text-center">
-					<a href="regular.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="regular" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						regular
 						<p class="text-ingles">regular</p>
 					</a>
 				</div>
 
 				<div class="text-center">
-					<a href="verano.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="verano" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						verano
 						<p class="text-ingles">summer</p>
 					</a>
@@ -334,14 +334,14 @@
 			<aside class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
 				<div class="text-center">
-					<a href="semestral.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="semestral" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						Semestral
 						<p class="text-ingles">biannual</p>
 					</a>
 				</div>
 
 				<div class="text-center">
-					<a href="sabatino.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="sabatino" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						sabatino
 						<p class="text-ingles">sabbatine</p>
 					</a>
@@ -357,7 +357,7 @@
 			<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p>  -->
 		</div>
 
-		<a href="index.php" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
+		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
 

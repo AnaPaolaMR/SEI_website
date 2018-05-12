@@ -38,10 +38,10 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <?php include("consulta.php");?>
+    <?php include("class/consulta.php");?>
     
-    <link rel="stylesheet" type="text/css" href="estilos.css">
-    <link rel="stylesheet" type="text/css" href="estilos1.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos1.css">
 
     <title>Configuracion | Smart English Institute</title>
   </head>
@@ -54,7 +54,7 @@
 				<div class="row justify-content-between">
 
 					<div class="col-md-2">
-						<img class="img-fluid" src="logo.png">
+						<img class="img-fluid" src="img/logo.png">
 					</div>
 
                      <div class="col-md-5">
@@ -71,14 +71,14 @@
 
                      <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
 
-                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="sesion.png" alt="Logo SEI"  width="50"></button>
+                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
 
                           <li class="dropdown-divider"></li>
                           
-                          <a href="user/log_out.php" class="dropdown-item" href="login.php">Cerrar Sesion</a>
+                          <a href="user/log_out" class="dropdown-item">Cerrar Sesion</a>
                         </div>  
                      </div>
 
@@ -92,7 +92,7 @@
                                             
                                         </div>
 
-                                        <form action="recibir_config.php" method="POST">
+                                        <form action="class/recibir_config" method="POST">
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
@@ -170,7 +170,7 @@
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_ig.php" method="POST">
+        <form action="class/recibir_ig" method="POST">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -352,7 +352,7 @@
     </div>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="recibir.php" method="POST">
+      	  <form action="class/recibir" method="POST">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -535,7 +535,7 @@
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="recibir_club.php" method="POST">
+      	  <form action="class/recibir_club" method="POST">
             <div class="form-group">
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
@@ -610,7 +610,7 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_galeria.php" method="POST" >
+        <form action="class/recibir_galeria" method="POST" >
 
             <div class="row">
                 <div class="mb-3 col-md-3">
@@ -697,7 +697,7 @@
     </div>
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
-        <form action="recibir_contacto.php" method="POST">
+        <form action="class/recibir_contacto" method="POST">
           <div class="form-group">
 
             <h5> Datos de Contacto </h5>
@@ -802,7 +802,7 @@
     </div>
   </div>
 </div>
- 	<a href="login.php" class="btn btn-lg btn-outline-success text-center text-volver">
+ 	<a href="use/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
 </section>

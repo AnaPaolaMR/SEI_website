@@ -3,13 +3,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
-	<link rel="stylesheet" type="text/css" href="estilos1.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 	
 
@@ -21,7 +21,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index.php"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -64,7 +64,7 @@
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%">
 											</p>
 
 						    				<p class="text-left">
@@ -141,7 +141,7 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="historia.jpg" alt="Logo SEI" width="100%">
+						    					<img class="img-fluid" src="img/historia.jpg" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
@@ -318,7 +318,7 @@
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center" >
 
 
-				<a href="#Mgraduados" data-toggle="modal"><img src="img-not-found.png" class="img-thumbnail img-fluid"></a>
+				<a href="#Mgraduados" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"></a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
 
 				<!-- Large modal 
@@ -331,9 +331,9 @@
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
 						 	<img src="http://s.fotorama.io/1.jpg" data-caption="Ejemplo 1">
 							<img src="http://s.fotorama.io/2.jpg" data-caption="Ejemplo 2">
-							<img src="fondo_2.jpg" data-caption="Fondo favorito de Paola">
-							<img src="fondo_bandera.jpg" data-caption="Fondo de Banderas">
-							<img src="fondo_3.jpg" data-caption="Fondo cualquiera">
+							<img src="img/fondo_2.jpg" data-caption="Fondo favorito de Paola">
+							<img src="img/fondo_bandera.jpg" data-caption="Fondo de Banderas">
+							<img src="img/fondo_3.jpg" data-caption="Fondo cualquiera">
 
 						</div>
 				    </div>
@@ -345,17 +345,17 @@
 
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Cuadro de Honor</p>
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Eventos especiales</p>
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">otros</p>
 			</div>
 

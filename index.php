@@ -6,10 +6,10 @@
 	<link rel="icon" href="smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="estilos1.css">
-	<link rel="stylesheet" type="text/css" href="estilos.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<?php include("consulta.php");?>
+	<?php include("class/consulta.php");?>
 
 	<title>Inicio | SEI</title>
 </head>
@@ -19,7 +19,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index.php"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -59,7 +59,7 @@
 
 						    			<div class="modal-body">
 						    				<p>
-						    					<img class="img-fluid" src="<?php
+						    					<img class="img-fluid" src="img/<?php
                                   				$con = new cursos();
                                   				$con->recuperarIG('quienes somos','img_ig');  
 
@@ -146,7 +146,7 @@
 						    			<div class="modal-body">
 
 						    				<p>
-						    					<img class="img-fluid" src="<?php
+						    					<img class="img-fluid" src="img/<?php
                                   				$con = new cursos();
                                   				$con->recuperarIG('historia','img_ig');?>" alt="Logo SEI" width="100%">
 						    				</p>
