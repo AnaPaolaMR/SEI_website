@@ -27,20 +27,30 @@
 
 		if ($fila_validacion_2["nickname"] == ""){
 
-			$sql="INSERT INTO  usuario (nombre, nickname, contrasena, img_usuario, tipo_usuario) VALUES ('".$_POST["nombre_usuario_nuevo"]."', '".$_POST["nickname_usuario_nuevo"]."', '".$_POST["pass_usuario_nuevo"]."', '', '".$_POST["tipo_usuario_nuevo"]."')";
+			//Validacion para que la contraseña sea minimo de 8 caracteres
+			if (strlen($_POST["pass_usuario_nuevo"]) >= 8){
 
-			//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
-			$resultado = mysqli_query($con, $sql) or die ('Error en el query 3');
+				$sql="INSERT INTO  usuario (nombre, nickname, contrasena, img_usuario, tipo_usuario) VALUES ('".$_POST["nombre_usuario_nuevo"]."', '".$_POST["nickname_usuario_nuevo"]."', '".$_POST["pass_usuario_nuevo"]."', '', '".$_POST["tipo_usuario_nuevo"]."')";
 
-			//cierra la conexion
-			mysqli_close($con);
-			header("location:admin?msg=1");
+				//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
+				$resultado = mysqli_query($con, $sql) or die ('Error en el query 3');
+
+				//cierra la conexion
+				mysqli_close($con);
+				header("location:admin?msg=1");
+			}
+			else{
+				mysqli_close($con);
+				header("location:admin?error=4");
+			}
 		}
 		else{
+			mysqli_close($con);
 			header("location:admin.php?error=2"); 
 		}
 	}
 	else{
+		mysqli_close($con);
 		header("location:admin.php?error=1"); 
 	} 
  ?>

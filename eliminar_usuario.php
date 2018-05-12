@@ -16,21 +16,34 @@
 
 	$fila_validacion = mysqli_fetch_array($resultado_validacion);
 
+	if (isset($_POST['checkEliminar'])){
+		if ($fila_validacion["contrasena"] != ""){
 
-	if ($fila_validacion["contrasena"] != ""){
+			if ($_POST["usuario_eliminar"] != ""){
 
-			$sql="DELETE from usuario WHERE nombre='".$_POST["usuario_eliminar"]."'";
+				$sql="DELETE from usuario WHERE nombre='".$_POST["usuario_eliminar"]."'";
 
-			//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
-			$resultado_1 = mysqli_query($con, $sql) or die ('Error en el query');
+				//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
+				$resultado_1 = mysqli_query($con, $sql) or die ('Error en el query');
 
-			//cierra la conexion
+				//cierra la conexion
+				mysqli_close($con);
+				header("location:admin?msg=3"); 
+			}
+			else{
+				mysqli_close($con);
+				header("location:admin?error=5"); 
+			}
+
+			}
+		else {
 			mysqli_close($con);
-			header("location:admin?msg=3"); 
-			
-		}
-	else {
 			header("location:admin.php?error=1");
+		}
+	}
+	else{
+		mysqli_close($con);
+		header("location:admin.php?error=6");
 	}
 	
  ?>

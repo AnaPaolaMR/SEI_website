@@ -46,11 +46,13 @@
 			
 		}
 		else {
+			mysqli_close($con);
 			header("location:admin.php?error=2"); 
 		}
 	}
 	else {
-			header("location:admin.php?error=1");
+		mysqli_close($con);
+		header("location:admin.php?error=1");
 	}
 	
  ?>

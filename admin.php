@@ -31,6 +31,15 @@
       case 3:
         echo "<script type='text/javascript'>alert('Error: No se puede eliminar el usuario por que es el unico administrador');</script>";
         break;
+      case 4:
+        echo "<script type='text/javascript'>alert('Error: La contraseña debe ser minimo de 8 digitos');</script>";
+        break;
+      case 5:
+        echo "<script type='text/javascript'>alert('Error: No hay usuarios que puedan ser eliminados');</script>";
+        break;
+      case 6:
+        echo "<script type='text/javascript'>alert('Error: Debe seleccionar la casilla donde acepta estar de acuerdo en eliminar este usuario');</script>";
+        break;
 }     
 
   switch ($mensaje) {
@@ -125,7 +134,14 @@
                                                     Introduza la contraseña para eliminar la cuenta actual:<br><br>
                                                 
                                                     <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" placeholder="Contraseña" required>
-                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar esta cuenta.</small>
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar esta cuenta.</small><br>
+
+                                                    <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar_admin" name="checkEliminar_admin">
+                                                      <label class="form-check-label" for="checkEliminar_admin">
+                                                        Estoy seguro de que deseo eliminar mi cuenta.
+                                                      </label>
+                                                    </div>
 
                                                   </div>
                                                                              
@@ -163,7 +179,8 @@
                                                     <input required type="text" class="form-control" name="nickname_usuario_nuevo"><br>
 
                                                     <label>Contraseña</label>
-                                                    <input required type="password" class="form-control" name="pass_usuario_nuevo"><br>
+                                                    <input required type="password" class="form-control" name="pass_usuario_nuevo" aria-describedby="passwordHelp">
+                                                    <small id="passwordHelp" class="form-text text-muted">Debe contener minimo 8 digitos.</small><br>
 
                                                     <label>Tipo de usuario: </label><br>
                                                     <div class="form-check form-check-inline">
@@ -180,8 +197,8 @@
                                                     </div><br><br>
 
                                                     <label>Contraseña del Administrador*</label>
-                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario_nuevo" required>
-                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para crear usuario nuevo.</small>
+                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="admin_passwordHelp" name="actual_pass_usuario_nuevo" required>
+                                                    <small id="admin_passwordHelp" class="form-text text-muted">*Campo obligatorio para crear usuario nuevo.</small>
 
                                                   </div>
                                                                              
@@ -222,14 +239,21 @@
 
                                                     <label>Contraseña del Administrador*</label>
                                                     <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
-                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar usuario.</small>
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar usuario.</small><br>
+
+                                                    <div class="form-check">
+                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar" name="checkEliminar">
+                                                      <label class="form-check-label" for="checkEliminar">
+                                                        Estoy seguro de que deseo eliminar este usuario.
+                                                      </label>
+                                                    </div>
 
                                                   </div>
                                                                              
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="button" class="btn btn-success text-right text-guardar">Eliminar</button>
+                                            <button type="submit" class="btn btn-success text-right text-guardar">Eliminar</button>
                                             <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
                                           </div>
                                       </form>
