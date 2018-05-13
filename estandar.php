@@ -28,6 +28,14 @@
      $objses->set('error', '0');
   }
 
+  if($err==3){
+     echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb');</script>";
+  }
+
+  if ($err==4) {
+    echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
+  }
+
   if($mensaje==2){
      echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
      $objses->set('msg', '0');
@@ -642,7 +650,7 @@
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen" required="">
                         </div>
                     </div>
                 </div>
