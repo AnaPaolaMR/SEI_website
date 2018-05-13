@@ -3,14 +3,15 @@
 	$objses = new Sessions();
 	$objses->init();
 
-  $err = isset($_GET['error']) ? $_GET['error'] : null ;
-  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
+  $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
+  $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
-	  header('Location: login?error=2');
+    $objses->set('error', '2');
+	  header('Location: login');
 	}
 
   if($profile == 'estandar' and $err != ""){
@@ -24,33 +25,46 @@
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+        $objses->set('error', '0');
         break;
     case 2:
         echo "<script type='text/javascript'>alert('Error: El nickname de usuario elegido ya existe');</script>";
+        $objses->set('error', '0');
         break;
       case 3:
         echo "<script type='text/javascript'>alert('Error: No se puede eliminar el usuario por que es el unico administrador');</script>";
+        $objses->set('error', '0');
         break;
       case 4:
         echo "<script type='text/javascript'>alert('Error: La contraseña debe ser minimo de 8 digitos');</script>";
+        $objses->set('error', '0');
         break;
       case 5:
         echo "<script type='text/javascript'>alert('Error: No hay usuarios que puedan ser eliminados');</script>";
+        $objses->set('error', '0');
         break;
       case 6:
         echo "<script type='text/javascript'>alert('Error: Debe seleccionar la casilla donde acepta estar de acuerdo en eliminar este usuario');</script>";
+        $objses->set('error', '0');
         break;
 }     
 
   switch ($mensaje) {
     case 1:
         echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
+        $objses->set('msg', '0');
         break;
     case 2:
         echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
+        $objses->set('msg', '0');
         break;
     case 3:
         echo "<script type='text/javascript'>alert('Usuario eliminado con exito');</script>";
+        $objses->set('msg', '0');
+        break;
+      case 4:
+        echo "<script type='text/javascript'>alert('Los cambios se guardaron correctamente');</script>";
+        $objses->set('msg', '0');
         break;
 }     
 ?>

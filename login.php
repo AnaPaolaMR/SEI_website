@@ -1,19 +1,32 @@
 <?php
-// Evitar los warnings the variables no definidas!!!
-$err = isset($_GET['error']) ? $_GET['error'] : null ;
-
-?>
-
-<?php
   require'class/sessions.php';
   $objses = new Sessions();
   $objses->init();
 
+  // Evitar los warnings de variables no definidas
+  $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
+  $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
   $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-  if($user != ''){
-    header('Location: admin');
+  if($mensaje==1){
+    echo "<script type='text/javascript'>alert('Usuario eliminado con exito');</script>";
+    $objses->destroy();
   }
+
+  if($err==1){
+    echo "<script type='text/javascript'>alert('Usuario o Contraseña Erróneos.');</script>";
+    $objses->destroy();
+  }
+  if($err==2){
+    echo "<script type='text/javascript'>alert('Debe iniciar sesion para poder acceder el sitio.');</script>";
+    $objses->destroy();
+  }
+
+
+
+  // if($user != ''){
+  //   header('Location: admin');
+  // }
 ?>
 
 <!doctype html>
@@ -34,13 +47,7 @@ $err = isset($_GET['error']) ? $_GET['error'] : null ;
 
   <body class="text-center login">
     <form class="form-signin border border-success rounded" action="class/session_init" method="POST">
-      <?php if($err==1){
-        echo "<script type='text/javascript'>alert('Usuario o Contraseña Erróneos.');</script>";
-      }
-      if($err==2){
-        echo "<script type='text/javascript'>alert('Debe iniciar sesion para poder acceder el sitio.');</script>";
-      }
-      ?>
+
       <img class="mb-4" src="img/Logo.png" alt="Smart English Institute" width="80%" height="autofocus"><br>
       <img class="mb-4" src="img/sesion.png" alt="" width="70" height="70">
       

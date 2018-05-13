@@ -14,18 +14,22 @@ class Users{
 
 		$result = mysqli_query($con, $query);
 		$row=mysqli_fetch_array($result);
+
+		$objSe = new Sessions();
+		$objSe->init();
 		
 		if($row == ""){
-			header('Location: ../login?error=1');
+			$objSe->set('error', '1');
+			header('Location: ../login');
 			
 			}
 			
 		else{
-			$objSe = new Sessions();
-			$objSe->init();
 			$objSe->set('user', $row["nombre"]);
 			$objSe->set('iduser', $row["id_usuario"]);
 			$objSe->set('profile', $row["tipo_usuario"]);
+			$objSe->set('error', '');
+			$objSe->set('msg', '');
 				
 			$useropc = $row["tipo_usuario"];
 				
