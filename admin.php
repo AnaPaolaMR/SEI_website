@@ -738,7 +738,7 @@
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
                                   $con = new cursos();
-                                  $con->recuperarCurso('club','titulo_curso');  
+                                  $con->recuperarCurso('club','titulo_curso');
 
                           ?>">
             </div> 
@@ -807,7 +807,8 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-      	<form action="class/recibir_galeria" method="POST" >
+        <!--        ecntype multipart/form-data -->
+      	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data">
 
             <div class="container-fluid">
                 
@@ -831,7 +832,7 @@
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="imagen">
                         </div>
                     </div>
                 </div>
@@ -840,7 +841,7 @@
                     <div class="form-group col-md-7">
                         <label>Descripcion</label>
                             <div class="input-text">
-                                <textarea class="form-control"></textarea>
+                                <textarea class="form-control" name="descripcion"></textarea>
                             </div>
                     </div>
                 </div>

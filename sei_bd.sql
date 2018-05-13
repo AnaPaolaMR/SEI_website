@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-05-2018 a las 05:06:01
+-- Tiempo de generación: 13-05-2018 a las 02:07:56
 -- Versión del servidor: 10.1.22-MariaDB
 -- Versión de PHP: 7.1.4
 
@@ -89,6 +89,13 @@ CREATE TABLE `galeria` (
   `FK_id_usuario` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `galeria`
+--
+
+INSERT INTO `galeria` (`id_foto`, `categoria_foto`, `nombre_foto`, `descripcion_foto`, `fecha_mod_foto`, `FK_id_usuario`) VALUES
+(20, 'Cuadro_de_Honor', 'dolly (2).png', 'subir y probar otra vez', '2018-05-12 23:59:41', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -158,7 +165,21 @@ ALTER TABLE `galeria`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`id_usuario`);
-COMMIT;
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `galeria`
+--
+ALTER TABLE `galeria`
+  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
