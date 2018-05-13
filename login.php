@@ -12,7 +12,7 @@ $err = isset($_GET['error']) ? $_GET['error'] : null ;
   $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
   if($user != ''){
-    header('Location: admin.php');
+    header('Location: admin');
   }
 ?>
 

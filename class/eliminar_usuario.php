@@ -38,12 +38,12 @@
 			}
 		else {
 			mysqli_close($con);
-			header("location:../admin.php?error=1");
+			header("location:../admin?error=1");
 		}
 	}
 	else{
 		mysqli_close($con);
-		header("location:../admin.php?error=6");
+		header("location:../admin?error=6");
 	}
 	
  ?>

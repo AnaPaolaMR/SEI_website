@@ -19,7 +19,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index.php"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -194,7 +194,7 @@
 											</p>
 												<div class="collapse" id="collapse2">
 												  <div class="card card-body">
-												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos.php">aqui</a>
+												    Nuestros precios varian segun el tipo de curso. Puede consultar los precios en el area de cursos <a href="cursos">aqui</a>
 												  </div>
 												</div>
 
@@ -298,7 +298,7 @@
 											<hr>
 
 											<p>
-	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto.php" role="button">
+	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
 	    											Ponte en contacto con Smart English Institute aqui
 	    										</a>
 	  										</p>
@@ -322,21 +322,21 @@
 			<article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 				
 				<div class="text-center">
-					<a href="cursos.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="cursos" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						Cursos
 						<p class="text-ingles">courses</p>
 					</a>
 				</div>
 				
 				<div class="text-center">
-					<a href="club.php" class="ocultar btn btn-lg btn-outline-success text-center text-boton btn-club-large btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="club" class="ocultar btn btn-lg btn-outline-success text-center text-boton btn-club-large btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 					Club de <br>Conversacion<br>
 					<p class="text-ingles"> conversation club</p>
 					</a>
 				</div>
 
 				<div class="text-center">
-					<a href="club.php" class="btn btn-lg btn-outline-success text-center text-boton btn-club-small btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="club" class="btn btn-lg btn-outline-success text-center text-boton btn-club-small btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 					Club
 					<p class="text-ingles"> conversation club </p>
 					</a>
@@ -347,14 +347,14 @@
 
 			<aside class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 				<div class="text-center">
-					<a href="galeria.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="galeria" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						Galeria
 						<p class="text-ingles">gallery</p>
 					</a>
 				</div>
 
 				<div class="text-center">
-					<a href="contacto.php" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+					<a href="contacto" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 						Contacto
 						<p class="text-ingles">contact</p>
 					</a>

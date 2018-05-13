@@ -9,7 +9,7 @@
 
 		//cierra la conexion
 		mysqli_close($con);
-		header("location: ../admin.php"); 
+		header("location: ../admin"); 
 
 
  ?>
