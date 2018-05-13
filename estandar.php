@@ -610,43 +610,44 @@
     </div>
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-        <form action="class/recibir_galeria" method="POST" >
+        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data">
 
-            <div class="row">
-                <div class="mb-3 col-md-3">
-                    <div class="input-group-prepend">
-                        <label>Categoría</label>
-                    </div>
-
-                    <div class="input-group">
-                        <select class="custom-select" id="inputGroupSelect01" name="categoria">
-                            <option selected>Escoja...</option>
-                            <option value="1">Graduados</option>
-                            <option value="2">Cuadro de Honor</option>
-                            <option value="3">Eventos Especiales</option>
-                            <option value="3">Otros</option>
-                        </select>
-                    </div>
-
-                </div>
-
-            
-                <div class="mb-3 col-md-3">
-                    <div>
-                        <label>Seleccione Imagen</label>
-                     <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true">
-                    </div>
-                </div>        
-            </div>
-
-
-            <div class="row">
-                <div class="form-group col-md-7">
-                    <label>Descripcion</label>
-                        <div class="input-text">
-                            <textarea class="form-control"></textarea>
+            <div class="container-fluid">
+                
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+                        <div class="input-group-prepend">
+                            <label>Categoría</label>
                         </div>
+
+                        <div class="input-group">
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria">
+                                <option selected>Escoja...</option>
+                                <option value="Graduados">Graduados</option>
+                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                <option value="Eventos_Especiales">Eventos Especiales</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                        
+                    </div>
+                    <div class="mb-3 col-md-3">
+                        <div>
+                            <label>Seleccione Imagen</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen">
+                        </div>
+                    </div>
                 </div>
+
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <label>Descripcion</label>
+                            <div class="input-text">
+                                <textarea class="form-control" name="descripcion"></textarea>
+                            </div>
+                    </div>
+                </div>
+
             </div>
 
             <!-- Boton de guardar -->
@@ -802,7 +803,7 @@
     </div>
   </div>
 </div>
- 	<a href="use/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
+ 	<a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
 </section>
