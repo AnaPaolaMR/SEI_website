@@ -5,6 +5,7 @@
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 	$iduser = isset($_SESSION['iduser']) ? $_SESSION['iduser'] : null ;
+	$profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
 	  header('Location: 403/');
@@ -46,21 +47,44 @@
 				$objses->set('profile', $fila["tipo_usuario"]);
 
 				//cierra la conexion
-				mysqli_close($con);
-				$objses->set('msg', '2');
-				header("location: ../admin"); 
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('msg', '2');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('msg', '2');
+					header("location: ../estandar");
+				} 
 				
 			}
 			else {
-				mysqli_close($con);
-				$objses->set('error', '2');
-				header("location: ../admin"); 
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '2');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '2');
+					header("location: ../estandar");
+
+				} 
 			}
 		}
 		else {
-			mysqli_close($con);
-			$objses->set('error', '1');
-			header("location: ../admin");
+			if ($profile=='admin'){
+				mysqli_close($con);
+				$objses->set('error', '1');
+				header("location: ../admin");
+			}
+			else{
+				mysqli_close($con);
+				$objses->set('error', '1');
+				header("location: ../estandar");
+
+			}
 		}
 	}
 	

@@ -3,26 +3,34 @@
 	$objses = new Sessions();
 	$objses->init();
 
-  $err = isset($_GET['error']) ? $_GET['error'] : null ;
-  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
+  $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
+  $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
-	  header('Location: login?error=2');
-	}
+    $objses->set('error', '2');
+    header('Location: login');
+  }
+
+  if($profile == 'admin'){
+    header('Location: admin');
+  }
 
   if($err==1){
      echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+     $objses->set('error', '0');
   }
 
   if($err==2){
      echo "<script type='text/javascript'>alert('El nickname de usuario elegido ya existe');</script>";
+     $objses->set('error', '0');
   }
 
   if($mensaje==2){
      echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
+     $objses->set('msg', '0');
   }
       
 ?>

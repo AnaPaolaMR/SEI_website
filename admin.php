@@ -14,12 +14,8 @@
 	  header('Location: login');
 	}
 
-  if($profile == 'estandar' and $err != ""){
-    header('Location: estandar?error='.$err);
-  }
-
-  if($profile == 'estandar' and $mensaje != ""){
-    header('Location: estandar?msg='.$mensaje);
+  if($profile == 'estandar'){
+    header('Location: estandar');
   }
 
   switch ($err) {
