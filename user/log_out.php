@@ -9,5 +9,6 @@ $objses->destroy();
 
 header('Location: ../login');
 
+
 ?>
 
