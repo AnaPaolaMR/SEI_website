@@ -16,7 +16,7 @@
 
 		if ($tamanio_imagen <= 5000000) {
 
-			if ($tipo_imagen == "image/jpg" || $tipo_imagen == "image/png") {
+			if ($tipo_imagen == "image/jpg" || $tipo_imagen == "image/png" || $tipo_imagen == "image/jpeg") {
 				
 				//Ruta de la carpeta destino del servidor
 				$carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/img/'.$categoria.'/';

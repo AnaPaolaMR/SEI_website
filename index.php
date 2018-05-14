@@ -51,7 +51,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -60,7 +60,7 @@
 						    			<div class="modal-body">
 						    				<p>
 						    					<img class="img-fluid" src="img/<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','img_ig');  
 
                           					?>" alt="Logo SEI" width="100%">
@@ -68,7 +68,7 @@
 
 						    				<p class="text-left">
 						    				<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','info_ig');?>
                           					</p>				    				
 						    			</div>
@@ -85,7 +85,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('mision','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -94,7 +94,7 @@
 						    			<div class="modal-body">
 						    				<p class="text-left">
 						    					<?php
-                                  					$con = new cursos();
+                                  					$con = new consultas();
                                   					$con->recuperarIG('mision','info_ig');?>
 						    				</p>				    				
 						    			</div>
@@ -111,7 +111,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('vision','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -120,7 +120,7 @@
 						    			<div class="modal-body">
 						    				<p class="text-left">
 						    					<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('vision','info_ig');?>
 						    				</p>				    				
 						    			</div>
@@ -137,7 +137,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -147,13 +147,13 @@
 
 						    				<p>
 						    					<img class="img-fluid" src="img/<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','img_ig');?>" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
 						    					<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','info_ig');?>
 						    				</p>				    				
 						    			</div>

@@ -118,7 +118,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
                                                     <label>Nombre de usuario (Nickname)</label>
@@ -128,7 +128,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
@@ -138,7 +138,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('contrasena', $user);?>" ><br>
 
                                                     <label>Contraseña Actual*</label>
@@ -204,7 +204,7 @@
                     <br>
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="q_somos_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','titulo_ig');  
 
                           ?>">
@@ -214,7 +214,7 @@
                        <label for="exampleFormControlTextarea6">Información</label>
                          <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="q_somos_info"><?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','info_ig');
 
                           ?></textarea>
@@ -224,7 +224,7 @@
                   <label>Imagen</label>
                   <input type="text" class="form-control" name="q_somos_img" value="<?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','img_ig');
 
                           ?>">
@@ -236,7 +236,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="mision_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','titulo_ig');  
 
                           ?>"> 
@@ -245,7 +245,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea7">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="mision_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','info_ig');  
 
                           ?></textarea>
@@ -254,7 +254,7 @@
                 <div class="form-group">
                     <label>Enlace del video</label>
                     <input type="text" class="form-control" name="mision_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','img_ig');  
 
                           ?>">
@@ -266,7 +266,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="vision_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','titulo_ig');  
 
                           ?>">
@@ -275,7 +275,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea8">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="vision_info" ><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','info_ig');  
 
                           ?></textarea>
@@ -284,7 +284,7 @@
                 <div class="form-group">
                     <label>Imagen</label>
                     <input type="text" class="form-control" name="vision_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','img_ig');  
 
                           ?>">
@@ -297,7 +297,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="historia_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','titulo_ig');  
 
                           ?>">
@@ -306,7 +306,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="historia_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','info_ig');  
 
                           ?></textarea>
@@ -315,7 +315,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="historia_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','img_ig');  
 
                           ?>">
@@ -351,7 +351,13 @@
               </div>
             </div>
           </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('informacion_general','fecha_mod_ig','','');
+
+                    ?></label>
         </form>
 
       </div>
@@ -386,7 +392,7 @@
                     <br>
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="regular_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','titulo_curso');  
 
                           ?>">
@@ -396,7 +402,7 @@
                        <label for="exampleFormControlTextarea6">Información del curso</label>
                          <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info"><?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','info_curso');
 
                           ?></textarea>
@@ -406,7 +412,7 @@
                   <label>Enlace del video: </label>
                   <input type="text" class="form-control" name="regular_enlace" value="<?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','video_curso');
 
                           ?>">
@@ -418,7 +424,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="semestral_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','titulo_curso');  
 
                           ?>"> 
@@ -427,7 +433,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea7">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="semestral_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','info_curso');  
 
                           ?></textarea>
@@ -436,7 +442,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="semestral_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','video_curso');  
 
                           ?>">
@@ -448,7 +454,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="sabatino_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','titulo_curso');  
 
                           ?>">
@@ -457,7 +463,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea8">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="sabatino_info" ><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','info_curso');  
 
                           ?></textarea>
@@ -466,7 +472,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="sabatino_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','video_curso');  
 
                           ?>">
@@ -479,7 +485,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="verano_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','titulo_curso');  
 
                           ?>">
@@ -488,7 +494,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','info_curso');  
 
                           ?></textarea>
@@ -497,7 +503,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="verano_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','video_curso');  
 
                           ?>">
@@ -534,7 +540,13 @@
             </div>
           </div> 
 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','regular');
+
+                    ?></label>
   			  </form>
   			  	
       </div>
@@ -555,7 +567,7 @@
             <div class="form-group">
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('club','titulo_curso');  
 
                           ?>">
@@ -564,7 +576,7 @@
             <div class="form-group">
                <label for="exampleFormControlTextarea10">Información del curso</label>
                <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info"><?php
-                    $con = new cursos();
+                    $con = new consultas();
                     $con->recuperarCurso('club','info_curso');  
 
                   ?></textarea>
@@ -573,7 +585,7 @@
             <div class="form-group">
               <label>Enlace del video: </label>
               <input type="text" class="form-control" name="club_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('club','video_curso');  
 
                           ?>">
@@ -606,7 +618,13 @@
             </div>
           </div> 
 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','club');
+
+                    ?></label>
           
   			  </form>
   			  	
@@ -722,7 +740,7 @@
             <div class="form-group">
               <label>Telefono</label>
               <input type="text" class="form-control" name="contacto_telefono" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('telefono');
 
                     ?>">
@@ -731,7 +749,7 @@
             <div class="form-group">
                <label>Celular</label>
                <input type="text" class="form-control" name="contacto_celular" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('celular');
 
                     ?>">
@@ -740,7 +758,7 @@
             <div class="form-group">
               <label>Correo Electronico </label>
               <input type="text" class="form-control" name="contacto_email" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
                     ?>">
@@ -749,7 +767,7 @@
             <div class="form-group">
                <label for="exampleFormControlTextarea11">Direccion</label>
                <textarea class="form-control" id="exampleFormControlTextarea11" rows="2" name="contacto_direccion"><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('direccion_contacto');
 
                     ?></textarea>
@@ -760,7 +778,7 @@
             <div class="form-group">
               <label>Enlace a Facebook</label>
               <input type="text" class="form-control" name="contacto_facebook" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
                     ?>">
@@ -769,7 +787,7 @@
             <div class="form-group">
                <label>Enlace a Twitter</label>
                <input type="text" class="form-control" name="contacto_twitter" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
                     ?>">
@@ -778,7 +796,7 @@
             <div class="form-group">
               <label>Enlace a Instagram </label>
               <input type="text" class="form-control" name="contacto_instagram" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
                     ?>">
@@ -812,7 +830,13 @@
               </div>
             </div>
           </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/> 
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('contacto','fecha_mod_contacto','','');
+
+                    ?></label>
   			</form>
   				
       </div>
