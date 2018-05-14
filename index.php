@@ -19,7 +19,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo2.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -394,7 +394,7 @@
 
 		setTimeout(function() {
 		    $('#mostrarmodal').modal('hide');
-		}, 8000);
+		}, 6000);
         });
 	</script>
 	<script src="js\jquery.js"></script>
