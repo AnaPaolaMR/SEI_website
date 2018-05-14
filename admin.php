@@ -608,7 +608,7 @@ function showFAQ(str) {
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header modal-header-custom">
                           <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -643,9 +643,9 @@ function showFAQ(str) {
                     <?php
 
                       $obj = new consultas();
-                      $obj->recuperarFAQS('titulo_ig');?></select><br>
+                      $obj->recuperarFAQS('id_ig');?></select><br>
 
-                    <div id="txtHint">La respuesta aparece aqui</div><br>
+                    <textarea class="form-control" id="txtHint"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -656,7 +656,7 @@ function showFAQ(str) {
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header modal-header-custom">
                           <h5 class="modal-title" id="exampleModalLabel">Modificar Pregunta</h5>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -678,7 +678,59 @@ function showFAQ(str) {
                 </form>
 
               </div>
-              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">Pipi</div>
+
+              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
+                <form action="class/eliminar_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Eliminar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <select class="form-control" type="text" name="faq_eliminar">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('id_ig');?></select><br>
+
+                    <label>Contraseña Actual*</label>
+                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
+                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small><br>
+
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Eliminar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas eliminar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+  
+
+
+              </div>
             </div>
           </div>
         </div>

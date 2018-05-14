@@ -7,16 +7,13 @@ if (!$con) {
     die('No se pudo conectar: ' . mysqli_error($con));
 }
 
-mysqli_query($con,"SET CHARACTER SET 'utf8'");
-mysqli_query($con,"SET SESSION collation_connection ='utf8_unicode_ci'");
+$sql_2="SELECT * FROM informacion_general WHERE id_ig = '$q'";
+$result_2 = mysqli_query($con, $sql_2);
 
+$row_2 = mysqli_fetch_array($result_2);
 
-$sql="SELECT * FROM informacion_general WHERE titulo_ig like '%".$q."%'";
-$result = mysqli_query($con, $sql);
+echo "$row_2[info_ig]";
 
-$row = mysqli_fetch_array($result);
-
-echo "$row[info_ig]";
 
 mysqli_close($con);
 ?>
