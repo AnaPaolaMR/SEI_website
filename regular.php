@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="icon" href="smart.ico">
+	<link rel="icon" href="img/smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<?php include("class/consulta.php");?>
@@ -315,7 +315,7 @@
 			
 				<div class="embed-responsive embed-responsive-16by9">
   					<iframe class="embed-responsive-item" src="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarCurso('regular','video_curso');
 
                     ?>" allowfullscreen></iframe>
@@ -329,14 +329,14 @@
 				<div class="container container-white margin-custom border-custom rounded-custom text-justify padding-custom text">
 
 					<h3><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarCurso('regular','titulo_curso');
 
                     ?> </h3>
 					<hr class="my-4">
 
 					<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarCurso('regular','info_curso');
 
                     ?>  

@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
-	<link rel="icon" href="smart.ico">
+	<link rel="icon" href="img/smart.ico">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
@@ -316,14 +316,14 @@
 			<div class="col-sm-12 col-md-4 border border-success  container-white rounded-custom">
 					<h3><br>Telefono</h3>
 					<p class="contenido "><h2 style="text-align: center;"><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('telefono');
 
                     ?></h2> </p>
 					<hr class="my-4">
 					<h3>Celular</h3>
 					<p class="contenido "><h2 style="text-align: center;"><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('celular');
 
                     ?></h2> </p>
@@ -333,7 +333,7 @@
 					<p class="contenido" style="text-align: center;">
 						<br> 
 						<a href="mailto:smart_eteacher@hotmail.com" class="align-middle "><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
                     ?></a>
@@ -350,7 +350,7 @@
 
 					<div class="row border-success border rounded-custom justify-content-center container-white padding-custom">
 						<p class="contenido text" style="text-align: center;" ><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('direccion_contacto');
 
                     ?></p>
@@ -363,17 +363,17 @@
 
 			<div class="col-sm-12 col-md-2" >
 				<a target="_blank" href="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
                     ?>" style="margin: 10px;"><img src="img/facebook.png" alt="Facebook/SEI"></a>
 				<a target="_blank" href="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
                     ?>"><img src="img/twiter.png" alt="Twiter/SEI" style="margin: 10px;"></a>
 				<a target="_blank" href="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
                     ?>"><img src="img/instagram.png" alt="Facebook/SEI"style="margin: 10px;"></a>

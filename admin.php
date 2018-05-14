@@ -65,6 +65,30 @@
 }     
 ?>
 
+<script>
+function showFAQ(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -72,7 +96,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-    <link rel="icon" href="smart.ico">
+    <link rel="icon" href="img/smart.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -243,7 +267,7 @@
                                                     <select class="form-control" name="usuario_eliminar">
                                                     <?php
 
-                                                    $obj = new cursos();
+                                                    $obj = new consultas();
                                                     $obj->recuperarUsuariosStndr();?>
                                                     </select><br>
 
@@ -293,7 +317,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
                                                     <label>Nombre de usuario (Nickname)</label>
@@ -303,7 +327,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
@@ -313,7 +337,7 @@
 
                                                     $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 
-                                                    $con = new cursos();
+                                                    $con = new consultas();
                                                     $con->recuperarUsuario('contrasena', $user);?>" ><br>
 
                                                     <label>Contraseña Actual*</label>
@@ -355,13 +379,13 @@
   		            <div class="card" >
     		            <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_IG" aria-expanded="false" aria-controls="collapseOne" >
                                 <i class="material-icons ">&#xE145;</i> Información General 
                             </button>
                         </h5>
                     </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
 
@@ -378,10 +402,11 @@
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
                 <div class="form-group">
+
                     <br>
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="q_somos_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','titulo_ig');  
 
                           ?>">
@@ -391,7 +416,7 @@
                        <label for="exampleFormControlTextarea6">Información</label>
                          <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="q_somos_info"><?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','info_ig');
 
                           ?></textarea>
@@ -401,7 +426,7 @@
                   <label>Imagen</label>
                   <input type="text" class="form-control" name="q_somos_img" value="<?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('quienes somos','img_ig');
 
                           ?>">
@@ -413,7 +438,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="mision_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','titulo_ig');  
 
                           ?>"> 
@@ -422,7 +447,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea7">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="mision_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','info_ig');  
 
                           ?></textarea>
@@ -431,7 +456,7 @@
                 <div class="form-group">
                     <label>Enlace del video</label>
                     <input type="text" class="form-control" name="mision_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('mision','img_ig');  
 
                           ?>">
@@ -443,7 +468,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="vision_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','titulo_ig');  
 
                           ?>">
@@ -452,7 +477,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea8">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="vision_info" ><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','info_ig');  
 
                           ?></textarea>
@@ -461,7 +486,7 @@
                 <div class="form-group">
                     <label>Imagen</label>
                     <input type="text" class="form-control" name="vision_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('vision','img_ig');  
 
                           ?>">
@@ -474,7 +499,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="historia_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','titulo_ig');  
 
                           ?>">
@@ -483,7 +508,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información</label>
                     <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="historia_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','info_ig');  
 
                           ?></textarea>
@@ -492,13 +517,14 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="historia_img" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarIG('historia','img_ig');  
 
                           ?>">
                 </div>
 
             </div>
+
           </div>
           
           <!-- Boton de guardar -->
@@ -528,23 +554,206 @@
               </div>
             </div>
           </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
-        </form>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('informacion_general','fecha_mod_ig','','');
 
-<!--  ****************************************CURSOS**************************************************** --> 
+                    ?></label>
+        </form>
 
       </div>
     </div>
   </div>
+
+  <!-- **********************FAQS********************** -->
+
   <div class="card" >
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_FAQS" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="material-icons">&#xE145;</i> Preguntas Frecuentes 
+        </button>
+      </h5>
+    </div>
+    <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" data-toggle="list" href="#agregar_faq" role="tab" aria-controls="home">Agregar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#modificar_faq" role="tab" aria-controls="profile">Modificar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_faq" role="tab" aria-controls="messages">Eliminar Pregunta</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
+
+                <form action="class/recibir_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Agregar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <input class="form-control" type="text" name="faq" required>
+
+                    <label>Respuesta</label>
+                    <textarea class="form-control" row="3" name="faq_respuesta" required></textarea>
+
+                  </div>
+
+                  <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
+
+                  <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="button" value="Cancelar" class="btn btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+
+                </form>
+            </div>
+              <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
+
+                <form>
+                  <div class="form-group">
+                    <h5>Modificar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <select class="form-control" type="text" onchange="showFAQ(this.value)">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('id_ig');?></select><br>
+
+                    <textarea class="form-control" id="txtHint"></textarea><br>
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Modificar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+
+              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
+                <form action="class/eliminar_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Eliminar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <select class="form-control" type="text" name="faq_eliminar">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('id_ig');?></select><br>
+
+                    <label>Contraseña Actual*</label>
+                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
+                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small><br>
+
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Eliminar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas eliminar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+  
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        
+
+      </div>
+    </div>
+  </div>
+
+
+  <!--  ****************************************CURSOS**************************************************** --> 
+
+  <div class="card" >
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Cursos" aria-expanded="false" aria-controls="collapseTwo">
           <i class="material-icons">&#xE145;</i> Cursos 
         </button>
       </h5>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+    <div id="collapse_Cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir" method="POST">
 
@@ -564,7 +773,7 @@
                     <br>
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="regular_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','titulo_curso');  
 
                           ?>">
@@ -574,7 +783,7 @@
                        <label for="exampleFormControlTextarea6">Información del curso</label>
                          <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info"><?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','info_curso');
 
                           ?></textarea>
@@ -584,7 +793,7 @@
                   <label>Enlace del video: </label>
                   <input type="text" class="form-control" name="regular_enlace" value="<?php
                                   
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('regular','video_curso');
 
                           ?>">
@@ -596,7 +805,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="semestral_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','titulo_curso');  
 
                           ?>"> 
@@ -605,7 +814,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea7">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="semestral_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','info_curso');  
 
                           ?></textarea>
@@ -614,7 +823,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="semestral_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('semestral','video_curso');  
 
                           ?>">
@@ -626,7 +835,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="sabatino_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','titulo_curso');  
 
                           ?>">
@@ -635,7 +844,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea8">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="sabatino_info" ><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','info_curso');  
 
                           ?></textarea>
@@ -644,7 +853,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="sabatino_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('sabatino','video_curso');  
 
                           ?>">
@@ -657,7 +866,7 @@
                 <div class="form-group">
                     <label>Titulo</label>
                     <input type="text" class="form-control" name="verano_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','titulo_curso');  
 
                           ?>">
@@ -666,7 +875,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea9">Información del curso</label>
                     <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info"><?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','info_curso');  
 
                           ?></textarea>
@@ -675,7 +884,7 @@
                 <div class="form-group">
                     <label>Enlace del video: </label>
                     <input type="text" class="form-control" name="verano_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('verano','video_curso');  
 
                           ?>">
@@ -712,28 +921,36 @@
             </div>
           </div>
 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','regular');
+
+                    ?></label>
   			  </form>
 
-<!--  *******************************CLUB DE CONVERSACION***************************************** -->   			  	
       </div>
     </div>
   </div>
+
+  <!--  *******************************CLUB DE CONVERSACION***************************************** -->            
+
   <div class="card" >
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Club" aria-expanded="false" aria-controls="collapseThree">
           <i class="material-icons">&#xE145;</i> Club de Conversación 
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+    <div id="collapse_Club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir_club" method="POST">
             <div class="form-group">
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('club','titulo_curso');
 
                           ?>">
@@ -742,7 +959,7 @@
             <div class="form-group">
                <label for="exampleFormControlTextarea10">Información del curso</label>
                <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info"><?php
-                    $con = new cursos();
+                    $con = new consultas();
                     $con->recuperarCurso('club','info_curso');  
 
                   ?></textarea>
@@ -751,7 +968,7 @@
             <div class="form-group">
               <label>Enlace del video: </label>
               <input type="text" class="form-control" name="club_enlace" value="<?php
-                                  $con = new cursos();
+                                  $con = new consultas();
                                   $con->recuperarCurso('club','video_curso');  
 
                           ?>">
@@ -783,7 +1000,13 @@
               </div>
             </div>
           </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','club');
+
+                    ?></label>
   			  </form>
   			  	
       </div>
@@ -796,12 +1019,12 @@
    <div class="card" >
     <div class="card-header" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Galeria" aria-expanded="false" aria-controls="collapseFour">
           <i class="material-icons">&#xE145;</i> Galeria 
         </button>
       </h5>
     </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+    <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
         <!--        ecntype multipart/form-data -->
       	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data">
@@ -886,12 +1109,12 @@
   <div class="card" >
     <div class="card-header" id="headingFive">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Contacto" aria-expanded="false" aria-controls="collapseFive">
          <i class="material-icons">&#xE145;</i> Contacto 
         </button>
       </h5>
     </div>
-    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+    <div id="collapse_Contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
           <div class="form-group">
@@ -901,7 +1124,7 @@
             <div class="form-group">
               <label>Telefono</label>
               <input type="text" class="form-control" name="contacto_telefono" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('telefono');
 
                     ?>">
@@ -910,7 +1133,7 @@
             <div class="form-group">
                <label>Celular</label>
                <input type="text" class="form-control" name="contacto_celular" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('celular');
 
                     ?>">
@@ -919,7 +1142,7 @@
             <div class="form-group">
               <label>Correo Electronico </label>
               <input type="text" class="form-control" name="contacto_email" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
                     ?>">
@@ -928,7 +1151,7 @@
             <div class="form-group">
                <label for="exampleFormControlTextarea11">Direccion</label>
                <textarea class="form-control" id="exampleFormControlTextarea11" rows="2" name="contacto_direccion"><?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('direccion_contacto');
 
                     ?></textarea>
@@ -939,7 +1162,7 @@
             <div class="form-group">
               <label>Enlace a Facebook</label>
               <input type="text" class="form-control" name="contacto_facebook" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
                     ?>">
@@ -948,7 +1171,7 @@
             <div class="form-group">
                <label>Enlace a Twitter</label>
                <input type="text" class="form-control" name="contacto_twitter" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
                     ?>">
@@ -957,7 +1180,7 @@
             <div class="form-group">
               <label>Enlace a Instagram </label>
               <input type="text" class="form-control" name="contacto_instagram" value="<?php
-                        $con = new cursos();
+                        $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
                     ?>">
@@ -991,7 +1214,13 @@
               </div>
             </div>
           </div> 
-          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/> 
+          <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
+
+          <label>Ultima modificacion: <?php
+                        $con = new consultas();
+                        $con->recuperarMod('contacto','fecha_mod_contacto','','');
+
+                    ?></label> 
   			</form>
   				
       </div>
@@ -1013,6 +1242,7 @@
  
   <script src="js\jquery.js"></script>
   <script src="js\popper.min.js"></script>
-  <script src="js\bootstrap.min.js"></script> 
+  <script src="js\bootstrap.min.js"></script>
+  <script src="js\sei.js"></script>  
   
 </html>

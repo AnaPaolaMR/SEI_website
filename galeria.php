@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="icon" href="smart.ico">
+	<link rel="icon" href="img/smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">

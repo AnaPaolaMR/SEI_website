@@ -3,7 +3,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-	<link rel="icon" href="smart.ico">
+	<link rel="icon" href="img/smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
@@ -46,12 +46,34 @@
 
 					<!-- Modals -->
 					<div class="text">
+						<div class="modal fade" id="mostrarmodal">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header modal-header-custom">
+										<h1>Bienvenido</h1>
+									</div>
+									<div class="modal-body">
+										<p>
+											<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
+										</p>	
+												    				
+								</div>
+											<div class="modal-footer">
+									<button type="button" class="btn btn-outline-success" data-dismiss="modal" href="index">Cerrar</button>
+								</div>
+							</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -60,7 +82,7 @@
 						    			<div class="modal-body">
 						    				<p>
 						    					<img class="img-fluid" src="img/<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','img_ig');  
 
                           					?>" alt="Logo SEI" width="100%">
@@ -68,7 +90,7 @@
 
 						    				<p class="text-left">
 						    				<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','info_ig');?>
                           					</p>				    				
 						    			</div>
@@ -85,7 +107,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('mision','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -94,7 +116,7 @@
 						    			<div class="modal-body">
 						    				<p class="text-left">
 						    					<?php
-                                  					$con = new cursos();
+                                  					$con = new consultas();
                                   					$con->recuperarIG('mision','info_ig');?>
 						    				</p>				    				
 						    			</div>
@@ -111,7 +133,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('vision','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -120,7 +142,7 @@
 						    			<div class="modal-body">
 						    				<p class="text-left">
 						    					<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('vision','info_ig');?>
 						    				</p>				    				
 						    			</div>
@@ -137,7 +159,7 @@
 						    		<div class="modal-content">
 						    			<div class="modal-header modal-header-custom">
 						    				<h4 class="modal-title"><?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','titulo_ig');?></h4>
 						    				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						    				
@@ -147,13 +169,13 @@
 
 						    				<p>
 						    					<img class="img-fluid" src="img/<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','img_ig');?>" alt="Logo SEI" width="100%">
 						    				</p>
 
 						    				<p class="text-left">
 						    					<?php
-                                  				$con = new cursos();
+                                  				$con = new consultas();
                                   				$con->recuperarIG('historia','info_ig');?>
 						    				</p>				    				
 						    			</div>
@@ -367,7 +389,12 @@
 	<footer class="container">
 		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
-
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mostrarmodal").modal("show");
+        });
+	</script>
 	<script src="js\jquery.js"></script>
 	<script src="js\popper.min.js"></script>
 	<script src="js\bootstrap.min.js"></script> 
