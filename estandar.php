@@ -645,12 +645,12 @@
                                 <option value="Otros">Otros</option>
                             </select>
                         </div>
-                        
                     </div>
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen" required="">
+                            <!-- $tipo_imagen == "image/jpeg" -->
+                            <input type="file" class="form-control-file" accept="" id="exampleFormControlFile1"  multiple="true" name="valor_imagen">
                         </div>
                     </div>
                 </div>
