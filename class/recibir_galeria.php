@@ -6,17 +6,24 @@
 		$categoria = $_POST['categoria'];
 		$descripcion = $_POST['descripcion'];
 
+		foreach ($_FILES['valor_imagen']['tmp_name'] as $key => $tmp_name) {
+			# code...
+
+		}
+			$nombre_imagen = $_FILES['valor_imagen']['name'];
+			echo "<br>$nombre_imagen";
+			$tipo_imagen = $_FILES['valor_imagen']['type'];
+			echo "<br>$tipo_imagen";
+			$tamanio_imagen = $_FILES['valor_imagen']['size'];
+			echo "<br>$tamanio_imagen";
+
 		//atributos del array de $_FILES: nombre, type, size, tmp_name
-		$nombre_imagen = $_FILES['valor_imagen']['name'];
-		echo "$nombre_imagen<br>";
-		$tipo_imagen = $_FILES['valor_imagen']['type'];
-		echo "$tipo_imagen<br>";
-		$tamanio_imagen = $_FILES['valor_imagen']['size'];
-		echo "$tamanio_imagen<br>";
+		
+		/*
 
-		if ($tamanio_imagen <= 5000000 && $tamanio_imagen > 0) {
+		if ($tipo_imagen == "image/jpg" || $tipo_imagen == "image/png" || $tipo_imagen == "image/jpeg") {
 
-			if ($tipo_imagen == "image/jpg" || $tipo_imagen == "image/png" || $tipo_imagen == "image/jpeg" ) {
+			if ( $tamanio_imagen <= 5000000 && $tamanio_imagen > 0) {
 				
 				//Ruta de la carpeta destino del servidor
 				$carpeta_destino = $_SERVER['DOCUMENT_ROOT'] . '/img/'.$categoria.'/';
@@ -31,24 +38,24 @@
 				
 
 				//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
-				$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database ');
+				$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database');
 
 				echo "Really a Success? 9.9";
 				//cierra la conexion
 				mysqli_close($con);
-				//header("location: ../estandar");
+				header("location: ../estandar");
 
 			}else{
-				echo "Fallo 1: Error en el tipo de archivo";
+				//echo "Fallo 2: Error de tamaño de imagen";
 				//cierra la conexion
 				mysqli_close($con);
-				//header("location: ../estandar?error=4");
+				header("location: ../estandar?error=3");
 			}
 		}else{
-			echo "Fallo 2: Error de tamaño de imagen";
+			//echo "Fallo 1: Error en el tipo de archivo";
 			//cierra la conexion
 			mysqli_close($con);
-			//header("location: ../estandar?error=3");
+			//header("location: ../estandar?error=4");
 
-		}
+		}*/
  ?>

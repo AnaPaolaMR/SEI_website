@@ -3,8 +3,8 @@
 	$objses = new Sessions();
 	$objses->init();
 
-  $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
-  $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
+  $err = isset($_GET['error']) ? $_GET['error'] : null ;
+  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
@@ -668,7 +668,7 @@
                         <div>
                             <label>Seleccione Imagen</label>
                             <!-- $tipo_imagen == "image/jpeg" -->
-                            <input type="file" class="form-control-file" accept="" id="exampleFormControlFile1"  multiple="true" name="valor_imagen">
+                            <input type="file" class="form-control-file" accept=".jpeg, .jpg, .png, .PNG, .JPEG, .JPG" id="exampleFormControlFile1"  multiple="true" name="valor_imagen">
                         </div>
                     </div>
                 </div>
