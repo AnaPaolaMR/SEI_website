@@ -47,21 +47,18 @@
 					<!-- Modals -->
 					<div class="text">
 						<div class="modal fade" id="mostrarmodal">
-							<div class="modal-dialog">
+							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
-									<div class="modal-header modal-header-custom">
-										<h1>Bienvenido</h1>
-									</div>
-									<div class="modal-body">
-										<p>
-											<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
-										</p>	
-												    				
+									<!--<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
+											<div class="embed-responsive embed-responsive-16by9">
+  												<iframe class="embed-responsive-item" src="intro.mp4" allowfullscreen = "false"></iframe>
+											</div>-->
+
+											<video autoplay="autoplay">
+												<source src="intro.mp4" type="video/mp4" />
+											</video>
+											
 								</div>
-											<div class="modal-footer">
-									<button type="button" class="btn btn-outline-success" data-dismiss="modal" href="index">Cerrar</button>
-								</div>
-							</div>
 
 							</div>
 						</div>
@@ -389,10 +386,15 @@
 	<footer class="container">
 		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
+    <!--Scripts para auto mostrar modal de presentación-->
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#mostrarmodal").modal("show");
+
+		setTimeout(function() {
+		    $('#mostrarmodal').modal('hide');
+		}, 5000);
         });
 	</script>
 	<script src="js\jquery.js"></script>
