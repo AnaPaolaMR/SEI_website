@@ -65,6 +65,30 @@
 }     
 ?>
 
+<script>
+function showFAQ(str) {
+    if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -72,7 +96,7 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
-    <link rel="icon" href="smart.ico">
+    <link rel="icon" href="img/smart.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -355,13 +379,13 @@
   		            <div class="card" >
     		            <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_IG" aria-expanded="false" aria-controls="collapseOne" >
                                 <i class="material-icons ">&#xE145;</i> Información General 
                             </button>
                         </h5>
                     </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
 
@@ -500,6 +524,7 @@
                 </div>
 
             </div>
+
           </div>
           
           <!-- Boton de guardar -->
@@ -537,20 +562,146 @@
                     ?></label>
         </form>
 
-<!--  ****************************************CURSOS**************************************************** --> 
+      </div>
+    </div>
+  </div>
+
+  <!-- **********************FAQS********************** -->
+
+  <div class="card" >
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_FAQS" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="material-icons">&#xE145;</i> Preguntas Frecuentes 
+        </button>
+      </h5>
+    </div>
+    <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" data-toggle="list" href="#agregar_faq" role="tab" aria-controls="home">Agregar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#modificar_faq" role="tab" aria-controls="profile">Modificar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_faq" role="tab" aria-controls="messages">Eliminar Pregunta</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
+
+                <form action="class/recibir_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Agregar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <input class="form-control" type="text" name="faq" required>
+
+                    <label>Respuesta</label>
+                    <textarea class="form-control" row="3" name="faq_respuesta" required></textarea>
+
+                  </div>
+
+                  <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
+
+                  <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="button" value="Cancelar" class="btn btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+
+                </form>
+            </div>
+              <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
+
+                <form>
+                  <div class="form-group">
+                    <h5>Modificar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <select class="form-control" type="text" onchange="showFAQ(this.value)">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('titulo_ig');?></select><br>
+
+                    <div id="txtHint">La respuesta aparece aqui</div><br>
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Modificar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">Pipi</div>
+            </div>
+          </div>
+        </div>
+
+
+        
 
       </div>
     </div>
   </div>
+
+
+  <!--  ****************************************CURSOS**************************************************** --> 
+
   <div class="card" >
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Cursos" aria-expanded="false" aria-controls="collapseTwo">
           <i class="material-icons">&#xE145;</i> Cursos 
         </button>
       </h5>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+    <div id="collapse_Cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir" method="POST">
 
@@ -727,19 +878,21 @@
                     ?></label>
   			  </form>
 
-<!--  *******************************CLUB DE CONVERSACION***************************************** -->   			  	
       </div>
     </div>
   </div>
+
+  <!--  *******************************CLUB DE CONVERSACION***************************************** -->            
+
   <div class="card" >
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Club" aria-expanded="false" aria-controls="collapseThree">
           <i class="material-icons">&#xE145;</i> Club de Conversación 
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+    <div id="collapse_Club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir_club" method="POST">
             <div class="form-group">
@@ -814,12 +967,12 @@
    <div class="card" >
     <div class="card-header" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Galeria" aria-expanded="false" aria-controls="collapseFour">
           <i class="material-icons">&#xE145;</i> Galeria 
         </button>
       </h5>
     </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+    <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
         <!--        ecntype multipart/form-data -->
       	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data">
@@ -904,12 +1057,12 @@
   <div class="card" >
     <div class="card-header" id="headingFive">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_Contacto" aria-expanded="false" aria-controls="collapseFive">
          <i class="material-icons">&#xE145;</i> Contacto 
         </button>
       </h5>
     </div>
-    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+    <div id="collapse_Contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
           <div class="form-group">
@@ -1037,6 +1190,7 @@
  
   <script src="js\jquery.js"></script>
   <script src="js\popper.min.js"></script>
-  <script src="js\bootstrap.min.js"></script> 
+  <script src="js\bootstrap.min.js"></script>
+  <script src="js\sei.js"></script>  
   
 </html>

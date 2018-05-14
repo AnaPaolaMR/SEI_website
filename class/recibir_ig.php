@@ -13,10 +13,10 @@
 
 		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
 		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
-		$sql_1="UPDATE informacion_general SET info_ig='".$_POST["q_somos_info"]."', titulo_ig='".$_POST["q_somos_titulo"]."', img_ig='".$_POST["q_somos_img"]."', FK_id_usuario='$iduser' WHERE id_ig=100";
-		$sql_2="UPDATE informacion_general SET info_ig='".$_POST["mision_info"]."', titulo_ig='".$_POST["mision_titulo"]."', img_ig='".$_POST["mision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=101";
-		$sql_3="UPDATE informacion_general SET info_ig='".$_POST["vision_info"]."', titulo_ig='".$_POST["vision_titulo"]."', img_ig='".$_POST["vision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=102";
-		$sql_4="UPDATE informacion_general SET info_ig='".$_POST["historia_info"]."', titulo_ig='".$_POST["historia_titulo"]."', img_ig='".$_POST["historia_img"]."', FK_id_usuario='$iduser' WHERE id_ig=103";
+		$sql_1="UPDATE informacion_general SET info_ig='".$_POST["q_somos_info"]."', titulo_ig='".$_POST["q_somos_titulo"]."', img_ig='".$_POST["q_somos_img"]."', FK_id_usuario='$iduser' WHERE id_ig=1";
+		$sql_2="UPDATE informacion_general SET info_ig='".$_POST["mision_info"]."', titulo_ig='".$_POST["mision_titulo"]."', img_ig='".$_POST["mision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=2";
+		$sql_3="UPDATE informacion_general SET info_ig='".$_POST["vision_info"]."', titulo_ig='".$_POST["vision_titulo"]."', img_ig='".$_POST["vision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=3";
+		$sql_4="UPDATE informacion_general SET info_ig='".$_POST["historia_info"]."', titulo_ig='".$_POST["historia_titulo"]."', img_ig='".$_POST["historia_img"]."', FK_id_usuario='$iduser' WHERE id_ig=4";
 
 
 		//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)

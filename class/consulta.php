@@ -134,6 +134,27 @@
 			}
 
 		}
+
+		function recuperarFAQS($dato){
+			$host = "localhost";
+			$user = "root";
+			$pw = "";
+			$db = "sei_bd";
+
+			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+
+			$query = "SELECT * from informacion_general WHERE tipo_ig='faq'";
+
+			$resultado = mysqli_query($con, $query);
+
+			while($fila = mysqli_fetch_array($resultado)){
+
+			echo "<option>".$fila[$dato]."</option>";
+
+			}
+
+			mysqli_close($con);
+		}
 	}
 
 ?>

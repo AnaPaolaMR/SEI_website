@@ -260,6 +260,13 @@ ul{
 	display: none;
 }
 
+.list-group-item.active {
+  z-index: 2;
+  color: #fff;
+  background-color: #28a746;
+  border-color: #fff;
+}
+
 
 
 

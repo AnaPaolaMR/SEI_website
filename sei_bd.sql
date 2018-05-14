@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-05-2018 a las 02:07:56
--- Versión del servidor: 10.1.22-MariaDB
--- Versión de PHP: 7.1.4
+-- Tiempo de generación: 14-05-2018 a las 07:49:13
+-- Versión del servidor: 10.1.26-MariaDB
+-- Versión de PHP: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,14 +29,15 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `contacto` (
-  `id_contacto` int(3) DEFAULT NULL,
-  `telefono` varchar(20) DEFAULT NULL,
-  `celular` varchar(20) DEFAULT NULL,
-  `email_contacto` varchar(50) DEFAULT NULL,
-  `direccion_contacto` varchar(200) DEFAULT NULL,
-  `enlace_facebook` varchar(100) DEFAULT NULL,
-  `enlace_twitter` varchar(100) DEFAULT NULL,
-  `enlace_instagram` varchar(100) DEFAULT NULL,
+  `id_contacto` int(3) NOT NULL,
+  `telefono` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `email_contacto` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `direccion_contacto` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `enlace_facebook` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `enlace_twitter` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `enlace_instagram` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_mod_contacto` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FK_id_usuario` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -44,8 +45,8 @@ CREATE TABLE `contacto` (
 -- Volcado de datos para la tabla `contacto`
 --
 
-INSERT INTO `contacto` (`id_contacto`, `telefono`, `celular`, `email_contacto`, `direccion_contacto`, `enlace_facebook`, `enlace_twitter`, `enlace_instagram`, `FK_id_usuario`) VALUES
-(100, '2 22 10 19', '6621405180', 'anap_mirazo.ron@hotmail.com', 'Esperanza #1094 Col. Misioneros entre Rep. de Guatemala y Callejon Campillo', 'http://www.facebook.com/SmartEnglishInstituteSEI/', 'http://www.twitter.com/puppies', 'http://www.instagram.com/sei_smart', NULL);
+INSERT INTO `contacto` (`id_contacto`, `telefono`, `celular`, `email_contacto`, `direccion_contacto`, `enlace_facebook`, `enlace_twitter`, `enlace_instagram`, `fecha_mod_contacto`, `FK_id_usuario`) VALUES
+(100, '2 22 10 20', '6621405180', 'anap_mirazo.ron@hotmail.com', 'Esperanza #1094 Col. Misioneros entre Rep. de Guatemala y Callejon Campillo', 'http://www.facebook.com/SmartEnglishInstituteSEI/', 'http://www.twitter.com/puppies', 'http://www.instagram.com/sei_smart', '2018-05-14 01:44:22', 1);
 
 -- --------------------------------------------------------
 
@@ -55,11 +56,11 @@ INSERT INTO `contacto` (`id_contacto`, `telefono`, `celular`, `email_contacto`, 
 
 CREATE TABLE `cursos` (
   `id_curso` int(3) NOT NULL,
-  `tipo_curso` varchar(20) NOT NULL,
-  `titulo_curso` varchar(20) NOT NULL,
-  `info_curso` varchar(1500) NOT NULL,
-  `video_curso` varchar(300) NOT NULL,
-  `fecha_mod_curso` date DEFAULT NULL,
+  `tipo_curso` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `titulo_curso` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `info_curso` varchar(1500) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `video_curso` varchar(300) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_mod_curso` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FK_id_usuario` int(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,11 +69,11 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id_curso`, `tipo_curso`, `titulo_curso`, `info_curso`, `video_curso`, `fecha_mod_curso`, `FK_id_usuario`) VALUES
-(100, 'regular', 'Titulo Regular', 'InformaciÃ³n del curso regular.', 'https://streamable.com/s/nkxrz/htjijg', NULL, NULL),
-(101, 'semestral', 'Titulo Semestral', 'InformaciÃ³n del curso semestral.', 'https://streamable.com/s/nkxrz/htjijg', NULL, NULL),
-(102, 'sabatino', 'Este es un titulo de', 'Esta es informaciÃ³n de prueba.', 'https://streamable.com/s/nkxrz/htjijg', NULL, NULL),
-(103, 'verano', 'Titulo Verano', 'InformaciÃ³n del curso de verano.', 'https://streamable.com/s/nkxrz/htjijg', NULL, NULL),
-(104, 'club', 'Titulo Club Conversa', 'Esta es informaciÃ³n de prueba, con comentarios prueba para verificar la correcta \r\nfuncionalidad de las cosas.', 'https://streamable.com/s/nkxrz/htjijg', NULL, NULL);
+(100, 'regular', 'Titulo Regular ', 'Información del curso regular.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-14 01:43:59', 1),
+(101, 'semestral', 'Titulo Semestral', 'Información del curso semestral.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-14 01:24:59', 1),
+(102, 'sabatino', 'Este es un titulo de', 'Esta es información de prueba.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-14 01:24:59', 1),
+(103, 'verano', 'Titulo Verano', 'Información del curso de verano.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-14 01:24:59', 1),
+(104, 'club', 'Titulo Club Conversa', 'Esta es información de prueba, con comentarios prueba para verificar la correcta \r\nfuncionalidad de las cosas.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-14 01:43:24', 1);
 
 -- --------------------------------------------------------
 
@@ -82,9 +83,9 @@ INSERT INTO `cursos` (`id_curso`, `tipo_curso`, `titulo_curso`, `info_curso`, `v
 
 CREATE TABLE `galeria` (
   `id_foto` int(4) NOT NULL,
-  `categoria_foto` varchar(20) NOT NULL,
-  `nombre_foto` varchar(100) NOT NULL,
-  `descripcion_foto` text,
+  `categoria_foto` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `nombre_foto` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion_foto` text CHARACTER SET utf8 COLLATE utf8_spanish_ci,
   `fecha_mod_foto` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FK_id_usuario` int(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -94,7 +95,11 @@ CREATE TABLE `galeria` (
 --
 
 INSERT INTO `galeria` (`id_foto`, `categoria_foto`, `nombre_foto`, `descripcion_foto`, `fecha_mod_foto`, `FK_id_usuario`) VALUES
-(20, 'Cuadro_de_Honor', 'dolly (2).png', 'subir y probar otra vez', '2018-05-12 23:59:41', 0);
+(20, 'Cuadro_de_Honor', 'dolly (2).png', 'subir y probar otra vez', '2018-05-12 23:59:41', 0),
+(26, 'Eventos_Especiales', 'fondo_1.png', 'Led Zeppelin', '2018-05-14 00:29:53', 0),
+(27, 'Eventos_Especiales', 'historia.jpg', 'Led Zeppelin', '2018-05-14 00:30:33', 0),
+(28, 'Eventos_Especiales', '5d803c3e-e306-4384-ba0a-875790bce0b3.jpg', 'Algo Comun', '2018-05-14 00:32:20', 0),
+(29, 'Cuadro_de_Honor', '148840-30921-j-jonah-jameson.jpg', 'Jameson', '2018-05-14 00:41:09', 0);
 
 -- --------------------------------------------------------
 
@@ -103,24 +108,26 @@ INSERT INTO `galeria` (`id_foto`, `categoria_foto`, `nombre_foto`, `descripcion_
 --
 
 CREATE TABLE `informacion_general` (
-  `id_ig` int(3) DEFAULT NULL,
-  `tipo_ig` varchar(30) DEFAULT NULL,
-  `titulo_ig` varchar(100) DEFAULT NULL,
-  `info_ig` varchar(2000) DEFAULT NULL,
-  `img_ig` varchar(100) DEFAULT NULL,
-  `fecha_mod_ig` date DEFAULT NULL,
+  `id_ig` int(3) NOT NULL,
+  `tipo_ig` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `titulo_ig` varchar(200) DEFAULT NULL,
+  `info_ig` varchar(2000) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `img_ig` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `fecha_mod_ig` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FK_id_usuario` int(3) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `informacion_general`
 --
 
 INSERT INTO `informacion_general` (`id_ig`, `tipo_ig`, `titulo_ig`, `info_ig`, `img_ig`, `fecha_mod_ig`, `FK_id_usuario`) VALUES
-(100, 'quienes somos', 'Â¿QuiÃ©nes somos?', 'Somos una instituciÃ³n enfocada a capacitar en excelencia a personas de todas las edades en el desarrollo comunicativo del idioma inglÃ©s.\r\n\r\nA lo largo de 19 aÃ±os hemos obtenido muy buenos resultados, evidentes y eficaces, en el progreso de las cuatro destrezas bÃ¡sicas del idioma, formando a nuestros alumnos para que alcancen altos estÃ¡ndares en las habilidades auditivas, orales escritas, y de comprensiÃ³n de lectura.\r\n\r\nHoy en dÃ­a seguimos contando con la preferencia de nuestros alumnos y la recomendaciÃ³n de muchos de nuestros egresados. Asimismo contamos con la oportunidad de poner cada vez el inglÃ©s al alcance de mÃ¡s personas.', 'logo.png', NULL, NULL),
-(101, 'mision', 'MisiÃ³n', 'Nuestra instituciÃ³n tiene como principal objetivo desarrollar las habilidades lingÃ¼Ã­sticas de nuestros alumnos proporcionÃ¡ndoles las herramientas necesarias del idioma inglÃ©s a travÃ©s de una educaciÃ³n de alta calidad para que alcancen un nivel comunicativo Ã³ptimo en todas las Ã¡reas del lenguaje.', '', NULL, NULL),
-(102, 'vision', 'VisiÃ³n', 'A travÃ©s de nuestros esfuerzos y acciones pretendemos potenciar las capacidades de nuestros alumnos, donde ellos sientan el respaldo sÃ³lido que les proporcione la seguridad y confianza de un equipo de trabajo de primer nivel. AsÃ­ mismo elevar nuestros estÃ¡ndares educativos hasta alcanzar el prestigio de una instituciÃ³n consolidada, donde sean nuestros egresados bilingÃ¼es incorporados al sector productivo nuestra principal carta de recomendaciÃ³n.', '', NULL, NULL),
-(103, 'historia', 'Historia', 'Smart English institute fue fundada el 4 de febrero de 1999 con la finalidad de impartir asesorÃ­as y clases grupales que faciliten el aprendizaje del idioma inglÃ©s. Desde entonces a la fecha hemos recibido niÃ±os, jÃ³venes y adultos que se han interesado en asimilar o mejorar sus capacidades en el idioma.\r\n\r\nHoy en dÃ­a, estamos ofreciendo clases presenciales en un ambiente agradable y sencillo donde los alumnos sientan la confianza y vean el avance constante de sus destrezas comunicativas. Impulsamos de forma continua las habilidades del idioma tanto orales como escritas, es decir nuestros cursos estÃ¡n diseÃ±ados para que paso a paso el alumno pueda en inglÃ©s hablar, entender lo que escucha, escribir, y leer comprendiendo la lectura.', 'historia.jpg', NULL, NULL);
+(1, 'quienes somos', 'Â¿QuiÃ©nes somos? ', 'Informaci??n de SEI.', 'logo.png', '2018-05-14 05:22:57', 1),
+(2, 'mision', 'MisiÃ³n', 'Misi??n de SEI.', '', '2018-05-14 05:22:57', 1),
+(3, 'vision', 'VisiÃ³n', 'Visi??n de SEI.', '', '2018-05-14 05:22:57', 1),
+(4, 'historia', 'Historia', 'Historia de SEI.', 'historia.jpg', '2018-05-14 05:22:57', 1),
+(120, 'faq', 'Â¿Hay inscripciones abiertas todo el aÃ±o?', 'No, a caga vieja.', NULL, '2018-05-14 05:45:06', 1),
+(121, 'faq', 'Hola', 'xd', NULL, '2018-05-14 05:45:53', 1);
 
 -- --------------------------------------------------------
 
@@ -130,11 +137,11 @@ INSERT INTO `informacion_general` (`id_ig`, `tipo_ig`, `titulo_ig`, `info_ig`, `
 
 CREATE TABLE `usuario` (
   `id_usuario` int(3) NOT NULL,
-  `nombre` varchar(100) DEFAULT NULL,
-  `nickname` varchar(50) NOT NULL,
-  `contrasena` varchar(100) DEFAULT NULL,
-  `img_usuario` varchar(10) DEFAULT 'Sin imagen',
-  `tipo_usuario` varchar(30) DEFAULT NULL
+  `nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `nickname` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `contrasena` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `img_usuario` varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'Sin imagen',
+  `tipo_usuario` varchar(30) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -142,11 +149,19 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `nickname`, `contrasena`, `img_usuario`, `tipo_usuario`) VALUES
-(2, 'Paola', 'paola', '456', '', 'estandar');
+(1, 'Francisco Martinez', 'franco', 'franco', 'Sin imagen', 'admin'),
+(2, 'Paola', 'paola', '456', '', 'estandar'),
+(3, 'Luis', 'luis', '12345678', '', 'admin');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `contacto`
+--
+ALTER TABLE `contacto`
+  ADD PRIMARY KEY (`id_contacto`);
 
 --
 -- Indices de la tabla `cursos`
@@ -159,6 +174,12 @@ ALTER TABLE `cursos`
 --
 ALTER TABLE `galeria`
   ADD PRIMARY KEY (`id_foto`);
+
+--
+-- Indices de la tabla `informacion_general`
+--
+ALTER TABLE `informacion_general`
+  ADD PRIMARY KEY (`id_ig`);
 
 --
 -- Indices de la tabla `usuario`
@@ -174,12 +195,20 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT de la tabla `informacion_general`
+--
+ALTER TABLE `informacion_general`
+  MODIFY `id_ig` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=122;
+
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;COMMIT;
+  MODIFY `id_usuario` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
