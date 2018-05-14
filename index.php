@@ -46,6 +46,28 @@
 
 					<!-- Modals -->
 					<div class="text">
+						<div class="modal fade" id="mostrarmodal">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header modal-header-custom">
+										<h1>Bienvenido</h1>
+									</div>
+									<div class="modal-body">
+										<p>
+											<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
+										</p>	
+												    				
+								</div>
+											<div class="modal-footer">
+									<button type="button" class="btn btn-outline-success" data-dismiss="modal" href="index">Cerrar</button>
+								</div>
+							</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
 						    		<div class="modal-content">
@@ -367,7 +389,12 @@
 	<footer class="container">
 		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
-
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#mostrarmodal").modal("show");
+        });
+	</script>
 	<script src="js\jquery.js"></script>
 	<script src="js\popper.min.js"></script>
 	<script src="js\bootstrap.min.js"></script> 
