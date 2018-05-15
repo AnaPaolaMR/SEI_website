@@ -19,7 +19,7 @@
 		$categoria = $_POST['categoria'];
 		$descripcion = $_POST['descripcion'];
 
-		if (isset($_FILES['valor_imagen'])) {
+		if (isset($_FILES['valor_imagen'])){
 			$cantidad = count($_FILES['valor_imagen']['tmp_name']);
 			echo "cantidad: $cantidad";
 
@@ -56,16 +56,7 @@
 							//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
 							$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database');
 
-							if ($profile=='admin'){
-								mysqli_close($con);
-								$objses->set('msg', '4');
-								header("location: ../admin");
-							}
-							else{
-								mysqli_close($con);
-								$objses->set('msg', '4');
-								header("location: ../estandar");
-							}
+							
 						//Error en el tamaño de imagen
 						}else{
 							if ($profile=='admin'){
@@ -108,6 +99,17 @@
 				}
 			}
 			
+		}
+
+		//Una vez subidos las imagenes correctamente...
+		if ($profile=='admin'){
+			mysqli_close($con);
+			$objses->set('msg', '4');
+			header("location: ../admin");
+		}else{
+			mysqli_close($con);
+			$objses->set('msg', '4');
+			header("location: ../estandar");
 		}
 	}
 
