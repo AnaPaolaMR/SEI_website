@@ -926,7 +926,7 @@ function showFAQ(str) {
 
                         <div class="input-group">
                             <select class="custom-select" id="inputGroupSelect01" name="categoria">
-                                <option selected>Escoja...</option>
+                                <option selected disabled>Escoja...</option>
                                 <option value="Graduados">Graduados</option>
                                 <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                 <option value="Eventos_Especiales">Eventos Especiales</option>
@@ -938,7 +938,7 @@ function showFAQ(str) {
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen" required="">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]">
                         </div>
                     </div>
                 </div>

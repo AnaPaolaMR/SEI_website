@@ -51,6 +51,18 @@
         echo "<script type='text/javascript'>alert('Error: Esta pregunta ya existe');</script>";
         $objses->set('error', '0');
         break;
+      case 9:
+        echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb');</script>";
+        $objses->set('error', '0');
+        break;
+      case 10:
+        echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
+        $objses->set('error', '0');
+        break;
+      case 11:
+        echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez');</script>";
+        $objses->set('error', '0');
+        break;
 }     
 
   switch ($mensaje) {
@@ -1092,7 +1104,7 @@ function showFAQ(str) {
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG" multiple="true" name="valor_imagen[]">
                         </div>
                     </div>
                 </div>
