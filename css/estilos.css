@@ -1,48 +1,5 @@
-/*
 body{
-  background:url(Darker.png) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body{
-  background:url(fondo_1.png) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
- 
-body{
-  background:url(fondo_2.jpg) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body{
-  background:url(fondo_3.jpg) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body{
-  background:url(fondo_4.jpg) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-body{
-  background:url(fondo_5.png) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-body{
-  background:url(fondo_6.jpg) fixed center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-*/
-
-body{
-  background:url(../img/fondo_bandera.jpg) fixed center;
+  background:url(../img/zoomchido.png) fixed center;
   background-repeat: no-repeat;
   background-size: cover;
 }
