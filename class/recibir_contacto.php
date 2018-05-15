@@ -5,6 +5,7 @@
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 	$iduser = isset($_SESSION['iduser']) ? $_SESSION['iduser'] : null ;
+	$profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 	
 	if($user == ''){
 	  header('Location: 403/');
@@ -19,9 +20,16 @@
 		$resultado_1=mysqli_query($con, $sql_1) or die ('Error en el query database 1');
 
 		//cierra la conexion
-		mysqli_close($con);
-		$objses->set('msg', '4');
-		header("location: ../admin");
+		if ($profile=='admin'){
+			mysqli_close($con);
+			$objses->set('msg', '4');
+			header("location: ../admin");
+		}
+		else{
+			mysqli_close($con);
+			$objses->set('msg', '4');
+			header("location: ../estandar");
+		}
 	} 
 
 

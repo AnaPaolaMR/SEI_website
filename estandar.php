@@ -3,8 +3,8 @@
 	$objses = new Sessions();
 	$objses->init();
 
-  $err = isset($_GET['error']) ? $_GET['error'] : null ;
-  $mensaje = isset($_GET['msg']) ? $_GET['msg'] : null ;
+  $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
+  $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
@@ -18,33 +18,128 @@
     header('Location: admin');
   }
 
-  if($err==1){
-     echo "<script type='text/javascript'>alert('Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
-     $objses->set('error', '0');
-  }
+  switch ($err) {
+    case 1:
+        echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
+        $objses->set('error', '0');
+        break;
+    case 2:
+        echo "<script type='text/javascript'>alert('Error: El nickname de usuario elegido ya existe');</script>";
+        $objses->set('error', '0');
+        break;
+      case 3:
+        echo "<script type='text/javascript'>alert('Error: No se puede eliminar el usuario por que es el unico administrador');</script>";
+        $objses->set('error', '0');
+        break;
+      case 4:
+        echo "<script type='text/javascript'>alert('Error: La contraseña debe ser minimo de 8 digitos');</script>";
+        $objses->set('error', '0');
+        break;
+      case 5:
+        echo "<script type='text/javascript'>alert('Error: No hay usuarios que puedan ser eliminados');</script>";
+        $objses->set('error', '0');
+        break;
+      case 6:
+        echo "<script type='text/javascript'>alert('Error: Debe seleccionar la casilla donde acepta estar de acuerdo en eliminar este usuario');</script>";
+        $objses->set('error', '0');
+        break;
+      case 7:
+        echo "<script type='text/javascript'>alert('Error: Elija una pregunta para eliminar');</script>";
+        $objses->set('error', '0');
+        break;
+      case 8:
+        echo "<script type='text/javascript'>alert('Error: Esta pregunta ya existe');</script>";
+        $objses->set('error', '0');
+        break;
+      case 9:
+        echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb');</script>";
+        $objses->set('error', '0');
+        break;
+      case 10:
+        echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
+        $objses->set('error', '0');
+        break;
+      case 11:
+        echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez');</script>";
+        $objses->set('error', '0');
+        break;
 
-  if($err==2){
-     echo "<script type='text/javascript'>alert('El nickname de usuario elegido ya existe');</script>";
-     $objses->set('error', '0');
-  }
+}     
 
-  if($err==3){
-     echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 10Mb');</script>";
-  }
-
-  if ($err==4) {
-    echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
-  }
-  if ($err==5) {
-    echo "<script type='text/javascript'>alert('Error: Solo se pueden subir máximo 10 imagenes a la vez.');</script>";
-  }
-
-  if($mensaje==2){
-     echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
-     $objses->set('msg', '0');
-  }
-      
+  switch ($mensaje) {
+    case 1:
+        echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
+        $objses->set('msg', '0');
+        break;
+    case 2:
+        echo "<script type='text/javascript'>alert('Usuario modificado con exito');</script>";
+        $objses->set('msg', '0');
+        break;
+    case 3:
+        echo "<script type='text/javascript'>alert('Usuario eliminado con exito');</script>";
+        $objses->set('msg', '0');
+        break;
+    case 4:
+      echo "<script type='text/javascript'>alert('Los cambios se guardaron correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
+    case 5:
+      echo "<script type='text/javascript'>alert('La pregunta se elimino correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
+    case 6:
+      echo "<script type='text/javascript'>alert('La pregunta se guardo correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
+}
+     
 ?>
+
+<script>
+function showFAQ(str) {
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint").value = "";
+        document.getElementById("txtHint_2").value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_titulo_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint_2").value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint_2").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_info_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
+</script>
 
 <!doctype html>
 <html lang="en">
@@ -153,7 +248,7 @@
                                           </div>
 
                                           <div class="modal-footer">
-                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">Guardar</button>
+                                            <button type="submit" class="btn btn-success text-right text-guardar">Guardar</button>
                                             <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
                                           </div>
                                       </form>
@@ -328,12 +423,12 @@
           </div>
           
           <!-- Boton de guardar -->
-          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_curso">
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_ig">
             Guardar
           </button>
 
           <!-- Modal activado por el boton "Guardar"-->
-          <div class="modal fade" id="guardar_curso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="guardar_ig" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -363,6 +458,178 @@
                     ?></label>
         </form>
 
+      </div>
+    </div>
+  </div>
+
+  <!-- **********************FAQS********************** -->
+
+  <div class="card" >
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_FAQS" aria-expanded="false" aria-controls="collapseTwo">
+          <i class="material-icons">&#xE145;</i> Preguntas Frecuentes 
+        </button>
+      </h5>
+    </div>
+    <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" data-toggle="list" href="#agregar_faq" role="tab" aria-controls="home">Agregar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#modificar_faq" role="tab" aria-controls="profile">Modificar Pregunta</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_faq" role="tab" aria-controls="messages">Eliminar Pregunta</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
+
+                <form action="class/recibir_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Agregar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <input class="form-control" type="text" name="faq" required>
+
+                    <label>Respuesta</label>
+                    <textarea class="form-control" row="3" name="faq_respuesta" required></textarea>
+
+                  </div>
+
+                  <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
+
+                  <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <input type="button" value="Cancelar" class="btn btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
+
+                </form>
+            </div>
+              <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
+
+                <form action="class/recibir_config_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Modificar Pregunta</h5><br>
+                    
+                    <select class="form-control" type="text" name="faq_titulo" onchange="showFAQ(this.value)">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('titulo_ig');?></select><br>
+
+                    <label>Pregunta</label>
+                    <textarea class="form-control" id="txtHint" rows="1" name="faq_mod_titulo"></textarea><br>
+
+                    <label>Respuesta</label>
+                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info"></textarea><br>
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Modificar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas guardar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+
+              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
+                <form action="class/eliminar_faq" method="POST">
+                  <div class="form-group">
+                    <h5>Eliminar Pregunta</h5><br>
+                    
+                    <label>Pregunta</label>
+                    <select class="form-control" type="text" name="faq_eliminar">
+                    <option>Elija una pregunta</option>
+                    <?php
+
+                      $obj = new consultas();
+                      $obj->recuperarFAQS('titulo_ig');?></select><br>
+
+                    <label>Contraseña Actual*</label>
+                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
+                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small><br>
+
+
+                    <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
+
+                  </div>
+
+                
+
+                  <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header modal-header-custom">
+                          <h5 class="modal-title" id="exampleModalLabel">Eliminar Pregunta</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          ¿Estas seguro de que deseas eliminar esta pregunta?
+                        </div>
+                        <div class="modal-footer">
+
+                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                          
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -658,20 +925,20 @@
                         </div>
 
                         <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required="true">
-                                <option disabled selected>Escoja...</option>
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria">
+                                <option selected>Escoja...</option>
                                 <option value="Graduados">Graduados</option>
                                 <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                 <option value="Eventos_Especiales">Eventos Especiales</option>
                                 <option value="Otros">Otros</option>
                             </select>
                         </div>
+                        
                     </div>
                     <div class="mb-3 col-md-3">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <!-- $tipo_imagen == "image/jpeg" -->
-                            <input type="file" required="true" name="valor_imagen[]" class="form-control-file" accept=".jpeg, .jpg, .png, .PNG, .JPEG, .JPG" id="exampleFormControlFile1"  multiple="multiple">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg" multiple="true" name="valor_imagen" required="">
                         </div>
                     </div>
                 </div>
