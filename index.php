@@ -46,7 +46,7 @@
 
 					<!-- Modals -->
 					<div class="text">
-						<div class="modal fade" id="mostrarmodal">
+						<div class="modal fade" id="load">
 							<div class="modal-dialog modal-dialog-centered">
 								<div class="modal-content">
 									<!--<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
@@ -388,14 +388,17 @@
 	</footer>
     <!--Scripts para auto mostrar modal de presentación-->
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#mostrarmodal").modal("show");
+    <script type="text/javascript">
+    	seassonStorage.setItem('loader','false');
+        if (sessionStorage.getItem('loader') !=='true'); {
+        	$(document).ready(function () {
+            $("#load").modal("show");
 
-		setTimeout(function() {
-		    $('#mostrarmodal').modal('hide');
-		}, 6000);
-        });
+			setTimeout(function() {
+			    $('#load').modal('hide');
+			}, 6000);
+	        });}
+	        seassonStorage.setItem('loader','true');
 	</script>
 	<script src="js\jquery.js"></script>
 	<script src="js\popper.min.js"></script>
