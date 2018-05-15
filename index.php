@@ -394,7 +394,7 @@
 
 		setTimeout(function() {
 		    $('#mostrarmodal').modal('hide');
-		}, 8000);
+		}, 6000);
         });
 	</script>
 	<script src="js\jquery.js"></script>
@@ -402,5 +402,3 @@
 	<script src="js\bootstrap.min.js"></script> 
 </body>
 </html>
-
-

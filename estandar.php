@@ -29,11 +29,14 @@
   }
 
   if($err==3){
-     echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb');</script>";
+     echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 10Mb');</script>";
   }
 
   if ($err==4) {
     echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
+  }
+  if ($err==5) {
+    echo "<script type='text/javascript'>alert('Error: Solo se pueden subir máximo 10 imagenes a la vez.');</script>";
   }
 
   if($mensaje==2){
@@ -655,8 +658,8 @@
                         </div>
 
                         <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect01" name="categoria">
-                                <option selected>Escoja...</option>
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required="true">
+                                <option disabled selected>Escoja...</option>
                                 <option value="Graduados">Graduados</option>
                                 <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                 <option value="Eventos_Especiales">Eventos Especiales</option>
@@ -668,7 +671,7 @@
                         <div>
                             <label>Seleccione Imagen</label>
                             <!-- $tipo_imagen == "image/jpeg" -->
-                            <input type="file" class="form-control-file" accept=".jpeg, .jpg, .png, .PNG, .JPEG, .JPG" id="exampleFormControlFile1"  multiple="true" name="valor_imagen">
+                            <input type="file" required="true" name="valor_imagen[]" class="form-control-file" accept=".jpeg, .jpg, .png, .PNG, .JPEG, .JPG" id="exampleFormControlFile1"  multiple="multiple">
                         </div>
                     </div>
                 </div>
