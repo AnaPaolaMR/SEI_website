@@ -43,6 +43,14 @@
         echo "<script type='text/javascript'>alert('Error: Debe seleccionar la casilla donde acepta estar de acuerdo en eliminar este usuario');</script>";
         $objses->set('error', '0');
         break;
+      case 7:
+        echo "<script type='text/javascript'>alert('Error: Elija una pregunta para eliminar');</script>";
+        $objses->set('error', '0');
+        break;
+      case 8:
+        echo "<script type='text/javascript'>alert('Error: Esta pregunta ya existe');</script>";
+        $objses->set('error', '0');
+        break;
 }     
 
   switch ($mensaje) {
@@ -58,17 +66,27 @@
         echo "<script type='text/javascript'>alert('Usuario eliminado con exito');</script>";
         $objses->set('msg', '0');
         break;
-      case 4:
-        echo "<script type='text/javascript'>alert('Los cambios se guardaron correctamente');</script>";
-        $objses->set('msg', '0');
-        break;
+    case 4:
+      echo "<script type='text/javascript'>alert('Los cambios se guardaron correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
+    case 5:
+      echo "<script type='text/javascript'>alert('La pregunta se elimino correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
+    case 6:
+      echo "<script type='text/javascript'>alert('La pregunta se guardo correctamente');</script>";
+      $objses->set('msg', '0');
+      break;
 }     
 ?>
 
 <script>
 function showFAQ(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint").value = "";
+        document.getElementById("txtHint_2").value = "";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -80,10 +98,30 @@ function showFAQ(str) {
         }
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
+                document.getElementById("txtHint").value = this.responseText;
             }
         };
-        xmlhttp.open("GET","../class/get_faq.php?q="+str,true);
+        xmlhttp.open("GET","../class/get_titulo_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint_2").value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint_2").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_info_faq.php?q="+str,true);
         xmlhttp.send();
     }
 }
@@ -633,19 +671,22 @@ function showFAQ(str) {
             </div>
               <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
 
-                <form>
+                <form action="class/recibir_config_faq" method="POST">
                   <div class="form-group">
                     <h5>Modificar Pregunta</h5><br>
                     
-                    <label>Pregunta</label>
-                    <select class="form-control" type="text" onchange="showFAQ(this.value)">
+                    <select class="form-control" type="text" name="faq_titulo" onchange="showFAQ(this.value)">
                     <option>Elija una pregunta</option>
                     <?php
 
                       $obj = new consultas();
-                      $obj->recuperarFAQS('id_ig');?></select><br>
+                      $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <textarea class="form-control" id="txtHint"></textarea><br>
+                    <label>Pregunta</label>
+                    <textarea class="form-control" id="txtHint" rows="1" name="faq_mod_titulo"></textarea><br>
+
+                    <label>Respuesta</label>
+                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -690,7 +731,7 @@ function showFAQ(str) {
                     <?php
 
                       $obj = new consultas();
-                      $obj->recuperarFAQS('id_ig');?></select><br>
+                      $obj->recuperarFAQS('titulo_ig');?></select><br>
 
                     <label>Contraseña Actual*</label>
                     <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
@@ -1243,6 +1284,5 @@ function showFAQ(str) {
   <script src="js\jquery.js"></script>
   <script src="js\popper.min.js"></script>
   <script src="js\bootstrap.min.js"></script>
-  <script src="js\sei.js"></script>  
   
 </html>
