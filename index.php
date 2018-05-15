@@ -19,7 +19,7 @@
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
-					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
+					<a href="index"><img class="img-fluid" src="img/logo2.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
@@ -45,6 +45,25 @@
 					</div>
 
 					<!-- Modals -->
+					<div class="text">
+						<div class="modal fade" id="load">
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<!--<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
+											<div class="embed-responsive embed-responsive-16by9">
+  												<iframe class="embed-responsive-item" src="intro.mp4" allowfullscreen = "false"></iframe>
+											</div>-->
+
+											<video autoplay="autoplay">
+												<source src="intro.mp4" type="video/mp4" />
+											</video>
+											
+								</div>
+
+							</div>
+						</div>
+					</div>
+
 					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
@@ -367,11 +386,22 @@
 	<footer class="container">
 		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
+    <!--Scripts para auto mostrar modal de presentación-->
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    	seassonStorage.setItem('loader','false');
+        if (sessionStorage.getItem('loader') !=='true'); {
+        	$(document).ready(function () {
+            $("#load").modal("show");
 
+			setTimeout(function() {
+			    $('#load').modal('hide');
+			}, 6000);
+	        });}
+	        seassonStorage.setItem('loader','true');
+	</script>
 	<script src="js\jquery.js"></script>
 	<script src="js\popper.min.js"></script>
 	<script src="js\bootstrap.min.js"></script> 
 </body>
 </html>
-
-
