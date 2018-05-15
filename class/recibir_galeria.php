@@ -6,7 +6,7 @@
 		$categoria = $_POST['categoria'];
 		$descripcion = $_POST['descripcion'];
 
-		if (isset($_FILES['valor_imagen'])) {
+		if (isset($_FILES['valor_imagen']) ) {
 			$cantidad = count($_FILES['valor_imagen']['tmp_name']);
 			echo "cantidad: $cantidad";
 
@@ -50,13 +50,13 @@
 							echo "Fallo 2: Error de tamaño de imagen";
 							//cierra la conexion
 							mysqli_close($con);
-							//header("location: ../estandar?error=3");
+							header("location: ../estandar?error=3");
 						}
 					}else{
 						echo "Fallo 1: Error en el tipo de archivo";
 						//cierra la conexion
 						mysqli_close($con);
-						//header("location: ../estandar?error=4");
+						header("location: ../estandar?error=4");
 
 					}
 				}
@@ -64,7 +64,7 @@
 				echo "Fallo 3: Error en la canitdad de imagenes soportadas";
 				//cierra conexion
 					mysqli_close($con);
-					//header("location: ../estandar?error=5");
+					header("location: ../estandar?error=5");
 			}
 			
 		}
