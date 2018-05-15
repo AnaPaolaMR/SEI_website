@@ -61,7 +61,7 @@
 					}
 				}
 			}else{
-				echo "Fallo 3: Error en la canitdad de imagenes soportadas";
+				echo "Fallo 3: Error en la cantidad de imagenes soportadas";
 				//cierra conexion
 					mysqli_close($con);
 					header("location: ../estandar?error=5");
