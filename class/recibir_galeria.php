@@ -1,4 +1,17 @@
 <?php
+
+	require'sessions.php';
+	$objses = new Sessions();
+	$objses->init();
+
+	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+	$iduser = isset($_SESSION['iduser']) ? $_SESSION['iduser'] : null ;
+	$profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
+
+	if($user == ''){
+	  header('Location: 403/');
+	}
+	else{
 		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
 		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
 
@@ -32,25 +45,52 @@
 
 				//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
 				$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database ');
+				
 				//cierra la conexion
-				mysqli_close($con);
-				header("location: ../estandar");
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('msg', '4');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('msg', '4');
+					header("location: ../estandar");
+				}
 
 			}else{
 				//cierra la conexion
 				mysqli_close($con);
 				header("location: ../estandar?error=4");
+
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '10');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '10');
+					header("location: ../estandar");
+				}
 			}
 
 			
 		}else{
 			//cierra la conexion
-			mysqli_close($con);
-			header("location: ../estandar?error=3");
+			if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '9');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '9');
+					header("location: ../estandar");
+				}
 
 		}
+	}
 		
-		//cierra la conexion
-		mysqli_close($con);
 
  ?>

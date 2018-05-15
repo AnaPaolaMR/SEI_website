@@ -5,6 +5,7 @@
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 	$iduser = isset($_SESSION['iduser']) ? $_SESSION['iduser'] : null ;
+	$profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
 	if($user == ''){
 	  header('Location: 403/');
@@ -23,29 +24,50 @@
 
 		if ($fila_validacion["contrasena"] != ""){
 
-			if ($_POST["faq_eliminar"] != ""){
+			if ($_POST["faq_eliminar"] != "Elija una pregunta"){
 
-				$sql="DELETE from informacion_general WHERE id_ig='".$_POST["faq_eliminar"]."'";
+				$sql="DELETE from informacion_general WHERE titulo_ig='".$_POST["faq_eliminar"]."'";
 
 				//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
 				$resultado_1 = mysqli_query($con, $sql) or die ('Error en el query');
 
 				//cierra la conexion
-				mysqli_close($con);
-				$objses->set('msg', '3');
-				header("location:../admin"); 
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('msg', '5');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('msg', '5');
+					header("location: ../estandar");
+				} 
 			}
 			else{
-				mysqli_close($con);
-				$objses->set('error', '5');
-				header("location:../admin"); 
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '7');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '7');
+					header("location: ../estandar");
+				} 
 			}
 
 			}
 		else {
-			mysqli_close($con);
-			$objses->set('error', '1');
-			header("location:../admin");
+			if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '1');
+					header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '1');
+					header("location: ../estandar");
+				}
 		}
 		
 	}
