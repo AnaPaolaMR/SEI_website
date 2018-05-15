@@ -1080,7 +1080,7 @@ function showFAQ(str) {
     <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
         <!--        ecntype multipart/form-data -->
-      	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data">
+      	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
 
             <div class="container-fluid">
                 
@@ -1091,7 +1091,7 @@ function showFAQ(str) {
                         </div>
 
                         <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect01" name="categoria">
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
                                 <option selected disabled>Escoja...</option>
                                 <option value="Graduados">Graduados</option>
                                 <option value="Cuadro_de_Honor">Cuadro de Honor</option>
@@ -1101,10 +1101,13 @@ function showFAQ(str) {
                         </div>
                         
                     </div>
-                    <div class="mb-3 col-md-3">
+                    <div class="mb-3 col-md-4">
                         <div>
                             <label>Seleccione Imagen</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG" multiple="true" name="valor_imagen[]">
+                            <input required type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG" multiple="true" name="valor_imagen[]">
+                            <small class="form-text text-muted">
+                                  Máximo 10 imagenes por carga, formatos : .jpg, .jpeg o .png.
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -1113,7 +1116,7 @@ function showFAQ(str) {
                     <div class="form-group col-md-7">
                         <label>Descripcion</label>
                             <div class="input-text">
-                                <textarea class="form-control" name="descripcion"></textarea>
+                                <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                             </div>
                     </div>
                 </div>
@@ -1144,7 +1147,9 @@ function showFAQ(str) {
                     <div class="modal-footer">
 
                       <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
-                      <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                      <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
+                        Cancelar
+                        </button>
                       
                     </div>
                   </div>
