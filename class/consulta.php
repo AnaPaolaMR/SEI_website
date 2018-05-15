@@ -155,6 +155,38 @@
 
 			mysqli_close($con);
 		}
+
+		function recuperarFAQS_menu(){
+			$host = "localhost";
+			$user = "root";
+			$pw = "";
+			$db = "sei_bd";
+
+			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+
+			$query = "SELECT * from informacion_general WHERE tipo_ig='faq'";
+
+			$resultado = mysqli_query($con, $query);
+
+			$a=0;
+
+			while($fila = mysqli_fetch_array($resultado)){
+			$a++;
+			echo "<p>
+						<a class='b1 btn btn-block btn-outline-success no-border' data-toggle='collapse' href='#collapse".$a."' role='button' aria-expanded='false' aria-controls='collapseExample'>
+						".$fila["titulo_ig"]."
+						</a>
+				</p>
+					<div class='collapse' id='collapse".$a."'>
+					  <div class='card card-body'>
+					    ".$fila["info_ig"]."
+					  </div>
+					</div>";
+
+			}
+
+			mysqli_close($con);
+		}
 	}
 
 ?>
