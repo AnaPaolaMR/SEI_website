@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2018 a las 00:36:00
+-- Tiempo de generación: 16-05-2018 a las 06:55:26
 -- Versión del servidor: 10.1.26-MariaDB
 -- Versión de PHP: 7.1.9
 
@@ -33,7 +33,7 @@ CREATE TABLE `contacto` (
   `telefono` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `celular` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `email_contacto` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `direccion_contacto` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
+  `direccion_contacto` varchar(1000) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `enlace_facebook` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `enlace_twitter` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
   `enlace_instagram` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -58,7 +58,7 @@ CREATE TABLE `cursos` (
   `id_curso` int(3) NOT NULL,
   `tipo_curso` varchar(20) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `titulo_curso` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `info_curso` varchar(1500) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `info_curso` varchar(5000) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `video_curso` varchar(300) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `fecha_mod_curso` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FK_id_usuario` int(3) DEFAULT NULL
@@ -69,11 +69,11 @@ CREATE TABLE `cursos` (
 --
 
 INSERT INTO `cursos` (`id_curso`, `tipo_curso`, `titulo_curso`, `info_curso`, `video_curso`, `fecha_mod_curso`, `FK_id_usuario`) VALUES
-(100, 'regular', 'Titulo Regular ', 'InformaciÃ³n del curso regular.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-15 00:53:42', 4),
-(101, 'semestral', 'Titulo Semestral', 'InformaciÃ³n del curso semestral.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-15 00:53:42', 4),
-(102, 'sabatino', 'Este es un titulo de', 'Esta es informaciÃ³n de prueba.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-15 00:53:42', 4),
-(103, 'verano', 'Titulo Verano', 'InformaciÃ³n del curso de verano.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-15 00:53:42', 4),
-(104, 'club', 'Titulo Club Conversacion', 'Esta es informaciÃ³n de prueba, con comentarios prueba para verificar la correcta \r\nfuncionalidad de las cosas.', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-15 00:54:07', 4);
+(100, 'regular', 'Curso regular', '<ul><li style=\"line-height: 1.5;\">Este curso estÃ¡ diseÃ±ado para niÃ±os de primaria.</li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Son bienvenidos todos los pequeÃ±os de seis aÃ±os cumplidos en adelante.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">El curso consiste una hora diaria de lunes a viernes respetando el calendario de la SecretarÃ­a que comprende de septiembre a junio.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Impartimos nuestras clases en grupos pequeÃ±os, y generalmente manejamos horarios que van desde las 2:00 de la tarde hasta las 5:00.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Como objetivo buscamos para los niÃ±os la manera en que su aprendizaje sea divertido a travÃ©s de dibujos, canciones y prÃ¡cticas constantes en el aula.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Las inscripciones para estos grupos son a partir de la tercer semana de agosto en un horario de 4:00 de la tarde a 8:00 de la noche como nuestro horario de oficina.</span></li></ul><p style=\"line-height: 1.5;\">Los costos para el ciclo escolar 2018-2019 son:</p><ul><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">InscripciÃ³n por todo el ciclo escolar: $300.00.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Colegiatura semanal: $80.00.</span></li><li style=\"line-height: 1.5;\"><span style=\"font-size: 1rem;\">Y una cuota de materi</span>al mensual:&nbsp; $35.00.</li></ul>', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-16 04:09:18', 1),
+(101, 'semestral', 'Curso semestral', '<ul><li>Curso para jÃ³venes y adultos.</li><li>Ã‰ste curso estÃ¡ diseÃ±ado de forma semestral basado en el curso de Interchange de Cambridge,Â  el cual consta de siete niveles continuos pasando por principiante bÃ¡sico, intermedio y avanzado.</li><li>Trabajamos en grupos reducidos una hora diaria de lunes a jueves.</li><li>Los alumnos son ubicados dependiendo del nivel de inglÃ©s que manejan.</li></ul><p>Para ubicarÂ  en el nivel adecuado es necesario que los alumnos presenten un examen de colocaciÃ³n, el cual no tiene ningÃºn costo y el Ãºnico requisito es que debe apartar cita y presentarse con puntualidad a la misma.</p><p>Los costos del curso son los siguientes:</p><ul><li>El costo de inscripciÃ³n para el semestre es de $200 pesos.</li><li>La colegiatura semanal es de $80 pesos.</li><li>AdemÃ¡s, se deberÃ¡ de cubrir una cuota mensual de $35 pesos por concepto de materiales.</li></ul>', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-16 04:03:32', 1),
+(102, 'sabatino', 'Curso sabatino', '<ul><li>Curso para jÃ³venes y adultos.</li><li>Ã‰ste curso estÃ¡ diseÃ±ado de forma semestral basado en el curso de Interchange de Cambridge,Â  el cual consta de siete niveles continuos pasando por principiante bÃ¡sico, intermedio y avanzado.</li><li>Trabajamos en grupos reducidos 3 horas cada sÃ¡bado en un horario de 9:00 AM a 12:00 PM.</li><li>Los alumnos son ubicados dependiendo del nivel de inglÃ©s que manejan.</li></ul><p>Para ubicarÂ  en el nivel adecuado es necesario que los alumnos presenten un examen de colocaciÃ³n, el cual no tiene ningÃºn costo y el Ãºnico requisito es que debe apartar cita y presentarse con puntualidad a la misma.</p><p>Los costos del curso son los siguientes:</p><ul><li>El costo de inscripciÃ³n para el semestre es de $200 pesos.</li><li>La colegiatura semanal es de $80 pesos.</li><li>AdemÃ¡s, se deberÃ¡ de cubrir una cuota mensual de $35 pesos por concepto de materiales.</li></ul>', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-16 04:03:32', 1),
+(103, 'verano', 'Curso verano', '<ul><li>Este curso estÃ¡ diseÃ±ado para jÃ³venes de secundaria, preparatoria, universitarios y adultos.</li><li>Exclusivamente para alumnos de nivel principiante bÃ¡sico.</li></ul><p>Manejamos dos horarios:</p><ul><li>Matutino de 9:00 AM a 11:00 AM.</li><li>Vespertino de 5:00 PM a 7:00 PM.</li></ul><ul><li>Â El costo de inscripciÃ³n es de $200 pesos y la cuota semanal es de $160, siendo asÃ­ un total de $1000 pesos por todo el curso.</li><li>El curso abarca cinco semanas de dos horas diarias de lunes a viernes.</li><li>AdemÃ¡s, este curso puede ser cubierto en una sola exhibiciÃ³n por $900 pesos.</li></ul><p>El curso intensivo de verano 2018 inicia el prÃ³ximo lunes 11 de junio y finaliza el viernes 13 de julio.</p>', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-16 04:03:32', 1),
+(104, 'club', 'Club conversaciÃ³n', '<ul><li>El club de conversaciÃ³n ha sido establecido y orientado para todos aquellos alumnos que han superado el nivel \"Intermedio BÃ¡sico\", o superior a este.</li><li>El&nbsp; propÃ³sito de este club es que los alumnos se reÃºnan con el afÃ¡n de practicar el idioma dirigidos por un asesor.</li><li>Se promueven diversas dinÃ¡micas comunicativas y se abordan temas de interÃ©s para los miembros del club.</li><li>La sesiÃ³n del club consta de dos horas a la semana los viernes, y, los alumnos atienden el club a lo largo del semestre.</li></ul><p><b><span style=\"font-size: 18px;\">Â¿Como me inscribo?</span></b></p><p>El proceso inscripciÃ³n para el club es muy sencillo. Solo debe:</p><ul><li>Haber acreditado el nivel cuatro aquÃ­ en nuestro instituto.</li><li>O, haber presentado el examen de colocaciÃ³n si es alumno externo.</li></ul><p>A mayor horas de prÃ¡ctica mejor resultado, por ello, la recomendaciÃ³n siempre es la asistencia regular a este club.&nbsp;</p><p>A todo el alumno que le interese, sin importar la edad la&nbsp; edad le damos la mas cordial bienvenida.</p>', 'https://streamable.com/s/nkxrz/htjijg', '2018-05-16 04:12:48', 1);
 
 -- --------------------------------------------------------
 
@@ -102,7 +102,20 @@ INSERT INTO `galeria` (`id_foto`, `categoria_foto`, `nombre_foto`, `descripcion_
 (29, 'Cuadro_de_Honor', '148840-30921-j-jonah-jameson.jpg', 'Jameson', '2018-05-14 00:41:09', 0),
 (30, 'Graduados', 'descarga.jpg', 'Mr. Funk', '2018-05-14 20:38:51', 0),
 (31, 'Graduados', 'OA56Z33.jpg', 'Hola', '2018-05-15 00:37:02', 0),
-(32, 'Graduados', 'collage.jpg', 'asd', '2018-05-15 00:54:34', 0);
+(32, 'Graduados', 'collage.jpg', 'asd', '2018-05-15 00:54:34', 0),
+(33, '', '13781746_1245830872107585_4861671815656594694_n.jpg', 'kuiqsylber', '2018-05-16 00:47:25', 0),
+(34, 'Graduados', 'bob-esponja-halloween-600x415.jpg', 'Hola xd', '2018-05-16 01:10:17', 0),
+(35, 'Graduados', 'DiseÃ±o.jpeg', 'Hola xd', '2018-05-16 01:10:17', 0),
+(36, '', '148840-30921-j-jonah-jameson.jpg', 'asd', '2018-05-16 01:11:17', 0),
+(37, '', '12311139_720576214746328_6218022037273396533_n.jpg', 'asd', '2018-05-16 01:11:17', 0),
+(38, '', '13015320_1024036137679265_1073109751700867841_n.jpg', 'asd', '2018-05-16 01:11:17', 0),
+(39, 'Eventos_Especiales', '148840-30921-j-jonah-jameson.jpg', 'asda', '2018-05-16 01:12:15', 0),
+(40, 'Eventos_Especiales', '12311139_720576214746328_6218022037273396533_n.jpg', 'asda', '2018-05-16 01:12:15', 0),
+(41, 'Eventos_Especiales', '13015320_1024036137679265_1073109751700867841_n.jpg', 'asda', '2018-05-16 01:12:15', 0),
+(42, 'Otros', 'DSC02084.JPG', 'asdasd', '2018-05-16 01:13:05', 0),
+(43, 'Otros', 'DSC02116.JPG', 'asdasd', '2018-05-16 01:13:05', 0),
+(44, '', 'DSC02125.JPG', 'asd', '2018-05-16 01:13:34', 0),
+(45, 'Cuadro_de_Honor', 'DSC02087.JPG', 'asdasd', '2018-05-16 02:31:24', 0);
 
 -- --------------------------------------------------------
 
@@ -125,11 +138,11 @@ CREATE TABLE `informacion_general` (
 --
 
 INSERT INTO `informacion_general` (`id_ig`, `tipo_ig`, `titulo_ig`, `info_ig`, `img_ig`, `fecha_mod_ig`, `FK_id_usuario`) VALUES
-(1, 'quienes somos', 'Â¿QuiÃ©nes somos? xd ', 'InformaciÃ³n de SEI.', 'logo.png', '2018-05-15 00:52:59', 4),
-(2, 'mision', 'MisiÃ³n', 'MisiÃ³n de SEI.', '', '2018-05-15 00:53:15', 4),
-(3, 'vision', 'VisiÃ³n', 'VisiÃ³n de SEI.', '', '2018-05-15 00:53:15', 4),
-(4, 'historia', 'Historia', 'Historia de SEI.', 'historia.jpg', '2018-05-15 00:49:55', 4),
-(130, 'faq', 'Â¿Hay inscripciones abiertas todo el aÃ±o?', 'No, a chingar a su madre. Conforme nuestros cursos abren la convocatoria se inicia el periodo de inscripciones correspondiente.', NULL, '2018-05-15 01:26:13', 1),
+(1, 'quienes somos', 'Â¿QuiÃ©nes somos? ', '<p>Somos una instituciÃ³n enfocada a capacitar en excelencia a personas de todas las edades en el desarrolloÂ  comunicativo del idioma inglÃ©s.</p><p>A lo largo de 19 aÃ±os hemos obtenido muy buenos resultados, evidentes y eficaces, en el progreso de las cuatro destrezas bÃ¡sicas del idioma, formando a nuestros alumnos para que alcancen altos estÃ¡ndares en las habilidades auditivas, orales escritas, y de comprensiÃ³n de lectura.</p><p>Hoy en dÃ­a seguimos contando con la preferencia de nuestros alumnos y la recomendaciÃ³n de muchos de nuestros egresados. Asimismo contamos con la oportunidad de poner cada vez el inglÃ©s al alcance de mÃ¡s personas.<br></p>', 'logo.png', '2018-05-16 03:30:26', 1),
+(2, 'mision', 'MisiÃ³n', '<p>Nuestra instituciÃ³n tiene como principal objetivo desarrollar las habilidades lingÃ¼Ã­sticas de nuestros alumnos proporcionÃ¡ndoles las herramientas necesarias del idioma InglÃ©s a travÃ©s de una educaciÃ³n de alta calidad para que alcancen un nivel comunicativo Ã³ptimo en todas las Ã¡reas del lenguaje.</p>', '', '2018-05-16 03:30:26', 1),
+(3, 'vision', 'VisiÃ³n', '<font color=\"#222222\" face=\"sans-serif\"><span style=\"font-size: 14px;\">A travÃ©s de nuestros esfuerzos y acciones pretendemos potenciar las capacidades de nuestros alumnos, donde ellos sientan el respaldo sÃ³lido que les proporcione la seguridad y confianza de un equipo de trabajo de primer nivel. AsÃ­ mismo elevar nuestros estÃ¡ndares educativos hasta alcanzar el prestigio de una instituciÃ³n consolidada, donde sean nuestros egresados bilingÃ¼es incorporados al sector productivo nuestra principal carta de recomendaciÃ³n.</span></font>', '', '2018-05-16 03:31:23', 1),
+(4, 'historia', 'Historia', '<p><font color=\"#222222\" face=\"sans-serif\"><span style=\"font-size: 14px;\">Smart English institute fue fundada el 4 de febrero de 1999 con la finalidad de impartir asesorÃ­as y clases grupales que faciliten el aprendizaje del idioma inglÃ©s. Desde entonces a la fecha hemos recibido&nbsp; niÃ±os, jÃ³venes y adultos&nbsp; que se han interesado en asimilar o mejorar sus capacidades en el idioma.&nbsp;</span></font></p><p><font color=\"#222222\" face=\"sans-serif\"><span style=\"font-size: 14px;\">Hoy en dÃ­a, estamos ofreciendo clases presenciales en un ambiente agradable y sencillo donde los alumnos sientan la confianza y vean el avance constante de sus destrezas comunicativas. Impulsamos&nbsp; de forma continua las habilidades del idioma tanto orales como escritas, es decir nuestros cursos estÃ¡n diseÃ±ados para que paso a paso el alumno pueda en inglÃ©s hablar, entender lo que escucha, escribir, y leer comprendiendo la lectura.</span></font></p><p><font color=\"#222222\" face=\"sans-serif\"><span style=\"font-size: 14px;\"><br></span></font></p>', 'historia.jpg', '2018-05-16 03:32:00', 1),
+(130, 'faq', 'Â¿Hay inscripciones abiertas todo el aÃ±o?', 'No. Conforme nuestros cursos abren la convocatoria se inicia el periodo de inscripciones correspondiente.', NULL, '2018-05-16 04:48:50', 1),
 (131, 'faq', 'Â¿Que precios manejan?', 'Nuestros precios varÃ­an segÃºn el tipo de curso. Puede consultar los precios en el Ã¡rea de cursos.', NULL, '2018-05-15 01:13:04', 1),
 (132, 'faq', 'Â¿Que horarios manejan?', 'Nuestra instituciÃ³n es vespertina de lunes viernes, donde manejamos horarios desde las 2:00 de la tarde hasta las 8:00 de la noche, y ademÃ¡s ofrecemos cursos matutinos en sÃ¡bado de 9:00 de la maÃ±ana a 12:00 mediodÃ­a.', NULL, '2018-05-15 01:13:43', 1),
 (133, 'faq', 'Â¿CuÃ¡ntas personas son por grupo?', 'Depende del nivel manejamos grupos desde 14, 16,  o un mÃ¡ximo de 20 participantes.', NULL, '2018-05-15 01:13:59', 1),
@@ -207,13 +220,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `galeria`
 --
 ALTER TABLE `galeria`
-  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_foto` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `informacion_general`
 --
 ALTER TABLE `informacion_general`
-  MODIFY `id_ig` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
+  MODIFY `id_ig` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
