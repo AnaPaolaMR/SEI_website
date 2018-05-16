@@ -1149,6 +1149,7 @@ function showFAQ(str) {
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
+<script src="dist\lang\summernote-es-ES.js"></script>
 
 <script>
 
@@ -1157,6 +1158,8 @@ function showFAQ(str) {
     tabsize: 2,
     height: 200,
     disableDragAndDrop: true,
+    lang: "es-ES",
+    fontSizes: ['8', '9', '10', '11', '12', '14', '16', '18', '24', '36'],
 
     toolbar: [
     // [groupName, [list of button]]
