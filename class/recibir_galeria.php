@@ -1,6 +1,7 @@
 <?php
-
 	require'sessions.php';
+	require'con_bd.php';
+
 	$objses = new Sessions();
 	$objses->init();
 
@@ -12,8 +13,10 @@
 	  header('Location: 403/');
 	}
 	else{
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
 
 		//Recibir datos
 		$categoria = $_POST['categoria'];

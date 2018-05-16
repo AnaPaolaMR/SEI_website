@@ -1,5 +1,7 @@
 <?php
 	require'sessions.php';
+	require'con_bd.php';
+	
 	$objses = new Sessions();
 	$objses->init();
 
@@ -13,7 +15,9 @@
 	else{
 		$q = strval($_GET['q']);
 
-		$con = mysqli_connect('localhost','root','','sei_bd');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
 
 		if (!$con) {
 		    die('No se pudo conectar: ' . mysqli_error($con));

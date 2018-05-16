@@ -1,14 +1,14 @@
 <?php
+	require'con_bd.php';
 
 class Users{
 	
 	public function login_in(){
-		$host = "localhost";
-		$user = "root";
-		$pw = "";
-		$db = "sei_bd";
 
-		$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
+
 		
 		$query = "SELECT * FROM usuario WHERE nickname = '".$_POST['nickname']."' and contrasena = '".$_POST['password']."'";
 

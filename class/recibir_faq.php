@@ -1,5 +1,7 @@
 <?php
 	require'../class/sessions.php';
+	require'con_bd.php';
+	
 	$objses = new Sessions();
 	$objses->init();
 
@@ -12,8 +14,9 @@
 	}
 	else{
 
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
 
 		//Validacion para evitar preguntas repetidas
 		$sql_validacion = "SELECT COUNT(*) FROM informacion_general WHERE titulo_ig ='".$_POST["faq"]."'";
