@@ -3,6 +3,7 @@
 
 class Users{
 	
+	//Metodo para iniciar sesion con los datos del formulario login
 	public function login_in(){
 
 		// Conexion a la base de datos
@@ -18,6 +19,7 @@ class Users{
 		$objSe = new Sessions();
 		$objSe->init();
 		
+		//Devuelve a Login con un error
 		if($row == ""){
 			$objSe->set('error', '1');
 			header('Location: ../login');
@@ -25,6 +27,7 @@ class Users{
 			}
 			
 		else{
+			//Inicializa las variables de sesion
 			$objSe->set('user', $row["nombre"]);
 			$objSe->set('iduser', $row["id_usuario"]);
 			$objSe->set('profile', $row["tipo_usuario"]);
@@ -32,7 +35,8 @@ class Users{
 			$objSe->set('msg', '');
 				
 			$useropc = $row["tipo_usuario"];
-				
+			
+			//Redirige a el backend correspondiente segun el tipo de usuario	
 			switch($useropc){
 					
 				case 'estandar':

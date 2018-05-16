@@ -1,9 +1,10 @@
 <?php
-
+	//Llamando a la clase para conectarse a la base de datos
 	require'con_bd.php';
 
 	class consultas{
 		
+		//Metodo para recuperar informacion de cursos	
 		function recuperarCurso($curso, $dato){
 
 			// Conexion a la base de datos
@@ -22,6 +23,7 @@
 
 		}
 
+		//Metodo para recuperar informacion de contacto
 		function recuperarContacto($dato){
 
 			// Conexion a la base de datos
@@ -40,6 +42,7 @@
 
 		}
 
+		//Metodo para recuperar informacion general
 		function recuperarIG($ig, $dato){
 
 			// Conexion a la base de datos
@@ -58,6 +61,7 @@
 
 		}
 
+		//Metodo para recuperar informacion de un usuario
 		function recuperarUsuario($dato, $usuario){
 			
 			// Conexion a la base de datos
@@ -75,6 +79,7 @@
 			mysqli_close($con);
 		}
 
+		//Metodo para traer todos los usuarios de tipo estandar
 		function recuperarUsuariosStndr(){
 			
 			// Conexion a la base de datos
@@ -95,6 +100,7 @@
 			mysqli_close($con);
 		}
 
+		//Metodo para recuperar la ultima modificacion de algun apartado
 		function recuperarMod($tabla, $dato, $campo_extra, $dato_extra){
 			
 			// Conexion a la base de datos
@@ -126,6 +132,7 @@
 
 		}
 
+		//Metodo para recuperar todas las FAQS
 		function recuperarFAQS($dato){
 
 			// Conexion a la base de datos
@@ -145,6 +152,7 @@
 			mysqli_close($con);
 		}
 
+		//Metodo para desplegar las FAQS con formato en el menu desplegable
 		function recuperarFAQS_menu(){
 			
 			// Conexion a la base de datos

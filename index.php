@@ -2,6 +2,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Hojas de estilo personalizadas, Bootstrap y fuentes de Google  -->
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 	<link rel="icon" href="img/smart.ico">
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -18,14 +20,18 @@
 	<header>
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
+
+				<!-- Imagen de usuario -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<a href="index"><img class="img-fluid" src="img/logo2.png" alt="Logo SEI" width="100%"></a>
 				</div>
-
+				
+				<!-- Titulo -->
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
 					<div><h1 class="coiny title title-md title-lg title-lg"></h1></div>
 				</div>
-
+				
+				<!-- Menu desplegable -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<div class="dropdown text-menu text">
 						<button class="float-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +51,9 @@
 					</div>
 				</div>
 
-					<!-- Modals -->
+					<!-- Modals del menu desplegable-->
+
+					<!-- Video de inicio -->
 					<div class="text">
 						<div class="modal fade" id="mostrarmodal">
 							<div class="modal-dialog modal-dialog-centered">
@@ -225,6 +233,8 @@
 		</div>
 	
 	</header>
+
+	<!-- Botones con cada una de las secciones del sitio -->
 	<div class="container">
 		<section class="main row">
 			<article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -275,6 +285,7 @@
 	<footer class="container">
 		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
 	</footer>
+
     <!--Scripts para auto mostrar modal de presentación-->
     <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
     <script>
@@ -286,6 +297,8 @@
 		}, 6000);
         });
 	</script>
+
+	<!-- Scripts de javascript: Jquery y Bootstrap -->
 	<script src="js\jquery.js"></script>
 	<script src="js\popper.min.js"></script>
 	<script src="js\bootstrap.min.js"></script> 

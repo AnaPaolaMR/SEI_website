@@ -2,6 +2,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Hojas de estilo personalizadas, bootstrap y fuentes de Google -->
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link rel="icon" href="img/smart.ico">
@@ -10,6 +12,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos1.css">
+
+	<!-- Clase para consultar la base de datos -->
 	<?php include("class/consulta.php");?>
 
 	<title>Contacto | Smart English Institute</title>
@@ -19,14 +23,18 @@
 	<header>
 		<div class="container-fluid">
 			<div class="row justify-content-between">
+
+				<!-- Imagen de usuario -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" ></a>
 				</div>
-
+				
+				<!-- Titulo -->
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
 					<img src="SVG/contacto.png" class="img-fluid" alt="Cursos" width="50%">
 				</div>
-
+				
+				<!-- Menu desplegable -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<div class="dropdown text text-menu">
 						<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,7 +59,7 @@
 					</div>
 				</div>
 
-					<!-- Modals -->
+					<!-- Modals del menu desplegable -->
 					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
@@ -208,6 +216,7 @@
 	
 	</header>
 	
+	<!-- Desplegando informacion de contacto de la base de datos -->
 	<div class="container">
 		<div class="row justify-content-around">
 		
@@ -241,6 +250,7 @@
 
 			<div class="col-sm-12 col-md-6">
 				
+				<!-- Mapa de google -->
 				<div class="container">
 					<p>
 						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.4824370549304!2d-111.00023428502223!3d29.120957568557863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86ce86b52bf6653d%3A0xabd94b39e5407d91!2sCalle+Rep%C3%BAblica+de+Hait%C3%AD+93%2C+Uni%C3%B3n+de+Colonos%2C+83120+Hermosillo%2C+Son.!5e0!3m2!1ses-419!2smx!4v1520810974951" style="margin: 0 auto; border: 0;"></iframe>
@@ -284,18 +294,23 @@
 	</div>
 
 	<footer>
+
+		<!-- Marca de SEI -->
 		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center">
 			<p style="text-align: centr;" class="footer-custom ">
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
+
+		<!-- Boton de volver -->
 		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			Volver
 		</a>
 	</footer>
 
-	<script src="js\jquery.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js\bootstrap.min.js"></script> 
+<!-- Scripts de javascript: Jquery y Bootstrap -->
+<script src="js\jquery.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js\bootstrap.min.js"></script> 
 </body>
 </html>

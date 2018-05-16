@@ -1,20 +1,22 @@
 <?php
+	//Clases requeridas para iniciar seison y conectarse a la base de dato
 	require'../class/sessions.php';
 	require'con_bd.php';
 
 	$objses = new Sessions();
 	$objses->init();
 
+	//Variables para recuperar datos del usuario de la sesion actual
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
 	$iduser = isset($_SESSION['iduser']) ? $_SESSION['iduser'] : null ;
 	$profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
+	//Condicion para bloquear el acceso a usuarios que no han iniciado sesion
 	if($user == ''){
 	  header('Location: 403/');
 	}
 	else{
 
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
 		// Conexion a la base de datos
 		$obj = new conexion();
 		$con=$obj->get_conexion();
@@ -32,7 +34,7 @@
 		$resultado_4=mysqli_query($con, $sql_4) or die ('Error en el query database 4');
 
 
-		//cierra la conexion
+		//cierra la conexion y redirige al backend correspondiente con un mensaje de exito
 		if ($profile=='admin'){
 			mysqli_close($con);
 			$objses->set('msg', '4');
