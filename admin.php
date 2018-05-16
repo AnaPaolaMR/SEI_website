@@ -63,6 +63,10 @@
         echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez');</script>";
         $objses->set('error', '0');
         break;
+      case 12:
+        echo "<script type='text/javascript'>alert('Error: Seleccione una pregunta para modificar');</script>";
+        $objses->set('error', '0');
+        break;
 }     
 
   switch ($mensaje) {
