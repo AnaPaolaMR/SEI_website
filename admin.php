@@ -1039,85 +1039,113 @@
     </div>
     <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-        <!--        ecntype multipart/form-data -->
-      	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
-
-            <div class="container-fluid">
-                
                 <div class="row">
-                    <div class="mb-3 col-md-3">
-                        <div class="input-group-prepend">
-                            <label>Categoría</label>
-                        </div>
-
-                        <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
-                                <option selected disabled>Escoja...</option>
-                                <option value="Graduados">Graduados</option>
-                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
-                                <option value="Eventos_Especiales">Eventos Especiales</option>
-                                <option value="Otros">Otros</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                    <div class="mb-3 col-md-4">
-                        <div>
-                            <label>Seleccione Imagen</label>
-                            <input required type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG" multiple="true" name="valor_imagen[]">
-                            <small class="form-text text-muted">
-                                  Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
-                            </small>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="form-group col-md-7">
-                        <label>Descripcion</label>
-                            <div class="input-text">
-                                <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
-                            </div>
-                    </div>
-                </div>
-
-            </div>
-            
-             <!-- Boton de guardar -->
-                        <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
-                            Guardar
-                        </button>
-                        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
-                        Cancelar
-                        </button>
-
-            <!-- Modal activado por el boton "Guardar"-->
-              <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ¿Estas seguro de que deseas guardar cambios?
-                    </div>
-                    <div class="modal-footer">
-
-                      <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
-                      <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
-                        Cancelar
-                        </button>
-                      
-                    </div>
+                  <div class="col-4">
+                      <div class="list-group" id="list-tab" role="tablist">
+                          <a class="list-group-item list-group-item-action active" data-toggle="list" href="#subir_fotos" role="tab" aria-controls="home">Subir Fotos</a>
+                          <a class="list-group-item list-group-item-action" data-toggle="list" href="#editar_fotos" role="tab" aria-controls="profile">Editar Fotos</a>
+                          <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_fotos" role="tab" aria-controls="messages">Eliminar Fotos</a>
+                      </div>
                   </div>
-                </div>
-              </div> 
+                    <div class="col-8">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="subir_fotos" role="tabpanel" aria-labelledby="list-home-list">
+                                
+                                <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
 
-            
-		</form>
+                                    <div class="container-fluid">
+                                        
+                                        <div class="row">
+                                            <div class="mb-3 col-md-3">
+                                                <div class="input-group-prepend">
+                                                    <label>Categoría</label>
+                                                </div>
+
+                                                <div class="input-group form-group">
+                                                    <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
+                                                        <option selected disabled>Escoja...</option>
+                                                        <option value="Graduados">Graduados</option>
+                                                        <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                                        <option value="Eventos_Especiales">Eventos Especiales</option>
+                                                        <option value="Otros">Otros</option>
+                                                    </select>
+                                                    <div class="invalid"></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="mb-3 col-md-4">
+                                                <div>
+                                                    <label>Seleccione Imagen</label>
+                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
+                                                    <small class="form-text text-muted">
+                                                          Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-7">
+                                                <label>Descripcion</label>
+                                                    <div class="input-text">
+                                                        <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                    </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Boton de guardar -->
+                                    <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
+                                      Guardar
+                                    </button>
+
+                                    <!-- Modal activado por el boton "Guardar"-->
+                                      <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              ¿Estas seguro de que deseas guardar cambios?
+                                            </div>
+                                            <div class="modal-footer">
+
+                                              <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                              <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+
+                                    <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
+                                        Cancelar
+                                    </button>
+                                </form>
+
+                            </div>
+                            <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
+                                <div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading">Estamos trabajando</h4>
+                                    <hr>
+                                    <p class="mb-0">Próximamente...</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
+                                <div class="alert alert-warning" role="alert">
+                                    <h4 class="alert-heading">Estamos trabajando</h4>
+                                    <hr>
+                                    <p class="mb-0">Próximamente...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
       </div>
     </div>
   </div>
