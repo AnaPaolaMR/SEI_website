@@ -1,5 +1,7 @@
 <?php
 	require'../class/sessions.php';
+	require'con_bd.php';
+	
 	$objses = new Sessions();
 	$objses->init();
 
@@ -12,8 +14,10 @@
 	}
 	else{
 
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
+
 		$sql_1="UPDATE informacion_general SET info_ig='".$_POST["q_somos_info"]."', titulo_ig='".$_POST["q_somos_titulo"]."', img_ig='".$_POST["q_somos_img"]."', FK_id_usuario='$iduser' WHERE id_ig=1";
 		$sql_2="UPDATE informacion_general SET info_ig='".$_POST["mision_info"]."', titulo_ig='".$_POST["mision_titulo"]."', img_ig='".$_POST["mision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=2";
 		$sql_3="UPDATE informacion_general SET info_ig='".$_POST["vision_info"]."', titulo_ig='".$_POST["vision_titulo"]."', img_ig='".$_POST["vision_img"]."', FK_id_usuario='$iduser' WHERE id_ig=3";

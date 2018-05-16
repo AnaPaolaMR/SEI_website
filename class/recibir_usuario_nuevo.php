@@ -1,5 +1,7 @@
 <?php
 	require'sessions.php';
+	require'con_bd.php';
+
 	$objses = new Sessions();
 	$objses->init();
 
@@ -11,8 +13,9 @@
 	}
 	else{
 
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
 
 		//Validacion para asegurarse de que el usuario ingreso la contraseña actual para guardar cambios
 		$sql_validacion = "SELECT * FROM usuario WHERE id_usuario = '$iduser' AND contrasena ='".$_POST["actual_pass_usuario_nuevo"]."'";

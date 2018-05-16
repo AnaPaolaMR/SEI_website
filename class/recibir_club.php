@@ -1,5 +1,7 @@
 <?php
 	require'../class/sessions.php';
+	require'con_bd.php';
+	
 	$objses = new Sessions();
 	$objses->init();
 
@@ -12,8 +14,10 @@
 	}
 	else{
 
-		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
+
 		$sql_1="UPDATE cursos SET id_curso=104, tipo_curso='club', info_curso='".$_POST["club_info"]."', titulo_curso='".$_POST["club_titulo"]."', video_curso='".$_POST["club_enlace"]."', FK_id_usuario='$iduser' WHERE id_curso=104";
 
 		//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)

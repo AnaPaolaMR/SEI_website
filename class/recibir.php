@@ -1,5 +1,7 @@
 <?php
 	require'../class/sessions.php';
+	require'con_bd.php';
+
 	$objses = new Sessions();
 	$objses->init();
 
@@ -13,7 +15,10 @@
 	else{
 
 		//mysqli_connect() ocupa SERVIDOR, USUARIO, CONTRASEÑA y BASE DE DATOS
-		$con= mysqli_connect('localhost','root','','sei_bd') or die('Error en la conexion al servidor');
+		// Conexion a la base de datos
+		$obj = new conexion();
+		$con=$obj->get_conexion();
+		
 		$sql_1="UPDATE cursos SET id_curso=100, tipo_curso='regular', info_curso='".$_POST["regular_info"]."', titulo_curso='".$_POST["regular_titulo"]."', video_curso='".$_POST["regular_enlace"]."', FK_id_usuario='$iduser' WHERE id_curso=100";
 		$sql_2="UPDATE cursos SET id_curso=101, tipo_curso='semestral', info_curso='".$_POST["semestral_info"]."', titulo_curso='".$_POST["semestral_titulo"]."', video_curso='".$_POST["semestral_enlace"]."', FK_id_usuario='$iduser' WHERE id_curso=101";
 		$sql_3="UPDATE cursos SET id_curso=102, tipo_curso='sabatino', info_curso='".$_POST["sabatino_info"]."', titulo_curso='".$_POST["sabatino_titulo"]."', video_curso='".$_POST["sabatino_enlace"]."', FK_id_usuario='$iduser' WHERE id_curso=102";

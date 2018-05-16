@@ -1,13 +1,14 @@
 <?php
+
+	require'con_bd.php';
+
 	class consultas{
 		
 		function recuperarCurso($curso, $dato){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
 
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from cursos WHERE tipo_curso='$curso'";
 
@@ -22,12 +23,10 @@
 		}
 
 		function recuperarContacto($dato){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
 
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from contacto WHERE id_contacto=100";
 
@@ -42,12 +41,10 @@
 		}
 
 		function recuperarIG($ig, $dato){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
 
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from informacion_general WHERE tipo_ig='$ig'";
 
@@ -62,12 +59,10 @@
 		}
 
 		function recuperarUsuario($dato, $usuario){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
-
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from usuario WHERE nombre='$usuario'";
 
@@ -81,12 +76,10 @@
 		}
 
 		function recuperarUsuariosStndr(){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
-
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from usuario WHERE tipo_usuario='estandar'";
 
@@ -103,12 +96,10 @@
 		}
 
 		function recuperarMod($tabla, $dato, $campo_extra, $dato_extra){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
-
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			if ($dato_extra == '' || $campo_extra == ''){
 				$query = "SELECT * from $tabla, usuario WHERE FK_id_usuario=id_usuario";
@@ -136,12 +127,10 @@
 		}
 
 		function recuperarFAQS($dato){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
 
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from informacion_general WHERE tipo_ig='faq'";
 
@@ -157,12 +146,10 @@
 		}
 
 		function recuperarFAQS_menu(){
-			$host = "localhost";
-			$user = "root";
-			$pw = "";
-			$db = "sei_bd";
-
-			$con = mysqli_connect($host, $user, $pw, $db) or die ('Error en la conexion al servidor');
+			
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
 
 			$query = "SELECT * from informacion_general WHERE tipo_ig='faq'";
 
