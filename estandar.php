@@ -1,23 +1,30 @@
 <?php
+
+  // Llamando a la clase para iniciar sesion
 	require'class/sessions.php';
 	$objses = new Sessions();
 	$objses->init();
 
+  //Recuperando variables para errores y mensajes
   $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
   $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
 
+  //Recuperando variables con datos del usuario de la sesion actual
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
+  //Condicion para bloquear usuarios que no han iniciado sesion
 	if($user == ''){
     $objses->set('error', '2');
     header('Location: login');
   }
 
+  //Condicion para redirigir usuarios admin a su backend correspondiente
   if($profile == 'admin'){
     header('Location: admin');
   }
 
+  //Switch para errores y mensajes
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
@@ -99,6 +106,7 @@
      
 ?>
 
+<!-- Script para el editor de texto -->
 <script>
 function showFAQ(str) {
 
@@ -183,7 +191,8 @@ function showFAQ(str) {
                      <div class="col-md-5">
                        
                      </div>
-
+                    
+                    <!-- Recuperando el nombre del usuario de la sesion actual -->
 					           <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
 						            <div class="text-admin text-subtitulo">¡ hola <?php
                                         $objses = new Sessions();
@@ -194,8 +203,10 @@ function showFAQ(str) {
 
                      <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
 
-                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
 
+                        <!-- Menu desplegable de configuracion estandar -->
+                        <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
+                        
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
 
@@ -204,7 +215,8 @@ function showFAQ(str) {
                           <a href="user/log_out" class="dropdown-item">Cerrar Sesion</a>
                         </div>  
                      </div>
-
+                     
+                    <!-- Modal para configurar la cuenta del usuario actual -->
                      <div class="text">
                         <div class="modal fade" id="configuracion">
                                 <div class="modal-dialog">
@@ -293,6 +305,7 @@ function showFAQ(str) {
                         </h5>
                     </div>
 
+    <!-- Formulario para modificar informacion -->
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
@@ -305,7 +318,8 @@ function showFAQ(str) {
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#historia" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Historia </h5></a>
             </div>
           </nav>
-
+          
+          <!-- Recuperando informacion de la base de datos -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -459,7 +473,9 @@ function showFAQ(str) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+           <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -483,6 +499,8 @@ function showFAQ(str) {
         </button>
       </h5>
     </div>
+
+    <!-- Modificacion, agregado y eliminacion -->
     <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
 
@@ -496,8 +514,9 @@ function showFAQ(str) {
           </div>
           <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
+              <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
 
+                <!-- Formulario para agregar preguntas -->
                 <form action="class/recibir_faq" method="POST">
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
@@ -511,7 +530,8 @@ function showFAQ(str) {
                   </div>
 
                   <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
-
+                  
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -538,13 +558,14 @@ function showFAQ(str) {
 
                 </form>
             </div>
-            
-            <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
+              <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
 
+                <!-- Formulario para modificar preguntas -->
                 <form action="class/recibir_config_faq" method="POST">
                   <div class="form-group">
                     <h5>Modificar Pregunta</h5><br>
                     
+                    <!-- Llamando al metodo de javascript de AJAX -->
                     <select class="form-control" type="text" name="faq_titulo" onchange="showFAQ(this.value)">
                     <option>Elija una pregunta</option>
                     <?php
@@ -561,9 +582,8 @@ function showFAQ(str) {
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
                   </div>
-
-                
-
+                  
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -588,11 +608,12 @@ function showFAQ(str) {
 
                 </form>
 
-            </div>
-
-            <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
+              </div>
+              
+              <!-- Formulario para eliminar -->
+              <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
                 <form action="class/eliminar_faq" method="POST">
-                <div class="form-group">
+                  <div class="form-group">
                     <h5>Eliminar Pregunta</h5><br>
                     
                     <label>Pregunta</label>
@@ -610,10 +631,10 @@ function showFAQ(str) {
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
 
-                </div>
-
-                
-                <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
+                  </div>
+                  
+                  <!-- Modal de confirmacion -->
+                  <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
                         <div class="modal-header modal-header-custom">
@@ -633,7 +654,7 @@ function showFAQ(str) {
                         </div>
                       </div>
                     </div>
-                </div>
+                  </div>
 
                 </form>
 
@@ -655,19 +676,22 @@ function showFAQ(str) {
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion -->
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir" method="POST">
 
             <nav>
-                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#curso_regular" role="tab" aria-controls="nav-home" aria-selected="true"><h5> Regular </h5></a>
-                  <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#curso_semestral" role="tab" aria-controls="nav-profile" aria-selected="false"><h5> Semestral </h5></a>
-                  <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_sabatino" role="tab" aria-controls="nav-contact" aria-selected="false"><h5> Sabatino </h5></a>
-                  <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
-                </div>
-            </nav>
-
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#curso_regular" role="tab" aria-controls="nav-home" aria-selected="true"><h5> Regular </h5></a>
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#curso_semestral" role="tab" aria-controls="nav-profile" aria-selected="false"><h5> Semestral </h5></a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_sabatino" role="tab" aria-controls="nav-contact" aria-selected="false"><h5> Sabatino </h5></a>
+              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
+            </div>
+          </nav>
+          
+          <!-- Desplegando informacion de la base de datos para configurar -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="curso_regular" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -822,7 +846,8 @@ function showFAQ(str) {
               </div>
             </div>
           </div> 
-
+          
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -846,6 +871,8 @@ function showFAQ(str) {
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion -->
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir_club" method="POST">
@@ -901,8 +928,9 @@ function showFAQ(str) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
 
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -927,65 +955,53 @@ function showFAQ(str) {
         </button>
       </h5>
     </div>
+
+    <!-- Formulario para subir fotografias -->
     <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
+        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
 
-        <div class="row">
-            <div class="col-4">
-                <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#subir_fotos" role="tab" aria-controls="home">Subir Fotos</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#editar_fotos" role="tab" aria-controls="profile">Editar Fotos</a>
-                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_fotos" role="tab" aria-controls="messages">Eliminar Fotos</a>
-                </div>
-            </div>
-            <div class="col-8">
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="subir_fotos" role="tabpanel" aria-labelledby="list-home-list">
+            <div class="container-fluid">
+                
+                <div class="row">
+                    <div class="mb-3 col-md-3">
+                        <div class="input-group-prepend">
+                            <label>Categoría</label>
+                        </div>
+
+                        <div class="input-group form-group">
+                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
+                                <option selected disabled>Escoja...</option>
+                                <option value="Graduados">Graduados</option>
+                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                <option value="Eventos_Especiales">Eventos Especiales</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                            <div class="invalid"></div>
+                        </div>
                         
-                        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <div>
+                            <label>Seleccione Imagen</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
+                            <small class="form-text text-muted">
+                                  Máximo 10 imagenes por carga, formatos : .jpg, .jpeg o .png.
+                            </small>
+                        </div>
+                    </div>
+                </div>
 
-                            <div class="container-fluid">
-                                
-                                <div class="row">
-                                    <div class="mb-3 col-md-3">
-                                        <div class="input-group-prepend">
-                                            <label>Categoría</label>
-                                        </div>
-
-                                        <div class="input-group form-group">
-                                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
-                                                <option selected disabled>Escoja...</option>
-                                                <option value="Graduados">Graduados</option>
-                                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
-                                                <option value="Eventos_Especiales">Eventos Especiales</option>
-                                                <option value="Otros">Otros</option>
-                                            </select>
-                                            <div class="invalid"></div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="mb-3 col-md-4">
-                                        <div>
-                                            <label>Seleccione Imagen</label>
-                                            <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
-                                            <small class="form-text text-muted">
-                                                  Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="form-group col-md-7">
-                                        <label>Descripcion</label>
-                                            <div class="input-text">
-                                                <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
-                                            </div>
-                                    </div>
-                                </div>
-
+                <div class="row">
+                    <div class="form-group col-md-7">
+                        <label>Descripcion</label>
+                            <div class="input-text">
+                                <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                             </div>
+                    </div>
+                </div>
 
+<<<<<<< HEAD
                             <!-- Boton de guardar -->
                             <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
                               Guardar
@@ -1016,27 +1032,43 @@ function showFAQ(str) {
 
                             <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                         </form>
-
-                    </div>
-                    <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Estamos trabajando</h4>
-                            <hr>
-                            <p class="mb-0">Próximamente...</p>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
-                        <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading">Estamos trabajando</h4>
-                            <hr>
-                            <p class="mb-0">Próximamente...</p>
-                        </div>
-                    </div>
-                </div>
+=======
             </div>
-        </div>
+>>>>>>> e9b177280e0bdf9a304476b87f5937e8303382be
 
-        
+            <!-- Boton de guardar -->
+            <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
+              Guardar
+            </button>
+
+            <!-- Modal activado por el boton "Guardar"-->
+              <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ¿Estas seguro de que deseas guardar cambios?
+                    </div>
+                    <div class="modal-footer">
+
+                      <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                      <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div> 
+
+            <!-- Boton de cancelar -->
+            <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
+                Cancelar
+            </button>
+    </form>
       </div>
     </div>
   </div>
@@ -1051,6 +1083,8 @@ function showFAQ(str) {
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion -->
     <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
@@ -1150,7 +1184,9 @@ function showFAQ(str) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1164,6 +1200,7 @@ function showFAQ(str) {
     </div>
   </div>
 </div>
+  <!-- Boton para cerrar sesion -->
  	<a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
@@ -1177,12 +1214,14 @@ function showFAQ(str) {
 
  </footer>
  
+<!-- Scripts de javascript: Jquery, Bootstrap y editor de texto -->
 <script src="js\jquery.js"></script>
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
 <script src="dist\lang\summernote-es-ES.js"></script>
 
+<!-- Script para la personalizacion del editor de texto -->
 <script>
 
   $('.summernote').summernote({
