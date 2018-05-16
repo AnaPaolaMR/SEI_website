@@ -1123,9 +1123,7 @@
                                         </div>
                                       </div> 
 
-                                    <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
-                                        Cancelar
-                                    </button>
+                                    <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                                 </form>
 
                             </div>
