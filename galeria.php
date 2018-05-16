@@ -1,12 +1,10 @@
 <?php
+	//Funcion que rescata la lista correspondiente de imagenes segun la categoria
 	function Lista_de_fotos($categoria){
 		$directorio = opendir("./img/$categoria");
-		//echo "$directorio";
 		$n = 0;
 		$fotos = array();
 		while ($archivo = readdir($directorio)) {
-			//echo "$archivo<br>";
-			//<img src="img/Graduados/" data-caption="Lo que tenga de descripcion en la base de datos">
 			$fotos[$n] = "<img src='/img/$categoria/$archivo' ";
 			
 			if ($n >=1) {
@@ -14,7 +12,7 @@
 				echo $n;
 			}	
 			$n++;
-		}	
+		}
 	}
 		
 ?>
@@ -36,7 +34,7 @@
 	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
 	<?php include("class/consulta.php");?>
 	
-
+	<!--  Titulo de la página en el navegador -->
 	<title>Galeria | Smart English Institute</title>
 </head>
 <body>
@@ -44,14 +42,18 @@
 	<header>
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
+
+				<!-- Logo de la página -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
+				<!-- Imagen titulo de la página -->
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
 					<img src="SVG/galeria.png" class="img-fluid" alt="Galeria" width="40%">
 				</div>
 
+				<!-- Menú desplegable, "explorador" del sistio -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<div class="dropdown text text-menu">
 						<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -234,20 +236,22 @@
 	</header>
 	
 	<div class="container">
-
 		<section class="main row text-center">
 
+			<!-- Thumbnail de Catergoria: Graduados -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center" >
 				<a href="#Mgraduados" data-toggle="modal"><img src="img/02.jpg" class="img-thumbnail img-fluid"></a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
 
+				<!-- Modal que muestra el visor de imagenes -->
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="Mgraduados">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
-				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
+							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
 				    		Lista_de_fotos("Graduados");
 				    		?>
@@ -259,17 +263,20 @@
 			</div>
 
 
-
+			<!-- Thumbnail de Catergoria: Cuadro de Honor -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
 				<a href="#MCuadro" data-toggle="modal"><img src="img/03.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Cuadro de Honor</p>
+
+				<!-- Modal que muestra el visor de imagenes -->
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MCuadro">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
-				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
+							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
 				    		Lista_de_fotos("Cuadro_de_Honor");
 				    		?>
@@ -280,16 +287,20 @@
 				</div>
 			</div>
 
+			<!-- Thumbnail de Catergoria: Eventos Especiales -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
 				<a href="#MEventos" data-toggle="modal"><img src="img/01.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Eventos especiales</p>
+
+				<!-- Modal que muestra el visor de imagenes -->
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MEventos">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
-				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
+							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
 				    		Lista_de_fotos("Eventos_Especiales");
 				    		?>
@@ -301,16 +312,20 @@
 
 			</div>
 
+			<!-- Thumbnail de Catergoria: Eventos Especiales -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
 				<a href="#MOtros" data-toggle="modal"><img src="img/04.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">otros</p>
+
+				<!-- Modal que muestra el visor de imagenes -->
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MOtros">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
-				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
+							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
 				    		Lista_de_fotos("Otros");
 				    		?>
@@ -326,22 +341,26 @@
 		</section>
 	</div>
 
+	<!-- Pie de página -->
 	<footer class="container-fluid">
+		
+		<!-- Marca de agua -->
 		<div>
-			<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
-			
-		</div> 
+			<p class="text-center footer-custom"><br> Smart English Institute&copy;</p>
+		</div>
 
+		<!-- Botón de "volver" -->
 		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 				volver
 		</a>
 	</footer>
 
+	<!-- Scripts necesarios para ejecutar bootstrap -->
 	<script src="js\jquery.js"></script>
 	<script src="js/popper.min.js"></script>
 	<script src="js\bootstrap.min.js"></script> 
+	<!-- Scripts necesarios para ejecutar fotorama -->
 	<script src="/jquery/dist/jquery.js"></script>
-	<script src="/venobox/venobox.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 </body>
