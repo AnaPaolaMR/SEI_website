@@ -1,3 +1,24 @@
+<?php
+	function Lista_de_fotos($categoria){
+		$directorio = opendir("./img/$categoria");
+		//echo "$directorio";
+		$n = 0;
+		$fotos = array();
+		while ($archivo = readdir($directorio)) {
+			//echo "$archivo<br>";
+			//<img src="img/Graduados/" data-caption="Lo que tenga de descripcion en la base de datos">
+			$fotos[$n] = "<img src='/img/$categoria/$archivo' data-caption='Lo que tenga de descripcion en la base de datos'";
+			
+			if ($n >=1) {
+				echo ($fotos[$n])."<br>";
+				echo $n;
+			}	
+			$n++;
+		}	
+	}
+		
+?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -215,25 +236,20 @@
 		<section class="main row text-center">
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center" >
-
-
 				<a href="#Mgraduados" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"></a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
-
-				<!-- Large modal 
-				<button type="button" class="btn btn-succesS"  data-target=".bd-example-modal-lg"></button>   -->
 
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="Mgraduados">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
+
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
-						 	<img src="http://s.fotorama.io/1.jpg" data-caption="Ejemplo 1">
-							<img src="http://s.fotorama.io/2.jpg" data-caption="Ejemplo 2">
-							<img src="img/fondo_2.jpg" data-caption="Fondo favorito de Paola">
-							<img src="img/fondo_bandera.jpg" data-caption="Fondo de Banderas">
-							<img src="img/fondo_3.jpg" data-caption="Fondo cualquiera">
-
+							
+						 	<?php
+				    		Lista_de_fotos("Graduados");
+				    		?>
+					
 						</div>
 				    </div>
 				  </div>
@@ -244,18 +260,64 @@
 
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MCuadro" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Cuadro de Honor</p>
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MCuadro">
+				  <div class="modal-dialog modal-lg modal-dialog-centered">
+				    <div class="modal-content">
+
+				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+							
+						 	<?php
+				    		Lista_de_fotos("Cuadro_de_Honor");
+				    		?>
+					
+						</div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MEventos" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Eventos especiales</p>
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MEventos">
+				  <div class="modal-dialog modal-lg modal-dialog-centered">
+				    <div class="modal-content">
+
+				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+							
+						 	<?php
+				    		Lista_de_fotos("Eventos_Especiales");
+				    		?>
+					
+						</div>
+				    </div>
+				  </div>
+				</div>
+
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MOtros" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">otros</p>
+				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MOtros">
+				  <div class="modal-dialog modal-lg modal-dialog-centered">
+				    <div class="modal-content">
+
+				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+							
+						 	<?php
+				    		Lista_de_fotos("Otros");
+				    		?>
+					
+						</div>
+				    </div>
+				  </div>
+				</div>
 			</div>
 
 
