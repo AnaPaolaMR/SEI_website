@@ -1,23 +1,29 @@
 <?php
-    require'class/sessions.php';
-    $objses = new Sessions();
-    $objses->init();
+  //Llamando clases para iniciar sesion
+  require'class/sessions.php';
+  $objses = new Sessions();
+  $objses->init();
 
+  //Variables de sesion para manejar errores y mensajes
   $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
   $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
 
-    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+  //Variables de sesion para manejar datos del usuario de las sesion actual
+  $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
-    if($user == ''){
-    $objses->set('error', '2');
-    header('Location: login');
+  //Condicion que bloquea usuarios que no hayan iniciado sesion
+  if($user == ''){
+  $objses->set('error', '2');
+  header('Location: login');
   }
 
+  //Condicion para redirigir a su backend a usuarios estandar
   if($profile == 'admin'){
     header('Location: admin');
   }
 
+  //Condiciones para errores
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
@@ -68,8 +74,9 @@
         $objses->set('error', '0');
         break;
 
-}     
+}  
 
+  //Condiciones para mensajes
   switch ($mensaje) {
     case 1:
         echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
@@ -99,65 +106,18 @@
      
 ?>
 
-<script>
-function showFAQ(str) {
-
-    if (str == "Elija una pregunta") {
-        document.getElementById("txtHint").value = "";
-        document.getElementById("txtHint_2").value = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").value = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","../class/get_titulo_faq.php?q="+str,true);
-        xmlhttp.send();
-    }
-
-    if (str == "Elija una pregunta") {
-        document.getElementById("txtHint_2").value = "";
-        return;
-    } else { 
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint_2").value = this.responseText;
-            }
-        };
-        xmlhttp.open("GET","../class/get_info_faq.php?q="+str,true);
-        xmlhttp.send();
-    }
-}
-</script>
-
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    
+    <!-- Hojas de estilo personalizadas y bootstrap -->    
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
     <link rel="icon" href="img/smart.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Coiny" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <?php include("class/consulta.php");?>
-    
+    <?php include("class/consulta.php");?>    
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/estilos1.css">
 
@@ -184,14 +144,16 @@ function showFAQ(str) {
                        
                      </div>
 
-                               <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
-                                    <div class="text-admin text-subtitulo">¡ hola <?php
-                                        $objses = new Sessions();
-                                        $objses->init();
-                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-                                        echo "$user";?>! </div>   
-                               </div>
+                    <!-- recuperando el nombre del usuario de la sesion actual -->
+                     <div style="backgrond-color: orange" class="col-md-3 align-self-center text-right">
+                          <div class="text-admin text-subtitulo">¡ hola <?php
+                              $objses = new Sessions();
+                              $objses->init();
+                              $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+                              echo "$user";?>! </div>   
+                     </div>
 
+                      <!-- Menu desplegable -->
                      <div style="backgrond-color: green" class="dropdown col-md-1 align-self-center text-left">
 
                         <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
@@ -204,7 +166,8 @@ function showFAQ(str) {
                           <a href="user/log_out" class="dropdown-item">Cerrar Sesion</a>
                         </div>  
                      </div>
-
+                    
+                    <!-- Modal para configurar la cuenta del usuario de la sesion actual -->
                      <div class="text">
                         <div class="modal fade" id="configuracion">
                                 <div class="modal-dialog">
@@ -287,13 +250,14 @@ function showFAQ(str) {
                     <div class="card" >
                         <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
-                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" >
+                            <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_IG" aria-expanded="false" aria-controls="collapseOne" >
                                 <i class="material-icons ">&#xE145;</i> Información General 
                             </button>
                         </h5>
                     </div>
-
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+    
+    <!-- Formulario para configurar la informacion general -->
+    <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
 
@@ -305,7 +269,8 @@ function showFAQ(str) {
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#historia" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Historia </h5></a>
             </div>
           </nav>
-
+            
+            <!-- Recuperando informacion de la base de datos para modificar -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -459,7 +424,9 @@ function showFAQ(str) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar --> 
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -485,7 +452,8 @@ function showFAQ(str) {
     </div>
     <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-
+        
+        <!-- Menu para agregar, modificar y eliminar FAQ -->
         <div class="row">
           <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
@@ -497,8 +465,9 @@ function showFAQ(str) {
           <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
-
-                <form action="class/recibir_faq" method="POST">
+            
+            <!-- Formulario de agregado de FAQ -->
+              <form action="class/recibir_faq" method="POST">
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
@@ -511,7 +480,8 @@ function showFAQ(str) {
                   </div>
 
                   <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
-
+                
+                <!-- Modal de confirmacion -->
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -533,18 +503,21 @@ function showFAQ(str) {
                       </div>
                     </div>
                   </div>
-
+                  
+                  <!-- Boton de cancelar -->
                   <input type="button" value="Cancelar" class="btn btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
 
                 </form>
             </div>
             
             <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
-
+                
+                <!-- Formulario para modificar FAQ -->
                 <form action="class/recibir_config_faq" method="POST">
                   <div class="form-group">
                     <h5>Modificar Pregunta</h5><br>
                     
+                    <!-- Llamando al metodo de AJAX -->     
                     <select class="form-control" type="text" name="faq_titulo" onchange="showFAQ(this.value)">
                     <option>Elija una pregunta</option>
                     <?php
@@ -561,9 +534,8 @@ function showFAQ(str) {
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
                   </div>
-
-                
-
+ 
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -589,7 +561,8 @@ function showFAQ(str) {
                 </form>
 
             </div>
-
+            
+            <!-- Formulario para eliminar FAQ -->
             <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
                 <form action="class/eliminar_faq" method="POST">
                 <div class="form-group">
@@ -612,7 +585,7 @@ function showFAQ(str) {
 
                 </div>
 
-                
+                <!-- Modal de confirmacion -->               
                 <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -650,12 +623,14 @@ function showFAQ(str) {
   <div class="card" >
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_cursos" aria-expanded="false" aria-controls="collapseTwo">
           <i class="material-icons">&#xE145;</i> Cursos 
         </button>
       </h5>
     </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+    <!-- Formulario de configuracion de cursos -->
+    <div id="collapse_cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
           <form action="class/recibir" method="POST">
 
@@ -667,7 +642,8 @@ function showFAQ(str) {
                   <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
                 </div>
             </nav>
-
+          
+          <!-- Recuperando informacion de la base de datos para modificar -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="curso_regular" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -822,7 +798,8 @@ function showFAQ(str) {
               </div>
             </div>
           </div> 
-
+          
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -841,12 +818,14 @@ function showFAQ(str) {
   <div class="card" >
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_club" aria-expanded="false" aria-controls="collapseThree">
           <i class="material-icons">&#xE145;</i> Club de Conversación 
         </button>
       </h5>
     </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+
+    <!-- Formulario de configuracion del club de conversacion -->
+    <div id="collapse_club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
           <form action="class/recibir_club" method="POST">
             <div class="form-group">
@@ -902,7 +881,8 @@ function showFAQ(str) {
               </div>
             </div>
           </div> 
-
+          
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -922,12 +902,14 @@ function showFAQ(str) {
    <div class="card" >
     <div class="card-header" id="headingFour">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_galeria" aria-expanded="false" aria-controls="collapseFour">
           <i class="material-icons">&#xE145;</i> Galeria 
         </button>
       </h5>
     </div>
-    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+
+    <!-- Formulario para subir fotografias -->
+    <div id="collapse_galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
 
         <div class="row">
@@ -1013,11 +995,14 @@ function showFAQ(str) {
                                   </div>
                                 </div>
                               </div> 
-
+                            
+                            <!-- Boton de cancelar -->
                             <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                         </form>
 
                     </div>
+
+                    <!-- Proximas areas a desarrollar -->
                     <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
                         <div class="alert alert-success" role="alert">
                             <h4 class="alert-heading">Estamos trabajando</h4>
@@ -1046,12 +1031,14 @@ function showFAQ(str) {
   <div class="card" >
     <div class="card-header" id="headingFive">
       <h5 class="mb-0">
-        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+        <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_contacto" aria-expanded="false" aria-controls="collapseFive">
          <i class="material-icons">&#xE145;</i> Contacto 
         </button>
       </h5>
     </div>
-    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+
+    <!-- Formulario para configurar informacion de contacto -->
+    <div id="collapse_contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
           <div class="form-group">
@@ -1150,7 +1137,9 @@ function showFAQ(str) {
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar --> 
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1164,6 +1153,7 @@ function showFAQ(str) {
     </div>
   </div>
 </div>
+    <!-- Boton para cerrar sesion -->
     <a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
         SALIR
     </a>
@@ -1176,13 +1166,15 @@ function showFAQ(str) {
  <footer>
 
  </footer>
- 
+
+<!-- Scripts: Bootstrap, Jquery y editor de texto -->
 <script src="js\jquery.js"></script>
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
 <script src="dist\lang\summernote-es-ES.js"></script>
 
+<!-- Script para personalizar el editor de texto -->
 <script>
 
   $('.summernote').summernote({
@@ -1207,6 +1199,53 @@ function showFAQ(str) {
   });
   
 
+</script>
+
+<!-- Script de AJAX para desplegar los datos de las FAQS en el area de modificacion -->
+<script>
+function showFAQ(str) {
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint").value = "";
+        document.getElementById("txtHint_2").value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_titulo_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+
+    if (str == "Elija una pregunta") {
+        document.getElementById("txtHint_2").value = "";
+        return;
+    } else { 
+        if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint_2").value = this.responseText;
+            }
+        };
+        xmlhttp.open("GET","../class/get_info_faq.php?q="+str,true);
+        xmlhttp.send();
+    }
+}
 </script> 
   
 </html>
