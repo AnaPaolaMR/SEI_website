@@ -1,31 +1,23 @@
 <?php
+    require'class/sessions.php';
+    $objses = new Sessions();
+    $objses->init();
 
-  //Llamando a la clase para iniciar seison
-	require'class/sessions.php';
-
-  //Inciando la sesion del usuario
-	$objses = new Sessions();
-	$objses->init();
-
-  //Recuperando variables para usuarios, mensajes y errores
   $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
   $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
 
-	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
-  //Condicion para bloquear a los usuarios que intente ingresar sin iniciar sesion
-	if($user == ''){
+    if($user == ''){
     $objses->set('error', '2');
-	  header('Location: login');
-	}
+      header('Location: login');
+    }
 
-  //Condicion para redirigir a usuarios estandar a su backend correspondiente
   if($profile == 'estandar'){
     header('Location: estandar');
   }
 
-  //Errores y mensajes
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
@@ -131,30 +123,28 @@
       <div class="container-fluid">
           <div class="row text-right">
             <div class="col edit">
-				<div class="row justify-content-between">
+                <div class="row justify-content-between">
 
-					<div class="col-md-2">
-						<img class="img-fluid" src="img/logo.png">
-					</div>
+                    <div class="col-md-2">
+                        <img class="img-fluid" src="img/logo.png">
+                    </div>
 
                      <div class="col-md-5">
                        
                      </div>
-                    
-                    <!-- Desplegando el nombre del usuario de la sesion actual -->
-					           <div class="col-md-3 align-self-center text-right">
-						            <div class="text-admin text-subtitulo">¡ hola <?php
+
+                               <div class="col-md-3 align-self-center text-right">
+                                    <div class="text-admin text-subtitulo">¡ hola <?php
                                         $objses = new Sessions();
                                         $objses->init();
                                         $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
                                         echo "$user";?>! </div>   
-					           </div>
+                               </div>
 
                      <div class="dropdown col-md-1 align-self-center text-left">
 
                         <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
-                        
-                        <!-- Menu desplegable de configuracion admin -->
+
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
                           <a class="dropdown-item" href="#eliminar_cuenta_admin" data-toggle="modal">Eliminar esta cuenta</a>
@@ -384,8 +374,8 @@
                        
                      </div>
 
-				</div>            
-        	</div>
+                </div>            
+            </div>
           </div>
       </div>
     </header>
@@ -396,16 +386,15 @@
         <section class="row justify-content-lg-center">
             <article class="col-lg-10">
               <div id="accordion">
-  		            <div class="card" >
-    		            <div class="card-header" id="headingOne">
+                    <div class="card" >
+                        <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             <button class="btn btn-link accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_IG" aria-expanded="false" aria-controls="collapseOne" >
                                 <i class="material-icons ">&#xE145;</i> Información General 
                             </button>
                         </h5>
                     </div>
-    
-    <!-- Formulario de configuracion  -->
+
     <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
@@ -419,8 +408,6 @@
             </div>
           </nav>
 
-          <!-- Recuperando informacion de la base de datos para modificar -->
-        
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -576,9 +563,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-           <!-- Boton de cancelar -->
+          </div> 
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
           <label>Ultima modificacion: <?php
                         $con = new consultas();
@@ -601,9 +586,6 @@
         </button>
       </h5>
     </div>
-
-<!-- Formulario de configuracion -->
-
     <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
 
@@ -615,9 +597,6 @@
               <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_faq" role="tab" aria-controls="messages">Eliminar Pregunta</a>
             </div>
           </div>
-
-          <!-- Agregar pregunta -->
-
           <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
@@ -635,8 +614,7 @@
                   </div>
 
                   <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
-                  
-                  <!-- Modal de confirmacion -->
+
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -663,9 +641,6 @@
 
                 </form>
             </div>
-
-              <!-- Modificar pregunta -->
-
               <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
 
                 <form action="class/recibir_config_faq" method="POST">
@@ -688,8 +663,9 @@
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
                   </div>
-            
-                  <!-- Modal de confirmacion -->
+
+                
+
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -716,8 +692,6 @@
 
               </div>
 
-              <!-- Eliminar pregunta -->
-
               <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
                 <form action="class/eliminar_faq" method="POST">
                   <div class="form-group">
@@ -739,8 +713,9 @@
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
 
                   </div>
-       
-                  <!-- Modal de confirmacion -->
+
+                
+
                   <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -791,12 +766,9 @@
         </button>
       </h5>
     </div>
-
-    <!-- Formulario de configuracion -->
-
     <div id="collapse_Cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="class/recibir" method="POST">
+          <form action="class/recibir" method="POST">
 
             <nav>
               <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -806,8 +778,6 @@
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
             </div>
           </nav>
-
-          <!-- Recuperando informacion de la base de datos para modificar -->
 
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="curso_regular" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -964,8 +934,6 @@
             </div>
           </div>
 
-          <!-- Boton de cancelar -->
-
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -973,7 +941,7 @@
                         $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','regular');
 
                     ?></label>
-  			  </form>
+              </form>
 
       </div>
     </div>
@@ -989,12 +957,9 @@
         </button>
       </h5>
     </div>
-  
-    <!-- Formulario para configurar -->
-
     <div id="collapse_Club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
-      	  <form action="class/recibir_club" method="POST">
+          <form action="class/recibir_club" method="POST">
             <div class="form-group">
               <label>Titulo</label>
               <input type="text" class="form-control" name="club_titulo" value="<?php
@@ -1047,10 +1012,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Boton de cancelar -->
-
+          </div> 
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1058,8 +1020,8 @@
                         $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','club');
 
                     ?></label>
-  			  </form>
-  			  	
+              </form>
+                
       </div>
     </div>
   </div>
@@ -1075,98 +1037,113 @@
         </button>
       </h5>
     </div>
-
-    <!-- Formulario para subir fotografias -->
-
     <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
-        <!--        ecntype multipart/form-data -->
-      	<form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
-
-            <div class="container-fluid">
-                
                 <div class="row">
-                    <div class="mb-3 col-md-3">
-                        <div class="input-group-prepend">
-                            <label>Categoría</label>
-                        </div>
+                  <div class="col-4">
+                      <div class="list-group" id="list-tab" role="tablist">
+                          <a class="list-group-item list-group-item-action active" data-toggle="list" href="#subir_fotos" role="tab" aria-controls="home">Subir Fotos</a>
+                          <a class="list-group-item list-group-item-action" data-toggle="list" href="#editar_fotos" role="tab" aria-controls="profile">Editar Fotos</a>
+                          <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_fotos" role="tab" aria-controls="messages">Eliminar Fotos</a>
+                      </div>
+                  </div>
+                    <div class="col-8">
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="subir_fotos" role="tabpanel" aria-labelledby="list-home-list">
+                                
+                                <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
 
-                        <div class="input-group">
-                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
-                                <option selected disabled>Escoja...</option>
-                                <option value="Graduados">Graduados</option>
-                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
-                                <option value="Eventos_Especiales">Eventos Especiales</option>
-                                <option value="Otros">Otros</option>
-                            </select>
-                        </div>
-                        
-                    </div>
-                    <div class="mb-3 col-md-4">
-                        <div>
-                            <label>Seleccione Imagen</label>
-                            <input required type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPG, .JPEG" multiple="true" name="valor_imagen[]">
-                            <small class="form-text text-muted">
-                                  Máximo 10 imagenes por carga, formatos : .jpg, .jpeg o .png.
-                            </small>
-                        </div>
-                    </div>
-                </div>
+                                    <div class="container-fluid">
+                                        
+                                        <div class="row">
+                                            <div class="mb-3 col-md-3">
+                                                <div class="input-group-prepend">
+                                                    <label>Categoría</label>
+                                                </div>
 
-                <div class="row">
-                    <div class="form-group col-md-7">
-                        <label>Descripcion</label>
-                            <div class="input-text">
-                                <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
-                            </div>
-                    </div>
-                </div>
+                                                <div class="input-group form-group">
+                                                    <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
+                                                        <option selected disabled>Escoja...</option>
+                                                        <option value="Graduados">Graduados</option>
+                                                        <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                                        <option value="Eventos_Especiales">Eventos Especiales</option>
+                                                        <option value="Otros">Otros</option>
+                                                    </select>
+                                                    <div class="invalid"></div>
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="mb-3 col-md-4">
+                                                <div>
+                                                    <label>Seleccione Imagen</label>
+                                                    <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
+                                                    <small class="form-text text-muted">
+                                                          Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
+                                                    </small>
+                                                </div>
+                                            </div>
+                                        </div>
 
-            </div>
-            
-             <!-- Boton de guardar -->
-                        <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
-                            Guardar
-                        </button>
-                        <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" >
-                        Cancelar
-                        </button>
+                                        <div class="row">
+                                            <div class="form-group col-md-7">
+                                                <label>Descripcion</label>
+                                                    <div class="input-text">
+                                                        <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                    </div>
+                                            </div>
+                                        </div>
 
-            <!-- Modal activado por el boton "Guardar"-->
-              <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ¿Estas seguro de que deseas guardar cambios?
-                    </div>
-                    <div class="modal-footer">
+                                    </div>
 
-<<<<<<< HEAD
+                                    <!-- Boton de guardar -->
+                                    <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_galeria">
+                                      Guardar
+                                    </button>
+
+                                    <!-- Modal activado por el boton "Guardar"-->
+                                      <div class="modal fade" id="guardar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              ¿Estas seguro de que deseas guardar cambios?
+                                            </div>
+                                            <div class="modal-footer">
+
+                                              <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                              <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+
                                     <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                                 </form>
-=======
-                      <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
->>>>>>> e9b177280e0bdf9a304476b87f5937e8303382be
 
-                      <!-- Boton de cancelar -->
-
-                      <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
-                        Cancelar
-                        </button>
-                      
+                            </div>
+                            <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
+                                <div class="alert alert-success" role="alert">
+                                    <h4 class="alert-heading">Estamos trabajando</h4>
+                                    <hr>
+                                    <p class="mb-0">Próximamente...</p>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
+                                <div class="alert alert-warning" role="alert">
+                                    <h4 class="alert-heading">Estamos trabajando</h4>
+                                    <hr>
+                                    <p class="mb-0">Próximamente...</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div>
-              </div> 
-
-            
-		</form>
+        </div>
       </div>
     </div>
   </div>
@@ -1181,9 +1158,6 @@
         </button>
       </h5>
     </div>
-
-    <!-- Formulario para modificar informacion de contacto -->
-
     <div id="collapse_Contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
@@ -1283,10 +1257,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Boton de cancelar -->
-
+          </div> 
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1294,17 +1265,15 @@
                         $con->recuperarMod('contacto','fecha_mod_contacto','','');
 
                     ?></label> 
-  			</form>
-  				
+            </form>
+                
       </div>
     </div>
   </div>
 </div>
-  
-  <!-- Boton para cerrar sesion -->
- 	<a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
-		SALIR
-	</a>
+    <a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
+        SALIR
+    </a>
 </section>
 </article>
 
@@ -1315,14 +1284,13 @@
 
  </footer>
  
- <!-- Scripts de javascript: Jquery, Bootstrap y editor de texto -->
 <script src="js\jquery.js"></script>
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
 <script src="dist\lang\summernote-es-ES.js"></script>
 
-<!-- Script para la personalizacion del editor de texto -->
+<!-- Script para el editor de texto -->
 <script>
 
   $('.summernote').summernote({
