@@ -47,6 +47,7 @@
 						    <a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
 						</div>
 					</div>
+				</div>
 
 					<!-- Modals -->
 					<div class="text">
@@ -70,7 +71,7 @@
                           					?>" alt="Logo SEI" width="100%">
 						    				</p>
 
-						    				<p class="text-left">
+						    				<p>
 						    				<?php
                                   				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','info_ig');?>
@@ -201,7 +202,6 @@
 						    	</div>
 						</div>
 					</div>
-				</div>
 			</div>
 		</div>
 	

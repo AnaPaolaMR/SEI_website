@@ -18,12 +18,15 @@
 <header>
 <div style="backgrond-color: #a2ef44" class="container-fluid">
 	<div class="row justify-content-between">
+
 		<div class="col-sm-12 col-md-3 align-self-center text-center">
 			<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 		</div>
+		
 		<div class="col-sm-12 col-md-6 align-self-center text-center">
 			<img src="SVG/cursos.png" class="img-fluid" alt="Cursos" width="40%">
 		</div>
+
 		<div class="col-sm-12 col-md-3 align-self-center text-center">
 			<div class="dropdown text text-menu">
 				<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -43,6 +46,9 @@
 					<a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
 				</div>
 			</div>
+		</div>
+
+
 			<!-- Modals -->
 			<div class="text">
 						<div class="modal fade" id="q_somos">
@@ -65,7 +71,7 @@
                           					?>" alt="Logo SEI" width="100%">
 						    				</p>
 
-						    				<p class="text-left">
+						    				<p>
 						    				<?php
                                   				$con = new consultas();
                                   				$con->recuperarIG('quienes somos','info_ig');?>
@@ -196,7 +202,6 @@
 						    	</div>
 						</div>
 					</div>
-		</div>
 	</div>
 </div>
 </header>

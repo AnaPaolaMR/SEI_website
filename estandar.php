@@ -157,6 +157,11 @@ function showFAQ(str) {
     <link rel="stylesheet" type="text/css" href="css/estilos.css">
     <link rel="stylesheet" type="text/css" href="css/estilos1.css">
 
+    <!-- Editor de texto -->  
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <link rel="stylesheet" type="text/css" href="css/estilos1.css">
+    <link rel="stylesheet" type="text/css" href="dist\summernote-bs4.css">
+
     <title>Configuracion | Smart English Institute</title>
   </head>
 
@@ -269,6 +274,8 @@ function showFAQ(str) {
       </div>
     </header>
 
+    <!--Informacion General  -->
+
     <div class="container-fluid">
         <section class="row justify-content-lg-center">
             <article class="col-lg-10">
@@ -309,8 +316,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                       <label for="exampleFormControlTextarea6">Información</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="q_somos_info"><?php
+                       <label>Información</label>
+                         <textarea class="form-control summernote" name="q_somos_info"><?php
                                   
                                   $con = new consultas();
                                   $con->recuperarIG('quienes somos','info_ig');
@@ -341,8 +348,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea7">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="mision_info"><?php
+                    <label>Información</label>
+                    <textarea class="form-control summernote" rows="15" name="mision_info"><?php
                                   $con = new consultas();
                                   $con->recuperarIG('mision','info_ig');  
 
@@ -371,8 +378,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea8">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="vision_info" ><?php
+                    <label>Información</label>
+                    <textarea class="form-control summernote" name="vision_info" ><?php
                                   $con = new consultas();
                                   $con->recuperarIG('vision','info_ig');  
 
@@ -402,8 +409,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea9">Información</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="historia_info"><?php
+                    <label>Información</label>
+                    <textarea class="form-control summernote" name="historia_info"><?php
                                   $con = new consultas();
                                   $con->recuperarIG('historia','info_ig');  
 
@@ -634,6 +641,8 @@ function showFAQ(str) {
     </div>
   </div>
 
+<!-- Cursos -->
+
   <div class="card" >
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
@@ -669,8 +678,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                       <label for="exampleFormControlTextarea6">Información del curso</label>
-                         <textarea class="form-control" id="exampleFormControlTextarea6" rows="15" name="regular_info"><?php
+                       <label>Información del curso</label>
+                         <textarea class="form-control summernote" name="regular_info"><?php
                                   
                                   $con = new consultas();
                                   $con->recuperarCurso('regular','info_curso');
@@ -701,8 +710,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea7">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea7" rows="15" name="semestral_info"><?php
+                    <label>Información del curso</label>
+                    <textarea class="form-control summernote" name="semestral_info"><?php
                                   $con = new consultas();
                                   $con->recuperarCurso('semestral','info_curso');  
 
@@ -731,8 +740,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea8">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea8" rows="15" name="sabatino_info" ><?php
+                    <label>Información del curso</label>
+                    <textarea class="form-control summernote" name="sabatino_info" ><?php
                                   $con = new consultas();
                                   $con->recuperarCurso('sabatino','info_curso');  
 
@@ -762,8 +771,8 @@ function showFAQ(str) {
                 </div> 
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea9">Información del curso</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea9" rows="15" name="verano_info"><?php
+                    <label>Información del curso</label>
+                    <textarea class="form-control summernote" name="verano_info"><?php
                                   $con = new consultas();
                                   $con->recuperarCurso('verano','info_curso');  
 
@@ -823,6 +832,8 @@ function showFAQ(str) {
     </div>
   </div>
 
+<!-- Club de Conversacion -->
+
   <div class="card" >
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
@@ -844,8 +855,8 @@ function showFAQ(str) {
             </div> 
 
             <div class="form-group">
-               <label for="exampleFormControlTextarea10">Información del curso</label>
-               <textarea class="form-control" id="exampleFormControlTextarea10" rows="15" name="club_info"><?php
+               <label>Información del curso</label>
+               <textarea class="form-control summernote" name="club_info"><?php
                     $con = new consultas();
                     $con->recuperarCurso('club','info_curso');  
 
@@ -1039,8 +1050,8 @@ function showFAQ(str) {
             </div>
 
             <div class="form-group">
-               <label for="exampleFormControlTextarea11">Direccion</label>
-               <textarea class="form-control" id="exampleFormControlTextarea11" rows="2" name="contacto_direccion"><?php
+               <label>Direccion</label>
+               <textarea class="form-control summernote" name="contacto_direccion"><?php
                         $con = new consultas();
                         $con->recuperarContacto('direccion_contacto');
 
@@ -1130,8 +1141,33 @@ function showFAQ(str) {
 
  </footer>
  
-  <script src="js\jquery.js"></script>
-  <script src="js\popper.min.js"></script>
-  <script src="js\bootstrap.min.js"></script> 
+<script src="js\jquery.js"></script>
+<script src="js\popper.min.js"></script>
+<script src="js\bootstrap.min.js"></script>
+<script src="dist\summernote-bs4.js"></script>
+
+<script>
+
+  $('.summernote').summernote({
+    placeholder: 'Introduzca su informacion aqui',
+    tabsize: 2,
+    height: 200,
+    disableDragAndDrop: true,
+
+    toolbar: [
+    // [groupName, [list of button]]
+    ['style', ['bold', 'italic', 'underline', 'clear']],
+    ['font', ['strikethrough', 'superscript', 'subscript']],
+    ['fontsize', ['fontsize']],
+    ['color', ['color']],
+    ['para', ['ul', 'ol', 'paragraph']],
+    ['height', ['height']],
+    ['undo-redo', ['undo', 'redo']]
+  ]
+
+  });
+  
+
+</script> 
   
 </html>
