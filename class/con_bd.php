@@ -1,10 +1,11 @@
 <?php
 
+//Clase para conectarse a la base de datos
 class conexion{
 	
 	public function get_conexion(){
 		
-		//Para conectarnos a MySQL
+		//Datos para conectarse a MySQL
 		$host = "localhost";
 		$user = "root";
 		$pw = "";

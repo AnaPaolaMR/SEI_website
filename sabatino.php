@@ -2,6 +2,8 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<!-- Hojas de estilo personalizadas, Boostrap y fuentes de Google -->
 	<link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,14 +19,18 @@
 	<header>
 		<div style="backgrond-color: #a2ef44" class="container-fluid">
 			<div class="row justify-content-between">
+
+				<!-- Imagen de usuario -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
-
+				
+				<!-- Titulo -->
 				<div class="col-sm-12 col-md-6 align-self-center text-center">
 					<img src="svg/Sabatino.png" class="img-fluid" alt="Sabatino" width="40%">
 				</div>
-
+				
+				<!-- Menu desplegable -->
 				<div class="col-sm-12 col-md-3 align-self-center text-center">
 					<div class="dropdown text text-menu">
 						<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -50,7 +56,7 @@
 					</div>
 				</div>
 
-					<!-- Modals -->
+					<!-- Modals del menu desplegable-->
 					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
@@ -207,7 +213,9 @@
 		</div>
 	
 	</header>
-		
+
+
+	<!-- Recuperando informacion de la base de datos del curso sabatino -->
 	<div class="container-fluid">
 		<section class="main row">
 			<article class="margin-custom col-xs-12 col-sm-12 col-md-12 col-lg-7">
@@ -243,11 +251,14 @@
 	</div>
 
 	<footer>
+		<!-- Marca de SEI -->
 		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center footer-custom">
 			<p>
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
+
+		<!-- Boton de volver -->
 		<a href="cursos" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 			volver
 		</a>
@@ -255,6 +266,7 @@
 	
 </body>
 
+<!-- Scripts: Jquery y Bootstrap -->
 <script src="js/jquery.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

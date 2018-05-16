@@ -1,23 +1,31 @@
 <?php
+
+  //Llamando a la clase para iniciar seison
 	require'class/sessions.php';
+
+  //Inciando la sesion del usuario
 	$objses = new Sessions();
 	$objses->init();
 
+  //Recuperando variables para usuarios, mensajes y errores
   $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
   $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
 
 	$user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
+  //Condicion para bloquear a los usuarios que intente ingresar sin iniciar sesion
 	if($user == ''){
     $objses->set('error', '2');
 	  header('Location: login');
 	}
 
+  //Condicion para redirigir a usuarios estandar a su backend correspondiente
   if($profile == 'estandar'){
     header('Location: estandar');
   }
 
+  //Errores y mensajes
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
@@ -132,7 +140,8 @@
                      <div class="col-md-5">
                        
                      </div>
-
+                    
+                    <!-- Desplegando el nombre del usuario de la sesion actual -->
 					           <div class="col-md-3 align-self-center text-right">
 						            <div class="text-admin text-subtitulo">¡ hola <?php
                                         $objses = new Sessions();
@@ -144,7 +153,8 @@
                      <div class="dropdown col-md-1 align-self-center text-left">
 
                         <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
-
+                        
+                        <!-- Menu desplegable de configuracion admin -->
                         <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
                           <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
                           <a class="dropdown-item" href="#eliminar_cuenta_admin" data-toggle="modal">Eliminar esta cuenta</a>
@@ -394,7 +404,8 @@
                             </button>
                         </h5>
                     </div>
-
+    
+    <!-- Formulario de configuracion  -->
     <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
@@ -408,6 +419,8 @@
             </div>
           </nav>
 
+          <!-- Recuperando informacion de la base de datos para modificar -->
+        
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -563,7 +576,9 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+           <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
           <label>Ultima modificacion: <?php
                         $con = new consultas();
@@ -586,6 +601,9 @@
         </button>
       </h5>
     </div>
+
+<!-- Formulario de configuracion -->
+
     <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
 
@@ -597,6 +615,9 @@
               <a class="list-group-item list-group-item-action" data-toggle="list" href="#eliminar_faq" role="tab" aria-controls="messages">Eliminar Pregunta</a>
             </div>
           </div>
+
+          <!-- Agregar pregunta -->
+
           <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
@@ -614,7 +635,8 @@
                   </div>
 
                   <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
-
+                  
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -641,6 +663,9 @@
 
                 </form>
             </div>
+
+              <!-- Modificar pregunta -->
+
               <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
 
                 <form action="class/recibir_config_faq" method="POST">
@@ -663,9 +688,8 @@
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
                   </div>
-
-                
-
+            
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -692,6 +716,8 @@
 
               </div>
 
+              <!-- Eliminar pregunta -->
+
               <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
                 <form action="class/eliminar_faq" method="POST">
                   <div class="form-group">
@@ -713,9 +739,8 @@
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_faq_especifica">Eliminar</button>
 
                   </div>
-
-                
-
+       
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -766,6 +791,9 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion -->
+
     <div id="collapse_Cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir" method="POST">
@@ -778,6 +806,8 @@
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
             </div>
           </nav>
+
+          <!-- Recuperando informacion de la base de datos para modificar -->
 
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="curso_regular" role="tabpanel" aria-labelledby="nav-home-tab">
@@ -934,6 +964,8 @@
             </div>
           </div>
 
+          <!-- Boton de cancelar -->
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -957,6 +989,9 @@
         </button>
       </h5>
     </div>
+  
+    <!-- Formulario para configurar -->
+
     <div id="collapse_Club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
       	  <form action="class/recibir_club" method="POST">
@@ -1012,7 +1047,10 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1037,6 +1075,9 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario para subir fotografias -->
+
     <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
         <!--        ecntype multipart/form-data -->
@@ -1107,6 +1148,9 @@
                     <div class="modal-footer">
 
                       <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+
+                      <!-- Boton de cancelar -->
+
                       <button class="btn btn-lg btn-outline-secondary text-center text-cancel" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" onclick="javascript:window.location.reload();">
                         Cancelar
                         </button>
@@ -1132,6 +1176,9 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario para modificar informacion de contacto -->
+
     <div id="collapse_Contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
@@ -1231,7 +1278,10 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
+
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1245,6 +1295,8 @@
     </div>
   </div>
 </div>
+  
+  <!-- Boton para cerrar sesion -->
  	<a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
 		SALIR
 	</a>
@@ -1258,13 +1310,14 @@
 
  </footer>
  
+ <!-- Scripts de javascript: Jquery, Bootstrap y editor de texto -->
 <script src="js\jquery.js"></script>
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
 <script src="dist\lang\summernote-es-ES.js"></script>
 
-<!-- Script para el editor de texto -->
+<!-- Script para la personalizacion del editor de texto -->
 <script>
 
   $('.summernote').summernote({

@@ -2,6 +2,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Hojas de estilo personalizadas, Boostrap y fuentes de Google -->
 <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link rel="icon" href="img/smart.ico">
@@ -18,15 +20,18 @@
 <header>
 <div style="backgrond-color: #a2ef44" class="container-fluid">
 	<div class="row justify-content-between">
-
+		
+		<!-- Imagen de usuario -->
 		<div class="col-sm-12 col-md-3 align-self-center text-center">
 			<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 		</div>
 		
+		<!-- Titulo -->
 		<div class="col-sm-12 col-md-6 align-self-center text-center">
 			<img src="SVG/cursos.png" class="img-fluid" alt="Cursos" width="40%">
 		</div>
-
+		
+		<!-- Menu desplegable -->
 		<div class="col-sm-12 col-md-3 align-self-center text-center">
 			<div class="dropdown text text-menu">
 				<button class="float-right float-sm-right float-md-none float-lg-none float-xl-none btn btn-outline-success no-border" type="button" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +54,7 @@
 		</div>
 
 
-			<!-- Modals -->
+			<!-- Modals del menu desplegable-->
 			<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
@@ -205,6 +210,8 @@
 	</div>
 </div>
 </header>
+
+<!-- Botones para redirigir a cada uno de los cursos -->
 <div class="container">
 	<section class="main row">
 	<article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -249,6 +256,8 @@
 <div class="container">
 	<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p>  -->
 </div>
+
+<!-- Boton de volver -->
 <a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
 volver </a>
 </footer>
