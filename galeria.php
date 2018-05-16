@@ -7,7 +7,7 @@
 		while ($archivo = readdir($directorio)) {
 			//echo "$archivo<br>";
 			//<img src="img/Graduados/" data-caption="Lo que tenga de descripcion en la base de datos">
-			$fotos[$n] = "<img src='/img/$categoria/$archivo' data-caption='Lo que tenga de descripcion en la base de datos'";
+			$fotos[$n] = "<img src='/img/$categoria/$archivo' ";
 			
 			if ($n >=1) {
 				echo ($fotos[$n])."<br>";
@@ -254,7 +254,6 @@
 				    </div>
 				  </div>
 				</div>
-
 			</div>
 
 
