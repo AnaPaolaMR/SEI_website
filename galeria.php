@@ -236,7 +236,7 @@
 		<section class="main row text-center">
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center" >
-				<a href="#Mgraduados" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"></a>
+				<a href="#Mgraduados" data-toggle="modal"><img src="img/02.jpg" class="img-thumbnail img-fluid"></a>
 				<p class="text-responsive text-center text-subtitulo">Graduados</p>
 
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="Mgraduados">
@@ -244,7 +244,7 @@
 				    <div class="modal-content">
 
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
-						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
 						 	<?php
 				    		Lista_de_fotos("Graduados");
@@ -259,14 +259,14 @@
 
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#MCuadro" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MCuadro" data-toggle="modal"><img src="img/03.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Cuadro de Honor</p>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MCuadro">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
-						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
 						 	<?php
 				    		Lista_de_fotos("Cuadro_de_Honor");
@@ -279,14 +279,14 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#MEventos" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MEventos" data-toggle="modal"><img src="img/01.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">Eventos especiales</p>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MEventos">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
-						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
 						 	<?php
 				    		Lista_de_fotos("Eventos_Especiales");
@@ -300,14 +300,14 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
-				<a href="#MOtros" data-toggle="modal"><img src="img/img-not-found.png" class="img-thumbnail img-fluid"> </a>
+				<a href="#MOtros" data-toggle="modal"><img src="img/04.jpg" class="img-thumbnail img-fluid"> </a>
 				<p class="text-responsive text-center text-subtitulo">otros</p>
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MOtros">
 				  <div class="modal-dialog modal-lg modal-dialog-centered">
 				    <div class="modal-content">
 
 				      	<!-- 2. Add images to <div class="fotorama"></div>. -->
-						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs" data-fit="cover" data-allowfullscreen="native" data-keyboard="true">
+						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
 						 	<?php
 				    		Lista_de_fotos("Otros");

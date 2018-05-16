@@ -956,7 +956,7 @@ function showFAQ(str) {
                             <label>Seleccione Imagen</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
                             <small class="form-text text-muted">
-                                  Máximo 10 imagenes por carga, formatos : .jpg, .jpeg o .png.
+                                  Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
                             </small>
                         </div>
                     </div>
@@ -966,7 +966,7 @@ function showFAQ(str) {
                     <div class="form-group col-md-7">
                         <label>Descripcion</label>
                             <div class="input-text">
-                                <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                             </div>
                     </div>
                 </div>
