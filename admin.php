@@ -622,11 +622,10 @@
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
-                    <label>Pregunta</label>
-                    <input class="form-control" type="text" name="faq" required>
+                    <input class="form-control" type="text" name="faq" placeholder="Pregunta" minlength="10" maxlength="200" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <label>Respuesta</label>
-                    <textarea class="form-control" row="3" name="faq_respuesta" required></textarea>
+                    <textarea class="form-control" row="3" placeholder="Respuesta" name="faq_respuesta" minlength="2" maxlength="2000" required></textarea>
 
                   </div>
 
@@ -675,11 +674,10 @@
                       $obj = new consultas();
                       $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <label>Pregunta</label>
-                    <textarea class="form-control" id="txtHint" rows="1" name="faq_mod_titulo"></textarea><br>
+                    <input class="form-control" type="text" id="txtHint" name="faq_mod_titulo" placeholder="Pregunta" minlength="10" maxlength="200" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <label>Respuesta</label>
-                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info"></textarea><br>
+                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -1217,7 +1215,7 @@
 
             <div class="form-group">
               <label>Correo Electronico </label>
-              <input type="text" class="form-control" name="contacto_email" value="<?php
+              <input type="email" class="form-control" name="contacto_email" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
