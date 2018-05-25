@@ -1,23 +1,30 @@
 <?php
-    require'class/sessions.php';
-    $objses = new Sessions();
-    $objses->init();
+  
+  //Llamando clases para iniciar sesion
+  require'class/sessions.php';
+  $objses = new Sessions();
+  $objses->init();
 
+  //Variables de sesion para manejar errores y mensajes
   $mensaje = isset($_SESSION['msg']) ? $_SESSION['msg'] : null ;
   $err = isset($_SESSION['error']) ? $_SESSION['error'] : null ;
 
-    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+  //Variables de sesion para manejar datos del usuario de las sesion actual
+  $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
   $profile = isset($_SESSION['profile']) ? $_SESSION['profile'] : null ;
 
-    if($user == ''){
-    $objses->set('error', '2');
-      header('Location: login');
-    }
+  //Condicion que bloquea usuarios que no hayan iniciado sesion
+  if($user == ''){
+  $objses->set('error', '2');
+    header('Location: login');
+  }
 
+  //Condicion para redirigir a su backend a usuarios estandar
   if($profile == 'estandar'){
     header('Location: estandar');
   }
 
+  //Condiciones para errores
   switch ($err) {
     case 1:
         echo "<script type='text/javascript'>alert('Error: Debe ingresar la contraseña de la sesion actual para guardar cambios');</script>";
@@ -68,7 +75,8 @@
         $objses->set('error', '0');
         break;
 }     
-
+  
+  //Condiciones para mensajes
   switch ($mensaje) {
     case 1:
         echo "<script type='text/javascript'>alert('Usuario creado con Exito');</script>";
@@ -100,9 +108,10 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="utf-8">
-    
+    <meta charset="utf-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Hojas de estilo personalizadas y bootstrap -->
     <link rel="stylesheet" type="text/css" href="css\bootstrap.min.css"> 
     <link rel="icon" href="img/smart.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
@@ -133,14 +142,16 @@
                        
                      </div>
 
-                               <div class="col-md-3 align-self-center text-right">
-                                    <div class="text-admin text-subtitulo">¡ hola <?php
-                                        $objses = new Sessions();
-                                        $objses->init();
-                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-                                        echo "$user";?>! </div>   
-                               </div>
-
+                    <!-- recuperando el nombre del usuario de la sesion actual -->
+                     <div class="col-md-3 align-self-center text-right">
+                          <div class="text-admin text-subtitulo">¡ hola <?php
+                              $objses = new Sessions();
+                              $objses->init();
+                              $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+                              echo "$user";?>! </div>   
+                     </div>
+                    
+                    <!-- Menu desplegable -->
                      <div class="dropdown col-md-1 align-self-center text-left">
 
                         <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
@@ -394,7 +405,8 @@
                             </button>
                         </h5>
                     </div>
-
+    
+    <!-- Formulario para configurar la informacion general -->
     <div id="collapse_IG" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_ig" method="POST">
@@ -407,7 +419,8 @@
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#historia" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Historia </h5></a>
             </div>
           </nav>
-
+          
+          <!-- Recuperando informacion de la base de datos para modificar -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="q_somos" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -563,7 +576,9 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
           <label>Ultima modificacion: <?php
                         $con = new consultas();
@@ -588,7 +603,8 @@
     </div>
     <div id="collapse_FAQS" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
-
+        
+        <!-- Menu para agregar, modificar y eliminar FAQ -->
         <div class="row">
           <div class="col-4">
             <div class="list-group" id="list-tab" role="tablist">
@@ -600,21 +616,22 @@
           <div class="col-8">
             <div class="tab-content" id="nav-tabContent">
               <div class="tab-pane fade show active" id="agregar_faq" role="tabpanel" aria-labelledby="list-home-list">
-
+                
+                <!-- Formulario de agregado de FAQ -->
                 <form action="class/recibir_faq" method="POST">
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
-                    <label>Pregunta</label>
-                    <input class="form-control" type="text" name="faq" required>
+                    <input class="form-control" type="text" name="faq" placeholder="Pregunta" minlength="10" maxlength="200" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <label>Respuesta</label>
-                    <textarea class="form-control" row="3" name="faq_respuesta" required></textarea>
+                    <textarea class="form-control" row="3" placeholder="Respuesta" name="faq_respuesta" minlength="2" maxlength="2000" required></textarea>
 
                   </div>
 
                   <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_faq">Guardar</button>
-
+                  
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="guardar_faq" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -636,17 +653,20 @@
                       </div>
                     </div>
                   </div>
-
+                  
+                  <!-- Boton de cancelar -->
                   <input type="button" value="Cancelar" class="btn btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/>
 
                 </form>
             </div>
               <div class="tab-pane fade" id="modificar_faq" role="tabpanel" aria-labelledby="list-profile-list">
-
+                
+                <!-- Formulario para modificar FAQ -->
                 <form action="class/recibir_config_faq" method="POST">
                   <div class="form-group">
                     <h5>Modificar Pregunta</h5><br>
                     
+                    <!-- Llamando al metodo de AJAX -->
                     <select class="form-control" type="text" name="faq_titulo" onchange="showFAQ(this.value)">
                     <option>Elija una pregunta</option>
                     <?php
@@ -654,18 +674,16 @@
                       $obj = new consultas();
                       $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <label>Pregunta</label>
-                    <textarea class="form-control" id="txtHint" rows="1" name="faq_mod_titulo"></textarea><br>
+                    <input class="form-control" type="text" id="txtHint" name="faq_mod_titulo" placeholder="Pregunta" minlength="10" maxlength="200" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <label>Respuesta</label>
-                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info"></textarea><br>
+                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
                   </div>
-
-                
-
+                  
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="modificar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -691,7 +709,8 @@
                 </form>
 
               </div>
-
+              
+              <!-- Formulario para eliminar FAQ -->
               <div class="tab-pane fade" id="eliminar_faq" role="tabpanel" aria-labelledby="list-messages-list">
                 <form action="class/eliminar_faq" method="POST">
                   <div class="form-group">
@@ -715,7 +734,7 @@
                   </div>
 
                 
-
+                  <!-- Modal de confirmacion -->
                   <div class="modal fade" id="eliminar_faq_especifica" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                       <div class="modal-content">
@@ -739,10 +758,6 @@
                   </div>
 
                 </form>
-
-  
-
-
               </div>
             </div>
           </div>
@@ -766,6 +781,8 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion de cursos -->
     <div id="collapse_Cursos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
       <div class="card-body">
           <form action="class/recibir" method="POST">
@@ -778,7 +795,8 @@
               <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#curso_verano" role="tab" aria-controls="nav-contact" aria-selected="false"><h5>  Verano </h5></a>
             </div>
           </nav>
-
+          
+          <!-- Recuperando informacion de la base de datos para modificar -->
           <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="curso_regular" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -933,7 +951,8 @@
               </div>
             </div>
           </div>
-
+          
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -957,6 +976,8 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario de configuracion del club de conversacion -->
     <div id="collapse_Club" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
           <form action="class/recibir_club" method="POST">
@@ -1012,7 +1033,9 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1037,6 +1060,8 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario para subir fotografias -->
     <div id="collapse_Galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
                 <div class="row">
@@ -1122,11 +1147,14 @@
                                           </div>
                                         </div>
                                       </div> 
-
+                                    
+                                    <!-- Boton de cancelar -->
                                     <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                                 </form>
 
                             </div>
+
+                            <!-- Proximas areas a desarrollar -->
                             <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
                                 <div class="alert alert-success" role="alert">
                                     <h4 class="alert-heading">Estamos trabajando</h4>
@@ -1158,6 +1186,8 @@
         </button>
       </h5>
     </div>
+
+    <!-- Formulario para configurar informacion de contacto -->
     <div id="collapse_Contacto" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
       <div class="card-body">
         <form action="class/recibir_contacto" method="POST">
@@ -1185,7 +1215,7 @@
 
             <div class="form-group">
               <label>Correo Electronico </label>
-              <input type="text" class="form-control" name="contacto_email" value="<?php
+              <input type="email" class="form-control" name="contacto_email" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
@@ -1257,7 +1287,9 @@
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+
+          <!-- Boton de cancelar -->
           <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
           <label>Ultima modificacion: <?php
@@ -1271,6 +1303,7 @@
     </div>
   </div>
 </div>
+    <!-- Boton para cerrar sesion -->
     <a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
         SALIR
     </a>
@@ -1284,13 +1317,14 @@
 
  </footer>
  
+ <!-- Scripts: Bootstrap, Jquery y editor de texto -->
 <script src="js\jquery.js"></script>
 <script src="js\popper.min.js"></script>
 <script src="js\bootstrap.min.js"></script>
 <script src="dist\summernote-bs4.js"></script>
 <script src="dist\lang\summernote-es-ES.js"></script>
 
-<!-- Script para el editor de texto -->
+<!-- Script para personalizar el editor de texto -->
 <script>
 
   $('.summernote').summernote({
