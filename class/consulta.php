@@ -195,7 +195,7 @@
 
 			$resultado = mysqli_query($con, $query);
 
-			$directorio = opendir("./img/$categoria");
+			//$directorio = opendir("./img/$categoria");
 			$n = 0;
 			$fotos = array();
 

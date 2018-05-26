@@ -927,12 +927,11 @@
             </div>
             <div class="col-8">
                 <div class="tab-content" id="nav-tabContent">
+                    <!-- Subir Fotos -->
                     <div class="tab-pane fade show active" id="subir_fotos" role="tabpanel" aria-labelledby="list-home-list">
-                        
                         <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
-
                             <div class="container-fluid">
-                                
+                                <h5>Subir fotos</h5><br>
                                 <div class="row">
                                     <div class="mb-3 col-md-3">
                                         <div class="input-group-prepend">
@@ -1007,20 +1006,179 @@
 
                     </div>
 
-                    <!-- Proximas areas a desarrollar -->
+                    <!-- Modificar Fotos -->
                     <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Estamos trabajando</h4>
-                            <hr>
-                            <p class="mb-0">Próximamente...</p>
-                        </div>
+                        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
+                            <div class="container-fluid">
+                                <h5>Modificar la descripcion de las fotos</h5><br>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="input-group-prepend" >
+                                            Categoría
+                                        </div>
+                                        <div class="input-group-prepend">
+                                            <select class="custom-select" id="categoria_1" name="categoria_1" required>
+                                                <option selected disabled>Escoja...</option>
+                                                <option value="Graduados">Graduados</option>
+                                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                                <option value="Eventos_Especiales">Eventos Especiales</option>
+                                                <option value="Otros">Otros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group-prepend" >
+                                            Escoja una foto:
+                                        </div>
+                                        <div class="input-group-prepend">
+                                            <select class="custom-select" id="fotos_1" name="fotos_1" required>
+                                                <option selected disabled>Escoja...</option>
+                                                <option value="Foto_1">Foto_1</option>
+                                                <option value="Foto_2">Foto_2</option>
+                                                <option value="Foto_3">Foto_3</option>
+                                                <option value="Foto_4">Foto_4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                         <div class="input-group-prepend" >
+                                            Escogió esta foto:
+                                        </div>
+                                        <div class="container-fluid">
+                                            <img src="./img/02.jpg" class="img-thumbnail img-fluid" alt="Foto a modificar" style="margin: 10px; margin-bottom: 25px;">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group-prepend">
+                                            Nueva Descripcion:
+                                        </div>
+                                        <div class="input-text">
+                                            <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Botones guardar y cancelar -->
+                                <div class="row">
+                                    <!-- Boton de guardar -->
+                                    <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_galeria">
+                                        Guardar
+                                    </button>
+
+                                    <!-- Modal activado por el boton "Guardar"-->
+                                    <div class="modal fade" id="modificar_galeria" tabindex="-1" role="dialog"  aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              ¿Estas seguro de que deseas guardar cambios?
+                                            </div>
+                                            <div class="modal-footer">
+
+                                              <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                              <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            
+                            </div>
+                        </form>
+                        
                     </div>
+
+                    <!-- Eliminar Fotos -->
                     <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
-                        <div class="alert alert-warning" role="alert">
-                            <h4 class="alert-heading">Estamos trabajando</h4>
-                            <hr>
-                            <p class="mb-0">Próximamente...</p>
-                        </div>
+                        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
+                            <div class="container-fluid">
+                                <h5>Eliminar fotos</h5><br>
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <div class="input-group-prepend" >
+                                            Categoría
+                                        </div>
+                                        <div class="input-group-prepend">
+                                            <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
+                                                <option selected disabled>Escoja...</option>
+                                                <option value="Graduados">Graduados</option>
+                                                <option value="Cuadro_de_Honor">Cuadro de Honor</option>
+                                                <option value="Eventos_Especiales">Eventos Especiales</option>
+                                                <option value="Otros">Otros</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="input-group-prepend" >
+                                            Escoja una foto:
+                                        </div>
+                                        <div class="input-group-prepend">
+                                            <select class="custom-select" id="fotos_1" name="fotos_1" required>
+                                                <option selected disabled>Escoja...</option>
+                                                <option value="Foto_1">Foto_1</option>
+                                                <option value="Foto_2">Foto_2</option>
+                                                <option value="Foto_3">Foto_3</option>
+                                                <option value="Foto_4">Foto_4</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+
+                            </div>
+                            <!-- Boton de eliminar -->
+                            <div class="row ">
+                                <div class="col-md-4">
+                                    <div class="input-group-prepend" >
+                                        Escogió esta foto:
+                                    </div>
+                                    <div class="container-fluid">
+                                        <img src="./img/01.jpg" class="img-thumbnail img-fluid" alt="Foto a Eliminar"style="margin: 10px; margin-bottom: 25px;">
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3 align-self-end" >
+                                    <!-- Boton de Eliminar -->
+                                    <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_galeria">
+                                        Eliminar
+                                    </button>
+
+                                    <!-- Modal activado por el boton "Eliminar"-->
+                                      <div class="modal fade" id="eliminar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                              </button>
+                                            </div>
+                                            <div class="modal-body">
+                                              ¿Estas seguro de que deseas eliminar la foto?
+                                            </div>
+                                            <div class="modal-footer">
+
+                                              <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                              <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                              
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+                                </div>
+                            </div>
+                            
+                        </form>
                     </div>
                 </div>
             </div>
@@ -1251,6 +1409,6 @@ function showFAQ(str) {
         xmlhttp.send();
     }
 }
-</script> 
+</script>
   
 </html>
