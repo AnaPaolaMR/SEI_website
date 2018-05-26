@@ -135,7 +135,7 @@
                 <div class="row justify-content-between">
 
                     <div class="col-md-2">
-                        <img class="img-fluid" src="img/logo.png">
+                        <a href="http://www.smartenglishinstitute.com" target="_blank"><img class="img-fluid" src="img/logo.png"></a>
                     </div>
 
                      <div class="col-md-5">
@@ -332,7 +332,7 @@
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input type="text" class="form-control" name="nombre_usuario" minlength="3" maxlength="100" value="<?php
+                                                    <input required type="text" class="form-control" name="nombre_usuario" minlength="3" maxlength="100" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -342,7 +342,7 @@
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
                                                     <label>Nombre de usuario (Nickname)</label>
-                                                    <input type="text" class="form-control" name="nickname_usuario" minlength="3" maxlength="50" value="<?php
+                                                    <input required type="text" class="form-control" name="nickname_usuario" minlength="3" maxlength="50" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -352,7 +352,7 @@
                                                     $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
-                                                    <input type="password" class="form-control" name="pass_usuario" minlength="8" maxlength="100" value="<?php
+                                                    <input required type="password" class="form-control" name="pass_usuario" minlength="8" maxlength="100" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -626,6 +626,7 @@
                     <small id="faq_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
                     <textarea class="form-control" row="3" placeholder="Respuesta" id="input_resp" name="faq_respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id, 'guardar_faq')" required></textarea>
+                     <small id="faq_help" class="form-text text-muted">Debe contener al menos 2 caracteres.</small>
 
                   </div>
 
@@ -677,7 +678,8 @@
                     <input class="form-control" type="text" id="txtHint" id="input_mod_faq" name="faq_mod_titulo" placeholder="Pregunta" aria-describedby="faq_mod_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'modificar_faq_especifica')" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
                     <small id="faq_mod_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <textarea class="form-control" id="txtHint_2" rows="5" id="input_mod_resp" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id ,'modificar_faq_especifica')"></textarea><br>
+                    <textarea class="form-control" id="txtHint_2" rows="5" id="input_mod_resp" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id ,'modificar_faq_especifica')"></textarea>
+                    <small id="faq_help" class="form-text text-muted">Debe contener al menos 2 caracteres.</small><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -1197,23 +1199,23 @@
 
             <div class="form-group">
               <label>Telefono</label>
-              <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
+              <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,}" required value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('telefono');
 
                     ?>">
-              <small class="form-text text-muted">Introduzca solo numeros. Los simbolos "-" y "+" tambien son admitidos.</small>
+              <small class="form-text text-muted">Introduzca solo numeros (Al menos 7 digitos). Los simbolos "-" y "+" tambien son admitidos.</small>
 
             </div> 
 
             <div class="form-group">
                <label>Celular</label>
-               <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_cel" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
+               <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_cel" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,}" required value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('celular');
 
                     ?>">
-                <small class="form-text text-muted">Introduzca solo numeros. Los simbolos "-" y "+" tambien son admitidos.</small>
+                <small class="form-text text-muted">Introduzca solo numeros (Al menos 10 digitos). Los simbolos "-" y "+" tambien son admitidos.</small>
 
             </div>
 
@@ -1430,7 +1432,7 @@ function showFAQ(str) {
 
     $('#'+modal).modal('hide');
     $('#'+modal).on('hidden.bs.modal', function (e) {
-      document.getElementById(input).scrollIntoView();
+      document.getElementById(input).focus();
 })
      
   } 
