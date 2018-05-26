@@ -112,9 +112,9 @@
 				header("location: ../admin");
 			}
 			else{
-				//mysqli_close($con);
-				//$objses->set('error', '13');
-				//header("location: ../estandar");
+				mysqli_close($con);
+				$objses->set('error', '13');
+				header("location: ../estandar");
 			}
 		}
 

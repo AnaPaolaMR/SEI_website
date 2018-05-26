@@ -912,8 +912,7 @@
         </button>
       </h5>
     </div>
-
-    <!-- Formulario para subir fotografias -->
+    
     <div id="collapse_galeria" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
       <div class="card-body">
 
@@ -1008,7 +1007,7 @@
 
                     <!-- Modificar Fotos -->
                     <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
-                        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
+                        <form action="class/cargar_lista_fotos.php" method="POST" enctype="multipart/form-data" class="needs-validation">
                             <div class="container-fluid">
                                 <h5>Modificar la descripcion de las fotos</h5><br>
                                 <div class="row">
@@ -1055,7 +1054,7 @@
                                             Nueva Descripcion:
                                         </div>
                                         <div class="input-text">
-                                            <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                            <textarea class="form-control" id ="descripcion_1 "name="descripcion_1" required placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -1097,7 +1096,7 @@
 
                     <!-- Eliminar Fotos -->
                     <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
-                        <form action="class/recibir_galeria" method="POST" enctype="multipart/form-data" class="needs-validation">
+                        <form action="class/cargar_foto" method="POST" enctype="multipart/form-data" class="needs-validation">
                             <div class="container-fluid">
                                 <h5>Eliminar fotos</h5><br>
                                 <div class="row">
