@@ -50,27 +50,31 @@
         $objses->set('error', '0');
         break;
       case 7:
-        echo "<script type='text/javascript'>alert('Error: Elija una pregunta para eliminar');</script>";
+        echo "<script type='text/javascript'>alert('Error: Elija una pregunta para eliminar.');</script>";
         $objses->set('error', '0');
         break;
       case 8:
-        echo "<script type='text/javascript'>alert('Error: Esta pregunta ya existe');</script>";
+        echo "<script type='text/javascript'>alert('Error: Esta pregunta ya existe.');</script>";
         $objses->set('error', '0');
         break;
       case 9:
-        echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb');</script>";
+        echo "<script type='text/javascript'>alert('Error: El tamaño de la imagen es mayor de 5Mb.');</script>";
         $objses->set('error', '0');
         break;
       case 10:
-        echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen');</script>";
+        echo "<script type='text/javascript'>alert('Error: Solo se pueden subir archivos de tipo imagen.');</script>";
         $objses->set('error', '0');
         break;
       case 11:
-        echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez');</script>";
+        echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez.');</script>";
         $objses->set('error', '0');
         break;
       case 12:
-        echo "<script type='text/javascript'>alert('Error: Seleccione una pregunta para modificar');</script>";
+        echo "<script type='text/javascript'>alert('Error: Seleccione una pregunta para modificar.');</script>";
+        $objses->set('error', '0');
+        break;
+      case 13:
+        echo "<script type='text/javascript'>alert('Error: Seleccione una categoria para subir imagen.');</script>";
         $objses->set('error', '0');
         break;
 
