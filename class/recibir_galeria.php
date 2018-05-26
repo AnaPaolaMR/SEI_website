@@ -20,9 +20,10 @@
 
 		//Recibir datos
 		$categoria = $_POST['categoria'];
+		echo "$categoria";
 		$descripcion = $_POST['descripcion'];
 
-		if ($categoria =! "Escoja..."){
+		if ($categoria != "Escoja..."){
 			if (isset($_FILES['valor_imagen'])){
 				$cantidad = count($_FILES['valor_imagen']['tmp_name']);
 
@@ -103,6 +104,7 @@
 				}
 				
 			}
+		//Error en el tipo de categoria
 		}else{
 			if ($profile=='admin'){
 				mysqli_close($con);
@@ -110,13 +112,11 @@
 				header("location: ../admin");
 			}
 			else{
-				mysqli_close($con);
-				$objses->set('error', '13');
-				header("location: ../estandar");
+				//mysqli_close($con);
+				//$objses->set('error', '13');
+				//header("location: ../estandar");
 			}
 		}
-
-		
 
 		//Una vez subidos las imagenes correctamente...
 		if ($profile=='admin'){

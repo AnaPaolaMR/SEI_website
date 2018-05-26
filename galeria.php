@@ -1,22 +1,3 @@
-<?php
-	//Funcion que rescata la lista correspondiente de imagenes segun la categoria
-	function Lista_de_fotos($categoria){
-		$directorio = opendir("./img/$categoria");
-		$n = 0;
-		$fotos = array();
-		while ($archivo = readdir($directorio)) {
-			$fotos[$n] = "<img src='/img/$categoria/$archivo' ";
-			
-			if ($n >=1) {
-				echo ($fotos[$n])."<br>";
-				echo $n;
-			}	
-			$n++;
-		}
-	}
-		
-?>
-
 <html>
 <head>
 	<meta charset="utf-8">
@@ -251,11 +232,11 @@
 				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
-							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
-						 	<?php
-				    		Lista_de_fotos("Graduados");
-				    		?>
-					
+							<!-- Php que ejecuta la funcion de RecuperarFotos, recupera imagenes de la categoria correspondiente -->
+				    		<?php
+                                $con = new consultas();
+                                $con->recuperarFotos("Graduados");?>
+				    							
 						</div>
 				    </div>
 				  </div>
@@ -276,10 +257,10 @@
 				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
-							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
+							<!-- Php que ejecuta la funcion de RecuperarFotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
-				    		Lista_de_fotos("Cuadro_de_Honor");
-				    		?>
+                                $con = new consultas();
+                                $con->recuperarFotos("Cuadro_de_Honor");?>
 					
 						</div>
 				    </div>
@@ -300,10 +281,10 @@
 				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
-							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
+							<!-- Php que ejecuta la funcion de RecuperarFotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
-				    		Lista_de_fotos("Eventos_Especiales");
-				    		?>
+                                $con = new consultas();
+                                $con->recuperarFotos("Eventos_Especiales");?>
 					
 						</div>
 				    </div>
@@ -325,10 +306,10 @@
 				      	<!-- Clase que llama al visor de imagenes -->
 						<div class="fotorama" data-width="100%" data-ratio="800/600" data-loop="true" data-nav="thumbs"  data-allowfullscreen="native" data-keyboard="true">
 							
-							<!-- Php que ejecuta la funcion de lista_de_fotos, recupera imagenes de la categoria correspondiente -->
+							<!-- Php que ejecuta la funcion de RecuperarFotos, recupera imagenes de la categoria correspondiente -->
 						 	<?php
-				    		Lista_de_fotos("Otros");
-				    		?>
+                                $con = new consultas();
+                                $con->recuperarFotos("Otros");?>
 					
 						</div>
 				    </div>

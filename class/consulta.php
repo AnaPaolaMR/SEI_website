@@ -182,6 +182,38 @@
 
 			mysqli_close($con);
 		}
+
+		//Metodo para recuperar imagenes del servidor
+		function recuperarFotos($categoria){
+			//echo"$categoria<br>";
+
+			// Conexion a la base de datos
+			$obj = new conexion();
+			$con=$obj->get_conexion();
+
+			$query = "SELECT * from galeria WHERE categoria_foto = '$categoria'";
+
+			$resultado = mysqli_query($con, $query);
+
+			$directorio = opendir("./img/$categoria");
+			$n = 0;
+			$fotos = array();
+
+			while($fila = mysqli_fetch_array($resultado)){
+				$archivo = $fila["nombre_foto"];
+				$des = $fila["descripcion_foto"];
+
+				$fotos[$n] = "<img src='/img/$categoria/$archivo' data-caption='$des'>";
+					
+				if ($n >=1) {
+					echo ($fotos[$n])."<br>";
+					echo $n;
+				}
+				$n++;
+
+			}
+			mysqli_close($con);
+		}
 	}
 
 ?>

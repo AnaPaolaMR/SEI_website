@@ -966,7 +966,7 @@
                                     <div class="form-group col-md-7">
                                         <label>Descripcion</label>
                                             <div class="input-text">
-                                                <textarea disabled class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                                             </div>
                                     </div>
                                 </div>
