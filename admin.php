@@ -241,7 +241,7 @@
                                                     <div class="form-check form-check-inline">
                                                       <input class="form-check-input" type="radio" name="tipo_usuario_nuevo" id="radios1" value="estandar" checked>
                                                       <label class="form-check-label" for="radios1">
-                                                        Estandár
+                                                        Estándar
                                                       </label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
@@ -622,10 +622,10 @@
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
-                    <input class="form-control" type="text" name="faq" placeholder="Pregunta" minlength="10" maxlength="200" oninvalid="cerrarModal()" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
-                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
+                    <input class="form-control" type="text" id="input_faq" name="faq" placeholder="Pregunta" aria-describedby="faq_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'guardar_faq')" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small id="faq_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <textarea class="form-control" row="3" placeholder="Respuesta" name="faq_respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal()" required></textarea>
+                    <textarea class="form-control" row="3" placeholder="Respuesta" id="input_resp" name="faq_respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id, 'guardar_faq')" required></textarea>
 
                   </div>
 
@@ -674,10 +674,10 @@
                       $obj = new consultas();
                       $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <input class="form-control" type="text" id="txtHint" name="faq_mod_titulo" placeholder="Pregunta" minlength="10" maxlength="200" oninvalid="cerrarModal()" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
-                    <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
+                    <input class="form-control" type="text" id="txtHint" id="input_mod_faq" name="faq_mod_titulo" placeholder="Pregunta" aria-describedby="faq_mod_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'modificar_faq_especifica')" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <small id="faq_mod_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal()"></textarea><br>
+                    <textarea class="form-control" id="txtHint_2" rows="5" id="input_mod_resp" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id ,'modificar_faq_especifica')"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -1197,25 +1197,29 @@
 
             <div class="form-group">
               <label>Telefono</label>
-              <input type="text" class="form-control" oninvalid="cerrarModal()" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
+              <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('telefono');
 
                     ?>">
+              <small class="form-text text-muted">Introduzca solo numeros. Los simbolos "-" y "+" tambien son admitidos.</small>
+
             </div> 
 
             <div class="form-group">
                <label>Celular</label>
-               <input type="text" class="form-control" oninvalid="cerrarModal()" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
+               <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_cel" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('celular');
 
                     ?>">
+                <small class="form-text text-muted">Introduzca solo numeros. Los simbolos "-" y "+" tambien son admitidos.</small>
+
             </div>
 
             <div class="form-group">
               <label>Correo Electronico </label>
-              <input type="email" class="form-control" oninvalid="cerrarModal()" name="contacto_email" maxlength="50" value="<?php
+              <input type="email" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_email" name="contacto_email" maxlength="50" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
@@ -1224,7 +1228,7 @@
 
             <div class="form-group">
                <label>Direccion</label>
-               <textarea class="form-control summernote" rows="2" name="contacto_direccion"><?php
+               <textarea class="form-control summernote" rows="2" id="input_direccion" name="contacto_direccion"><?php
                         $con = new consultas();
                         $con->recuperarContacto('direccion_contacto');
 
@@ -1239,7 +1243,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="facebook">https://www.facebook.com/</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="facebook" name="contacto_facebook" value="<?php
+                <input type="text" class="form-control" maxlength="100" aria-describedby="facebook" name="contacto_facebook" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
@@ -1253,7 +1257,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="twitter">https://www.twitter.com/</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="twitter" name="contacto_twitter" value="<?php
+                <input type="text" class="form-control" maxlength="100" aria-describedby="twitter" name="contacto_twitter" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
@@ -1267,7 +1271,7 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text" id="instagram">https://www.instagram.com/</span>
                 </div>
-                <input type="text" class="form-control" aria-describedby="instagram" name="contacto_instagram" value="<?php
+                <input type="text" class="form-control" maxlength="100" aria-describedby="instagram" name="contacto_instagram" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
@@ -1277,7 +1281,7 @@
             
           </div>
           <!-- Boton de guardar -->
-          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_contacto">
+          <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#guardar_contacto" id="boton_guardar_contacto">
             Guardar
           </button>
 
@@ -1329,6 +1333,13 @@
   </body>
 
  <footer>
+  
+  <!-- Marca de SEI -->
+    <div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center">
+      <p style="text-align: centr;" class="footer-custom ">
+        <br> Smart English Institute &copy;
+      </p>    
+    </div>
 
  </footer>
  
@@ -1415,8 +1426,13 @@ function showFAQ(str) {
 
 <script>
 
-  function cerrarModal() {
-    $('.modal').modal('hide'); 
+  function cerrarModal(input, modal) {
+
+    $('#'+modal).modal('hide');
+    $('#'+modal).on('hidden.bs.modal', function (e) {
+      document.getElementById(input).scrollIntoView();
+})
+     
   } 
 
 </script>
