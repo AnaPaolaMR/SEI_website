@@ -228,13 +228,13 @@
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input required type="text" class="form-control" name="nombre_usuario_nuevo"><br>
+                                                    <input required type="text" class="form-control" name="nombre_usuario_nuevo" minlength="3" maxlength="100"><br>
 
                                                     <label>Nombre de usuario (Nickname):</label>
-                                                    <input required type="text" class="form-control" name="nickname_usuario_nuevo"><br>
+                                                    <input required type="text" class="form-control" name="nickname_usuario_nuevo" minlength="3" maxlength="50"><br>
 
                                                     <label>Contraseña</label>
-                                                    <input required type="password" class="form-control" name="pass_usuario_nuevo" aria-describedby="passwordHelp">
+                                                    <input required type="password" class="form-control" name="pass_usuario_nuevo" aria-describedby="passwordHelp" minlength="8" maxlength="100">
                                                     <small id="passwordHelp" class="form-text text-muted">Debe contener minimo 8 digitos.</small><br>
 
                                                     <label>Tipo de usuario: </label><br>
@@ -332,7 +332,7 @@
                                           <div class="modal-body text-left">
                                                   <div class="form-group">
                                                     <label>Nombre</label>
-                                                    <input type="text" class="form-control" name="nombre_usuario" value="<?php
+                                                    <input type="text" class="form-control" name="nombre_usuario" minlength="3" maxlength="100" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -342,7 +342,7 @@
                                                     $con->recuperarUsuario('nombre', $user);?>"><br>
 
                                                     <label>Nombre de usuario (Nickname)</label>
-                                                    <input type="text" class="form-control" name="nickname_usuario" value="<?php
+                                                    <input type="text" class="form-control" name="nickname_usuario" minlength="3" maxlength="50" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -352,7 +352,7 @@
                                                     $con->recuperarUsuario('nickname', $user);?>" ><br>
 
                                                     <label>Contraseña</label>
-                                                    <input type="password" class="form-control" name="pass_usuario" value="<?php
+                                                    <input type="password" class="form-control" name="pass_usuario" minlength="8" maxlength="100" value="<?php
                                                     $objses = new Sessions();
                                                     $objses->init();
 
@@ -428,7 +428,7 @@
 
                     <br>
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="q_somos_titulo" value="<?php
+                    <input type="text" class="form-control" name="q_somos_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('quienes somos','titulo_ig');  
 
@@ -460,7 +460,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="mision_titulo" value="<?php
+                    <input type="text" class="form-control" name="mision_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('mision','titulo_ig');  
 
@@ -477,7 +477,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Enlace del video</label>
+                    <label>Imagen</label>
                     <input type="text" class="form-control" name="mision_img" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('mision','img_ig');  
@@ -490,7 +490,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="vision_titulo" value="<?php
+                    <input type="text" class="form-control" name="vision_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('vision','titulo_ig');  
 
@@ -499,7 +499,7 @@
 
                 <div class="form-group">
                     <label>Información</label>
-                    <textarea class="form-control summernote" rows="15" name="vision_info" ><?php
+                    <textarea class="form-control summernote" name="vision_info"><?php
                                   $con = new consultas();
                                   $con->recuperarIG('vision','info_ig');  
 
@@ -521,7 +521,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="historia_titulo" value="<?php
+                    <input type="text" class="form-control" name="historia_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('historia','titulo_ig');  
 
@@ -538,7 +538,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label>Enlace del video: </label>
+                    <label>Imagen</label>
                     <input type="text" class="form-control" name="historia_img" value="<?php
                                   $con = new consultas();
                                   $con->recuperarIG('historia','img_ig');  
@@ -622,10 +622,10 @@
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
-                    <input class="form-control" type="text" name="faq" placeholder="Pregunta" minlength="10" maxlength="200" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <input class="form-control" type="text" name="faq" placeholder="Pregunta" minlength="10" maxlength="200" oninvalid="cerrarModal()" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
                     <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <textarea class="form-control" row="3" placeholder="Respuesta" name="faq_respuesta" minlength="2" maxlength="2000" required></textarea>
+                    <textarea class="form-control" row="3" placeholder="Respuesta" name="faq_respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal()" required></textarea>
 
                   </div>
 
@@ -674,10 +674,10 @@
                       $obj = new consultas();
                       $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <input class="form-control" type="text" id="txtHint" name="faq_mod_titulo" placeholder="Pregunta" minlength="10" maxlength="200" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <input class="form-control" type="text" id="txtHint" name="faq_mod_titulo" placeholder="Pregunta" minlength="10" maxlength="200" oninvalid="cerrarModal()" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
                     <small class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
-                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000"></textarea><br>
+                    <textarea class="form-control" id="txtHint_2" rows="5" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal()"></textarea><br>
 
                     <button type="button" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_faq_especifica">Guardar</button>
 
@@ -803,7 +803,7 @@
                 <div class="form-group">
                     <br>
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="regular_titulo" value="<?php
+                    <input type="text" class="form-control" name="regular_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('regular','titulo_curso');  
 
@@ -822,7 +822,7 @@
 
                 <div class="form-group">
                   <label>Enlace del video: </label>
-                  <input type="text" class="form-control" name="regular_enlace" value="<?php
+                  <input type="text" class="form-control" name="regular_enlace" maxlength="300" value="<?php
                                   
                                   $con = new consultas();
                                   $con->recuperarCurso('regular','video_curso');
@@ -835,7 +835,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="semestral_titulo" value="<?php
+                    <input type="text" class="form-control" name="semestral_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('semestral','titulo_curso');  
 
@@ -853,7 +853,7 @@
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control" name="semestral_enlace" value="<?php
+                    <input type="text" class="form-control" name="semestral_enlace" maxlength="300" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('semestral','video_curso');  
 
@@ -865,7 +865,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="sabatino_titulo" value="<?php
+                    <input type="text" class="form-control" name="sabatino_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('sabatino','titulo_curso');  
 
@@ -883,7 +883,7 @@
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control" name="sabatino_enlace" value="<?php
+                    <input type="text" class="form-control" name="sabatino_enlace" maxlength="300" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('sabatino','video_curso');  
 
@@ -896,7 +896,7 @@
                 <br>
                 <div class="form-group">
                     <label>Titulo</label>
-                    <input type="text" class="form-control" name="verano_titulo" value="<?php
+                    <input type="text" class="form-control" name="verano_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('verano','titulo_curso');  
 
@@ -914,7 +914,7 @@
 
                 <div class="form-group">
                     <label>Enlace del video: </label>
-                    <input type="text" class="form-control" name="verano_enlace" value="<?php
+                    <input type="text" class="form-control" name="verano_enlace" maxlength="300" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('verano','video_curso');  
 
@@ -983,7 +983,7 @@
           <form action="class/recibir_club" method="POST">
             <div class="form-group">
               <label>Titulo</label>
-              <input type="text" class="form-control" name="club_titulo" value="<?php
+              <input type="text" class="form-control" name="club_titulo" maxlength="100" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('club','titulo_curso');
 
@@ -1001,7 +1001,7 @@
 
             <div class="form-group">
               <label>Enlace del video: </label>
-              <input type="text" class="form-control" name="club_enlace" value="<?php
+              <input type="text" class="form-control" name="club_enlace" maxlength="300" value="<?php
                                   $con = new consultas();
                                   $con->recuperarCurso('club','video_curso');  
 
@@ -1197,7 +1197,7 @@
 
             <div class="form-group">
               <label>Telefono</label>
-              <input type="text" class="form-control" name="contacto_telefono" value="<?php
+              <input type="text" class="form-control" oninvalid="cerrarModal()" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('telefono');
 
@@ -1206,7 +1206,7 @@
 
             <div class="form-group">
                <label>Celular</label>
-               <input type="text" class="form-control" name="contacto_celular" value="<?php
+               <input type="text" class="form-control" oninvalid="cerrarModal()" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,20}" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('celular');
 
@@ -1215,7 +1215,7 @@
 
             <div class="form-group">
               <label>Correo Electronico </label>
-              <input type="email" class="form-control" name="contacto_email" value="<?php
+              <input type="email" class="form-control" oninvalid="cerrarModal()" name="contacto_email" maxlength="50" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('email_contacto');
 
@@ -1235,29 +1235,44 @@
 
             <div class="form-group">
               <label>Enlace a Facebook</label>
-              <input type="text" class="form-control" name="contacto_facebook" value="<?php
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="facebook">https://www.facebook.com/</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="facebook" name="contacto_facebook" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
                     ?>">
+              </div>
             </div> 
 
             <div class="form-group">
                <label>Enlace a Twitter</label>
-               <input type="text" class="form-control" name="contacto_twitter" value="<?php
+               <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="twitter">https://www.twitter.com/</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="twitter" name="contacto_twitter" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
                     ?>">
+              </div>
             </div>
 
             <div class="form-group">
               <label>Enlace a Instagram </label>
-              <input type="text" class="form-control" name="contacto_instagram" value="<?php
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="instagram">https://www.instagram.com/</span>
+                </div>
+                <input type="text" class="form-control" aria-describedby="instagram" name="contacto_instagram" value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
                     ?>">
+              </div>              
             </div>
             
           </div>
@@ -1396,6 +1411,14 @@ function showFAQ(str) {
         xmlhttp.send();
     }
 }
+</script>
+
+<script>
+
+  function cerrarModal() {
+    $('.modal').modal('hide'); 
+  } 
+
 </script>
   
 </html>

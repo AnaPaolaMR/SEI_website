@@ -270,17 +270,17 @@
 			</div>
 
 			<div class="col-sm-12 col-md-2" >
-				<a target="_blank" href="<?php
+				<a target="_blank" href="https://www.facebook.com/<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_facebook');
 
                     ?>" style="margin: 10px;"><img src="img/facebook.png" alt="Facebook/SEI"></a>
-				<a target="_blank" href="<?php
+				<a target="_blank" href="https://www.twitter.com/<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_twitter');
 
                     ?>"><img src="img/twiter.png" alt="Twiter/SEI" style="margin: 10px;"></a>
-				<a target="_blank" href="<?php
+				<a target="_blank" href="https://www.instagram.com/<?php
                         $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
