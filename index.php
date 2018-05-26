@@ -283,7 +283,12 @@
 	</div>
 
 	<footer class="container">
-		<!-- <p class="text-center footer-custom"><br> Smart English Institute&copy;</p> -->
+		<!-- Marca de SEI -->
+		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center">
+			<p style="text-align: centr;" class="footer-custom ">
+				<br> Smart English Institute &copy;
+			</p>		
+		</div>
 	</footer>
 
     <!--Scripts para auto mostrar modal de presentación-->
