@@ -445,6 +445,15 @@
                           ?></textarea>
                 </div>
 
+                <!-- <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="text" class="form-control" name="mision_img" value="<?php
+                                  $con = new consultas();
+                                  $con->recuperarIG('quienes somos','img_ig');  
+
+                          ?>">
+                </div> -->
+
             </div>
 
             <div class="tab-pane fade" id="mision" role="tabpanel" aria-labelledby="nav-profile-tab">
@@ -466,6 +475,15 @@
 
                           ?></textarea>
                 </div>
+
+                <!-- <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="text" class="form-control" name="mision_img" value="<?php
+                                  $con = new consultas();
+                                  $con->recuperarIG('mision','img_ig');  
+
+                          ?>">
+                </div> -->
             </div>
 
             <div class="tab-pane fade" id="vision" role="tabpanel" aria-labelledby="nav-contact-tab">
@@ -488,6 +506,14 @@
                           ?></textarea>
                 </div>
 
+                <!-- <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="text" class="form-control" name="vision_img" value="<?php
+                                  $con = new consultas();
+                                  $con->recuperarIG('vision','img_ig');  
+
+                          ?>">
+                </div> -->
             </div>
 
 
@@ -510,6 +536,15 @@
 
                           ?></textarea>
                 </div>
+
+                <!-- <div class="form-group">
+                    <label>Imagen</label>
+                    <input type="text" class="form-control" name="historia_img" value="<?php
+                                  $con = new consultas();
+                                  $con->recuperarIG('historia','img_ig');  
+
+                          ?>">
+                </div> -->
 
             </div>
 
