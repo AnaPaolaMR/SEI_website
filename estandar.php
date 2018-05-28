@@ -566,7 +566,7 @@
                                                                     <option value="Graduados">Graduados</option>
                                                                     <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                                                     <option value="Eventos_Especiales">Eventos Especiales</option>
-                                                                    <option value="Otros">Otros</option>
+                                                                    <option value="Otros">Otras fotos</option>
                                                                 </select>
                                                                 <div class="invalid"></div>
                                                             </div>
@@ -630,21 +630,21 @@
 
                                         <!-- Modificar Fotos -->
                                         <div class="tab-pane fade" id="editar_fotos" role="tabpanel" aria-labelledby="list-profile-list">
-                                            <form action="class/modificar_foto.php" method="POST" enctype="multipart/form-data" class="needs-validation">
+                                            <form action="class/modificar_foto.php" method="POST" class="needs-validation">
                                                 <div class="container-fluid">
                                                     <h5>Modificar la descripcion de las fotos</h5><br>
                                                     <div class="row">
                                                         <div class="col-md-4 mb-3">
-                                                            <div class="input-group-prepend" >
+                                                            <div class="input-group-prepend">
                                                                 Categoría
                                                             </div>
                                                             <div class="input-group-prepend">
                                                                 <select class="custom-select" id="categoria_1" name="categoria_1" required>
-                                                                    <option selected disabled>Escoja...</option>
+                                                                    <option selected disabled value="0">Escoja...</option>
                                                                     <option value="Graduados">Graduados</option>
                                                                     <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                                                     <option value="Eventos_Especiales">Eventos Especiales</option>
-                                                                    <option value="Otros">Otros</option>
+                                                                    <option value="Otros">Otras fotos</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -654,11 +654,11 @@
                                                             </div>
                                                             <div class="input-group-prepend">
                                                                 <select class="custom-select" id="fotos_1" name="fotos_1" required>
-                                                                    <option selected disabled>Escoja...</option>
-                                                                    <option value="id_foto">nombre_de_la_foto.jpg</option>
-                                                                    <option value="Foto_2">Foto_2</option>
-                                                                    <option value="Foto_3">Foto_3</option>
-                                                                    <option value="03.jpg">03.jpg</option>
+                                                                    <option selected disabled value="0">Escoja...</option>
+                                                                    <option value="104">nombre_de_la_foto.jpg</option>
+                                                                    <option value="103">Foto_2</option>
+                                                                    <option value="93">Foto_3</option>
+                                                                    <option value="74">03.jpg</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -719,7 +719,7 @@
 
                                         <!-- Eliminar Fotos -->
                                         <div class="tab-pane fade" id="eliminar_fotos" role="tabpanel" aria-labelledby="list-messages-list">
-                                            <form action="class/eliminar_foto.php" method="POST" enctype="multipart/form-data" class="needs-validation">
+                                            <form action="class/eliminar_foto.php" method="POST" class="needs-validation">
                                                 <div class="container-fluid">
                                                     <h5>Eliminar fotos</h5><br>
                                                     <div class="row">
@@ -728,12 +728,12 @@
                                                                 Categoría
                                                             </div>
                                                             <div class="input-group-prepend">
-                                                                <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
+                                                                <select class="custom-select" id="categoria_2" name="categoria_2" required>
                                                                     <option selected disabled>Escoja...</option>
                                                                     <option value="Graduados">Graduados</option>
                                                                     <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                                                     <option value="Eventos_Especiales">Eventos Especiales</option>
-                                                                    <option value="Otros">Otros</option>
+                                                                    <option value="Otros">Otras fotos</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -742,12 +742,12 @@
                                                                 Escoja una foto:
                                                             </div>
                                                             <div class="input-group-prepend">
-                                                                <select class="custom-select" id="fotos_1" name="fotos_1" required>
-                                                                    <option selected disabled>Escoja...</option>
-                                                                    <option value="Foto_1">Foto_1</option>
-                                                                    <option value="Foto_2">Foto_2</option>
-                                                                    <option value="Foto_3">Foto_3</option>
-                                                                    <option value="Foto_4">Foto_4</option>
+                                                                <select class="custom-select" id="fotos_2" name="fotos_2" required>
+                                                                    <option selected disabled value="0">Escoja...</option>
+                                                                    <option value="93">Foto_1</option>
+                                                                    <option value="102">Foto_2</option>
+                                                                    <option value="103">Foto_3</option>
+                                                                    <option value="104">Foto_4</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -953,10 +953,10 @@
     <script src="js\bootstrap.min.js"></script>
     <script src="dist\summernote-bs4.js"></script>
     <script src="dist\lang\summernote-es-ES.js"></script>
-
+    <script src="js/galeria.js"></script>
+    
     <!-- Script para personalizar el editor de texto -->
     <script>
-
       $('.summernote').summernote({
         placeholder: 'Introduzca su informacion aqui',
         tabsize: 2,
@@ -977,10 +977,7 @@
       ]
 
       });
-      
-
     </script>
-
     <!-- Script de AJAX para desplegar los datos de las FAQS en el area de modificacion -->
     <script>
     function showFAQ(str) {
@@ -1027,5 +1024,6 @@
         }
     }
     </script>
+
   
 </html>

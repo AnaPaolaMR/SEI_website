@@ -24,7 +24,9 @@
 		if (!$con) {
 		    die('No se pudo conectar: ' . mysqli_error($con));
 		}
-
+		//Definir variables
+		$categoria = ""; $id_foto=0;
+		
 		//Recibir Datos
 		$categoria = $_POST['categoria_1'];
 		echo $categoria."<br>";
@@ -33,12 +35,8 @@
 		$des = $_POST['descripcion_1'];
 		echo $des."<br>";
 
-		if($categoria != "Escoja..." || $id_foto != "Escoja..."){
+		if($categoria != "Escoja..."&& $id_foto != "Escoja..." && $categoria !="" && $id_foto !=0){
 
-			//Query para interactuar con la based de datos
-			/*UPDATE table_name
-			SET column1=value, column2=value2,...
-			WHERE some_column=some_value */
 			$sql = "UPDATE galeria SET descripcion_foto ='".$des."' WHERE id_foto ='".$id_foto."'";
 			echo $sql;
 
