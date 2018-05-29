@@ -680,38 +680,37 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Botones guardar y cancelar -->
-                                                    <div class="row">
-                                                        <!-- Boton de guardar -->
-                                                        <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_galeria">
-                                                            Guardar
-                                                        </button>
-
-                                                        <!-- Modal activado por el boton "Guardar"-->
-                                                        <div class="modal fade" id="modificar_galeria" tabindex="-1" role="dialog"  aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                              <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                  </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                  ¿Estas seguro de que deseas guardar cambios?
-                                                                </div>
-                                                                <div class="modal-footer">
-
-                                                                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
-                                                                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
-                                                                  
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                        </div> 
-                                                    </div>
-                                                
+                                                    
                                                 </div>
+                                                <!-- Boton de guardar -->
+                                                <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#modificar_galeria">
+                                                    Guardar
+                                                </button>
+
+                                                <!-- Modal activado por el boton "Guardar"-->
+                                                <div class="modal fade" id="modificar_galeria" tabindex="-1" role="dialog"  aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                          ¿Estas seguro de que deseas guardar cambios?
+                                                        </div>
+                                                        <div class="modal-footer">
+
+                                                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                                          
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Boton de cancelar -->
+                                                <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                                             </form>
                                             
                                         </div>
@@ -749,7 +748,7 @@
                                                     </div>
 
                                                 </div>
-                                                <!-- Boton de eliminar -->
+                                                
                                                 <div class="row ">
                                                     <div class="col-md-4">
                                                         <div class="input-group-prepend" >
@@ -762,38 +761,35 @@
                                                     
 
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col-md-3 align-self-end" >
-                                                        <!-- Boton de Eliminar -->
-                                                        <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_galeria">
-                                                            Eliminar
-                                                        </button>
+                                                <!-- Boton de Eliminar -->
+                                                <button type="button" class="btn btn-lg btn-success text-right text-guardar" data-toggle="modal" data-target="#eliminar_galeria">
+                                                    Eliminar
+                                                </button>
 
-                                                        <!-- Modal activado por el boton "Eliminar"-->
-                                                          <div class="modal fade" id="eliminar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                              <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                  <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
-                                                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                  </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                  ¿Estas seguro de que deseas eliminar la foto?
-                                                                </div>
-                                                                <div class="modal-footer">
+                                                <!-- Modal activado por el boton "Eliminar"-->
+                                                    <div class="modal fade" id="eliminar_galeria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                      <div class="modal-content">
+                                                        <div class="modal-header">
+                                                          <h5 class="modal-title" id="exampleModalLabel">Guardar Cambios</h5>
+                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                          </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                          ¿Estas seguro de que deseas eliminar la foto?
+                                                        </div>
+                                                        <div class="modal-footer">
 
-                                                                  <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
-                                                                  <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
-                                                                  
-                                                                </div>
-                                                              </div>
-                                                            </div>
-                                                          </div> 
+                                                          <button type="submit" class="btn btn-lg btn-success text-right text-guardar">Guardar</button>
+                                                          <button type="button" class="btn btn-lg btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                                          
+                                                        </div>
+                                                      </div>
                                                     </div>
-                                                </div>
-                                                
+                                                  </div>
+                                                    <!-- Boton de cancelar -->
+                                                    <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
                                             </form>
                                         </div>
                                     </div>
