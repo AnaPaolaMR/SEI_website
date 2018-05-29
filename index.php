@@ -61,13 +61,13 @@
 									<div class="modal-headering">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 									</div>
-									<!--<div class="header">
-									<<img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
+
+									<!-- <img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
 											<div class="embed-responsive embed-responsive-16by9">
   												<iframe class="embed-responsive-item" src="intro.mp4" allowfullscreen = "false"></iframe>
-											</div>-->
+											</div>--> 
 
-										<video autoplay>
+										<video autoplay muted>
 											<source src="intro.mp4" type="video/mp4">
 										</video>
 
