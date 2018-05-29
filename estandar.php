@@ -74,7 +74,11 @@
             $objses->set('error', '0');
             break;
           case 13:
-            echo "<script type='text/javascript'>alert('Error: Seleccione una categoria para subir imagen.');</script>";
+            echo "<script type='text/javascript'>alert('Error: Debe seleccionar una categoria e imagen.');</script>";
+            $objses->set('error', '0');
+            break;
+        case 14:
+            echo "<script type='text/javascript'>alert('Error: No ha introducido una descripcion nueva.');</script>";
             $objses->set('error', '0');
             break;
 
@@ -562,7 +566,7 @@
 
                                                             <div class="input-group form-group">
                                                                 <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
-                                                                    <option selected disabled>Escoja...</option>
+                                                                    <option selected disabled value="0">Escoja...</option>
                                                                     <option value="Graduados">Graduados</option>
                                                                     <option value="Cuadro_de_Honor">Cuadro de Honor</option>
                                                                     <option value="Eventos_Especiales">Eventos Especiales</option>
