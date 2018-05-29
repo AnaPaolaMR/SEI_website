@@ -30,24 +30,19 @@
 		
 		//Recibir Datos
 		$categoria = $_POST['categoria_2'];
-		//echo $categoria."<br>";
 		$id_foto = $_POST['fotos_2'];
-		//echo $id_foto."<br>";
 		
 		if($categoria != "Escoja..."&& $id_foto != "Escoja..." && $categoria !="" && $id_foto !=0){
 
 			//Recuperar el nombre de la foto con el id correspondiente
 			$sql_1 = "SELECT nombre_foto FROM galeria WHERE id_foto =".$id_foto."";
-			//echo $sql_1."<br>";
 			$sql_2 = "DELETE FROM galeria WHERE id_foto =".$id_foto."";
-			//echo $sql_2."<br>";
 
 			//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
 			$resultado_1= mysqli_query($con, $sql_1) or die ('Error en el query database');
 			$fila_resultado = mysqli_fetch_array($resultado_1);
 
 			$nombre_foto = $fila_resultado['nombre_foto'];
-			//echo $nombre_foto;
 			//Eliminacion de la imagen en el servidor
 			unlink($_SERVER['DOCUMENT_ROOT'].'/img/'.$categoria.'/'.$nombre_foto);
 
@@ -62,7 +57,7 @@
 
 		
 		//Una vez modificadas las imagenes correctamente...
-		/*if ($profile=='admin'){
+		if ($profile=='admin'){
 			mysqli_close($con);
 			$objses->set('msg', '4');
 			header("location: ../admin");
@@ -70,6 +65,6 @@
 			mysqli_close($con);
 			$objses->set('msg', '4');
 			header("location: ../estandar");
-		}*/
+		}
 	}
 ?>

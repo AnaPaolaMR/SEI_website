@@ -17,7 +17,7 @@
 	}
 	else{
 		
-		function obtenerLista(){
+		function obtenerFoto(){
 
 			// Conexion a la base de datos
 			$obj = new conexion();
@@ -28,18 +28,21 @@
 			}
 
 			//Recibir datos del formulario de modificar foto
-			$categoria = $_POST['categoria'];
+			$id_foto = $_POST['foto'];
+			$categoria = $_POST['dato_cate'];
 
 			//Comando SQL que me traerá informacion en lista
-			$sql = "SELECT * FROM galeria WHERE categoria_foto = '$categoria'";
+			$sql = "SELECT * FROM galeria WHERE id_foto = '$id_foto'";
 			$resultado = mysqli_query($con, $sql) or die ('Error en el query database');
 
-			$lista_fotos = '<option value ="0" selected disabled>Escoja...</option>';
-			while ($fila = $resultado->fetch_array(MYSQLI_ASSOC)){
-				$lista_fotos .= "<option value='$fila[id_foto]'>$fila[nombre_foto]</option>";
-			}
-			return $lista_fotos;
+			$fila = $resultado->fetch_array(MYSQLI_ASSOC);
+
+			$ruta = "./img/$categoria/$fila[nombre_foto]";
+			$etiqueta = "<img src='$ruta' class='img-thumbnail img-fluid' alt='Foto a Eliminar' style='margin: 10px; margin-bottom: 25px;''>";
+
+
+			return $etiqueta;
 		}
 	}
-	echo obtenerLista();
+	echo obtenerFoto();
 ?>

@@ -205,10 +205,9 @@
 
 				$fotos[$n] = "<img src='/img/$categoria/$archivo' data-caption='$des'>";
 					
-				if ($n >=1) {
-					echo ($fotos[$n])."<br>";
-					echo $n;
-				}
+				echo ($fotos[$n])."<br>";
+				echo $n;
+				
 				$n++;
 
 			}

@@ -29,11 +29,8 @@
 		
 		//Recibir Datos
 		$categoria = $_POST['categoria_1'];
-		echo $categoria."<br>";
 		$id_foto = $_POST['fotos_1'];
-		echo $id_foto."<br>";
 		$des = $_POST['descripcion_1'];
-		echo $des."<br>";
 
 		if($categoria != "Escoja..."&& $id_foto != "Escoja..." && $categoria !="" && $id_foto !=0){
 
@@ -49,7 +46,7 @@
 
 		
 		//Una vez modificadas las imagenes correctamente...
-		/*if ($profile=='admin'){
+		if ($profile=='admin'){
 			mysqli_close($con);
 			$objses->set('msg', '4');
 			header("location: ../admin");
@@ -57,6 +54,6 @@
 			mysqli_close($con);
 			$objses->set('msg', '4');
 			header("location: ../estandar");
-		}*/
+		}
 	}
 ?>

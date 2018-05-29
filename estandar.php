@@ -654,11 +654,6 @@
                                                             </div>
                                                             <div class="input-group-prepend">
                                                                 <select class="custom-select" id="fotos_1" name="fotos_1" required>
-                                                                    <option selected disabled value="0">Escoja...</option>
-                                                                    <option value="104">nombre_de_la_foto.jpg</option>
-                                                                    <option value="103">Foto_2</option>
-                                                                    <option value="93">Foto_3</option>
-                                                                    <option value="74">03.jpg</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -668,8 +663,8 @@
                                                              <div class="input-group-prepend" >
                                                                 Escogió esta foto:
                                                             </div>
-                                                            <div class="container-fluid">
-                                                                <img src="./img/02.jpg" class="img-thumbnail img-fluid" alt="Foto a modificar" style="margin: 10px; margin-bottom: 25px;">
+                                                            <div class="container-fluid" id="img_1">
+                                                                <img src="./img/img.png" class="img-thumbnail img-fluid" alt="Foto a modificar" style="margin: 10px; margin-bottom: 25px;">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -743,11 +738,6 @@
                                                             </div>
                                                             <div class="input-group-prepend">
                                                                 <select class="custom-select" id="fotos_2" name="fotos_2" required>
-                                                                    <option selected disabled value="0">Escoja...</option>
-                                                                    <option value="93">Foto_1</option>
-                                                                    <option value="102">Foto_2</option>
-                                                                    <option value="103">Foto_3</option>
-                                                                    <option value="104">Foto_4</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -761,8 +751,8 @@
                                                         <div class="input-group-prepend" >
                                                             Escogió esta foto:
                                                         </div>
-                                                        <div class="container-fluid">
-                                                            <img src="./img/01.jpg" class="img-thumbnail img-fluid" alt="Foto a Eliminar"style="margin: 10px; margin-bottom: 25px;">
+                                                        <div class="container-fluid" id="img_2">
+                                                            <img src="./img/img.png" class="img-thumbnail img-fluid" alt="Foto a Eliminar"style="margin: 10px; margin-bottom: 25px;">
                                                         </div>
                                                     </div>
                                                     
