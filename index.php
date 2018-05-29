@@ -67,9 +67,11 @@
   												<iframe class="embed-responsive-item" src="intro.mp4" allowfullscreen = "false"></iframe>
 											</div>-->
 
-											<video autoplay="autoplay">
-												<source src="intro.mp4" type="video/mp4" />
-											</video>
+										<video autoplay>
+											<source src="intro.mp4" type="video/mp4">
+										</video>
+
+
 											
 								</div>
 
@@ -301,6 +303,7 @@
 		    $('#mostrarmodal').modal('hide');
 		}, 6000);
         });
+
 	</script>
 
 	<!-- Scripts de javascript: Jquery y Bootstrap -->

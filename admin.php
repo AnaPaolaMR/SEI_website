@@ -192,7 +192,7 @@
                                                     <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar esta cuenta.</small><br>
 
                                                     <div class="form-check">
-                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar_admin" name="checkEliminar_admin">
+                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar_admin" name="checkEliminar_admin" required>
                                                       <label class="form-check-label" for="checkEliminar_admin">
                                                         Estoy seguro de que deseo eliminar mi cuenta.
                                                       </label>
@@ -297,7 +297,7 @@
                                                     <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para eliminar usuario.</small><br>
 
                                                     <div class="form-check">
-                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar" name="checkEliminar">
+                                                      <input class="form-check-input" type="checkbox" value="" id="checkEliminar" name="checkEliminar" required>
                                                       <label class="form-check-label" for="checkEliminar">
                                                         Estoy seguro de que deseo eliminar este usuario.
                                                       </label>
@@ -622,7 +622,7 @@
                   <div class="form-group">
                     <h5>Agregar Pregunta</h5><br>
                     
-                    <input class="form-control" type="text" id="input_faq" name="faq" placeholder="Pregunta" aria-describedby="faq_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'guardar_faq')" required pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <input class="form-control" type="text" id="input_faq" name="faq" placeholder="Pregunta" aria-describedby="faq_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'guardar_faq')" required pattern="(?=.*[¿])(?=.*[?]).+">
                     <small id="faq_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
                     <textarea class="form-control" row="3" placeholder="Respuesta" id="input_resp" name="faq_respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id, 'guardar_faq')" required></textarea>
@@ -675,7 +675,7 @@
                       $obj = new consultas();
                       $obj->recuperarFAQS('titulo_ig');?></select><br>
 
-                    <input class="form-control" type="text" id="txtHint" id="input_mod_faq" name="faq_mod_titulo" placeholder="Pregunta" aria-describedby="faq_mod_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'modificar_faq_especifica')" pattern="(?=.*[¿])(?=.*[?]).{10,200}">
+                    <input class="form-control" type="text" id="txtHint" id="input_mod_faq" name="faq_mod_titulo" placeholder="Pregunta" aria-describedby="faq_mod_help" minlength="10" maxlength="200" oninvalid="cerrarModal(this.id, 'modificar_faq_especifica')" pattern="(?=.*[¿])(?=.*[?]).+">
                     <small id="faq_mod_help" class="form-text text-muted">Debe ingresar los signos "¿" y "?" y contener al menos 10 caracteres.</small><br>
 
                     <textarea class="form-control" id="txtHint_2" rows="5" id="input_mod_resp" name="faq_mod_info" placeholder="Respuesta" minlength="2" maxlength="2000" oninvalid="cerrarModal(this.id ,'modificar_faq_especifica')"></textarea>
@@ -1359,7 +1359,7 @@
 
             <div class="form-group">
               <label>Telefono</label>
-              <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[-+]?[0-9]{,}" required value="<?php
+              <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[0-9+-]+" required value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('telefono');
 
@@ -1370,7 +1370,7 @@
 
             <div class="form-group">
                <label>Celular</label>
-               <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_cel" name="contacto_celular" minlength="10" maxlength="20" pattern="[-+]?[0-9]{,}" required value="<?php
+               <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_cel" name="contacto_celular" minlength="10" maxlength="20" pattern="[0-9+-]+" required value="<?php
                         $con = new consultas();
                         $con->recuperarContacto('celular');
 
@@ -1596,9 +1596,10 @@ function showFAQ(str) {
     $('#'+modal).modal('hide');
     $('#'+modal).on('hidden.bs.modal', function (e) {
       document.getElementById(input).focus();
+
 })
      
-  } 
+  }
 
 </script>
   

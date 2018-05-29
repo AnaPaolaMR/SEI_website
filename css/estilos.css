@@ -224,6 +224,9 @@ ul{
   border-color: #fff;
 }
 
+.modal.fade .modal-dialog{transform:none !important;}
+
+
 
 
 
