@@ -24,36 +24,71 @@
 		if (!$con) {
 		    die('No se pudo conectar: ' . mysqli_error($con));
 		}
-		//Definir variables
-		$categoria = ""; $id_foto=0;
 		
 		//Recibir Datos
 		$categoria = $_POST['categoria_1'];
 		$id_foto = $_POST['fotos_1'];
 		$des = $_POST['descripcion_1'];
 
-		if($categoria != "Escoja..."&& $id_foto != "Escoja..." && $categoria !="" && $id_foto !=0){
-
-			$sql = "UPDATE galeria SET descripcion_foto ='".$des."' WHERE id_foto ='".$id_foto."'";
-			echo $sql;
-
-			//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
-			$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database');
-
+		if (empty($categoria) || empty($id_foto)) {
+			//Error de captura de categoria o foto
+			if ($profile=='admin'){
+				mysqli_close($con);
+				$objses->set('error', '13');
+				header("location: ../admin");
+			}
+			else{
+				mysqli_close($con);
+				$objses->set('error', '13');
+				header("location: ../estandar");
+			}
 		}else{
-			echo "Error en la entrada de categoria o foto";
-		}
+			if (empty($des)) {
+				//Error de captura de categoria o foto
+				if ($profile=='admin'){
+					mysqli_close($con);
+					$objses->set('error', '14');
+					//header("location: ../admin");
+				}
+				else{
+					mysqli_close($con);
+					$objses->set('error', '14');
+					//header("location: ../estandar");
+				}
+			}else{
+				if($categoria != "Escoja..."&& $id_foto != "Escoja..." && $categoria !="" && $id_foto !=0){
 
-		
-		//Una vez modificadas las imagenes correctamente...
-		if ($profile=='admin'){
-			mysqli_close($con);
-			$objses->set('msg', '4');
-			header("location: ../admin");
-		}else{
-			mysqli_close($con);
-			$objses->set('msg', '4');
-			header("location: ../estandar");
+					$sql = "UPDATE galeria SET descripcion_foto ='".$des."' WHERE id_foto ='".$id_foto."'";
+					echo $sql;
+
+					//Variable de Query de SQL, requiere parametros de mysqli_connect($con) y instruccion de SQL($sql)
+					$resultado_1=mysqli_query($con, $sql) or die ('Error en el query database');
+
+					//Una vez modificadas las imagenes correctamente...
+					if ($profile=='admin'){
+						mysqli_close($con);
+						$objses->set('msg', '4');
+						header("location: ../admin");
+					}else{
+						mysqli_close($con);
+						$objses->set('msg', '4');
+						header("location: ../estandar");
+					}
+
+				}else{
+					//Error de captura de categoria o foto
+					if ($profile=='admin'){
+						mysqli_close($con);
+						$objses->set('error', '13');
+						header("location: ../admin");
+					}
+					else{
+						mysqli_close($con);
+						$objses->set('error', '13');
+						header("location: ../estandar");
+					}
+				}
+			}
 		}
 	}
 ?>
