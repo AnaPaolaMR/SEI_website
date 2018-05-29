@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+  //Accion que carga la lista de imagenes correspondientes a la categoria seleccionada en modificar imagen
 	$('#categoria_1').on('change', function(){
     var dato_categoria = $('#categoria_1').val()
     $.ajax({
@@ -15,6 +16,7 @@ $(document).ready(function(){
     })
   })
 
+  //Accion que carga la lista de imagenes correspondientes a la categoria seleccionada en eliminar imagen
   $('#categoria_2').on('change', function(){
     var dato_categoria = $('#categoria_2').val()
     $.ajax({
@@ -30,6 +32,7 @@ $(document).ready(function(){
     })
   })
 
+  //Accion que carga la miniatura de imagen seleccionada en modificar imagen
   $('#fotos_1').on('change', function(){
     var dato_foto = $('#fotos_1').val()
     var dato_cate = $('#categoria_1').val()
@@ -46,6 +49,23 @@ $(document).ready(function(){
     })
   })
 
+  //Accion que carga la descripcion segun la imagen seleccionada en modificar imagen
+  $('#fotos_1').on('change', function(){
+    var dato_foto = $('#fotos_1').val()
+    $.ajax({
+      type: 'POST',
+      url:'./class/cargar_descripcion.php',
+      data:{'foto': dato_foto}
+    })
+    .done(function(obtenerDescripcion){
+      $('#descripcion_1').html(obtenerDescripcion)
+    })
+    .fail(function(){
+      alert('Hubo un error al cargar la imagen.')
+    })
+  })
+
+  //Accion que carga la miniatura de imagen seleccionada en eliminar imagen
   $('#fotos_2').on('change', function(){
     var dato_foto = $('#fotos_2').val()
     var dato_cate = $('#categoria_2').val()

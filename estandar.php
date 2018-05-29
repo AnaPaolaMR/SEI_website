@@ -673,10 +673,10 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group-prepend">
-                                                                Nueva Descripcion:
+                                                                Descripcion:
                                                             </div>
                                                             <div class="input-text">
-                                                                <textarea class="form-control" id ="descripcion_1 "name="descripcion_1" required placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                                <textarea class="form-control" id ="descripcion_1"name="descripcion_1" required placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
