@@ -26,8 +26,9 @@
 				</div>
 				
 				<!-- Titulo -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="svg/verano.png" class="img-fluid" alt="Verano" width="40%">
+				<!-- Titulo -->
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Verano
 				</div>
 				
 				<!-- Menu desplegable -->

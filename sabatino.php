@@ -26,8 +26,8 @@
 				</div>
 				
 				<!-- Titulo -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="svg/Sabatino.png" class="img-fluid" alt="Sabatino" width="40%">
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Sabatino
 				</div>
 				
 				<!-- Menu desplegable -->

@@ -27,8 +27,8 @@
 		</div>
 		
 		<!-- Titulo -->
-		<div class="col-sm-12 col-md-6 align-self-center text-center">
-			<div><h1>Cursos</h1></div>
+		<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+			Cursos
 		</div>
 		
 		<!-- Menu desplegable -->
