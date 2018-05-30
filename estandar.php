@@ -176,66 +176,66 @@
                          </div>
                         
                         <!-- Modal para configurar la cuenta del usuario de la sesion actual -->
-                         <div class="text">
+                        <div class="text">
                             <div class="modal fade" id="configuracion">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header modal-header-custom">
-                                                <h4 class="modal-title">Configuracion de la cuenta</h4>
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                
-                                            </div>
-
-                                            <form action="class/recibir_config" method="POST">
-                                              <div class="modal-body text-left">
-                                                      <div class="form-group">
-                                                        <label>Nombre</label>
-                                                        <input type="text" class="form-control" name="nombre_usuario" value="<?php
-                                                        $objses = new Sessions();
-                                                        $objses->init();
-
-                                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-
-                                                        $con = new consultas();
-                                                        $con->recuperarUsuario('nombre', $user);?>"><br>
-
-                                                        <label>Nombre de usuario (Nickname)</label>
-                                                        <input type="text" class="form-control" name="nickname_usuario" value="<?php
-                                                        $objses = new Sessions();
-                                                        $objses->init();
-
-                                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-
-                                                        $con = new consultas();
-                                                        $con->recuperarUsuario('nickname', $user);?>" ><br>
-
-                                                        <label>Contraseña</label>
-                                                        <input type="password" class="form-control" name="pass_usuario" value="<?php
-                                                        $objses = new Sessions();
-                                                        $objses->init();
-
-                                                        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
-
-                                                        $con = new consultas();
-                                                        $con->recuperarUsuario('contrasena', $user);?>" ><br>
-
-                                                        <label>Contraseña Actual*</label>
-                                                        <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
-                                                        <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small>
-
-                                                      </div>
-                                                                                 
-                                              </div>
-
-                                              <div class="modal-footer">
-                                                <button type="submit" class="btn btn-success text-right text-guardar">Guardar</button>
-                                                <button type="button" class="btn btn-outline-success" data-dismiss="modal">Cerrar</button>
-                                              </div>
-                                          </form>
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header modal-header-custom">
+                                            <h4 class="modal-title">Configuracion de la cuenta</h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            
                                         </div>
+
+                                        <form action="class/recibir_config" method="POST">
+                                          <div class="modal-body text-left">
+                                                  <div class="form-group">
+                                                    <label>Nombre</label>
+                                                    <input required type="text" class="form-control" name="nombre_usuario" minlength="3" maxlength="100" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
+
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new consultas();
+                                                    $con->recuperarUsuario('nombre', $user);?>"><br>
+
+                                                    <label>Nombre de usuario (Nickname)</label>
+                                                    <input required type="text" class="form-control" name="nickname_usuario" minlength="3" maxlength="50" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
+
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new consultas();
+                                                    $con->recuperarUsuario('nickname', $user);?>" ><br>
+
+                                                    <label>Contraseña</label>
+                                                    <input required type="password" class="form-control" name="pass_usuario" minlength="8" maxlength="100" value="<?php
+                                                    $objses = new Sessions();
+                                                    $objses->init();
+
+                                                    $user = isset($_SESSION['user']) ? $_SESSION['user'] : null ;
+
+                                                    $con = new consultas();
+                                                    $con->recuperarUsuario('contrasena', $user);?>" ><br>
+
+                                                    <label>Contraseña Actual*</label>
+                                                    <input type="password" class="form-control is-valid" value="" aria-describedby="passwordHelp" name="actual_pass_usuario" required>
+                                                    <small id="passwordHelp" class="form-text text-muted">*Campo obligatorio para guardar cambios.</small>
+
+                                                  </div>
+                                                                             
+                                          </div>
+
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-success text-right text-guardar" data-toggle="modal" data-target="#">Guardar</button>
+                                            <button type="button" class="btn btn-outline-secondary text-center text-cancel" data-dismiss="modal">Cerrar</button>
+                                          </div>
+                                      </form>
                                     </div>
-                            </div>
+                                </div>
                         </div>
+                    </div>
 
 
                         <!-- Div solo para que la imagen de perfil no este totalmente pegada a la derecha -->

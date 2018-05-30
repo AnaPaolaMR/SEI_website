@@ -326,7 +326,7 @@
                     </div>
 
 <!-- MODAL PARA CONFIGURAR CUENTA -->
-                     <div class="text">
+                    <div class="text">
                         <div class="modal fade" id="configuracion">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -1476,7 +1476,6 @@
       </div>
     </div>
   </div>
-</div>
 
     <!-- Boton para cerrar sesion -->
     <a href="user/log_out" class="btn btn-lg btn-outline-success text-center text-volver">
