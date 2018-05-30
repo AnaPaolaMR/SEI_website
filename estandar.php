@@ -38,7 +38,7 @@
             $objses->set('error', '0');
             break;
           case 4:
-            echo "<script type='text/javascript'>alert('Error: La contraseña debe ser minimo de 8 digitos');</script>";
+            echo "<script type='text/javascript'>alert('Error: La contraseña debe ser minimo de 8 dígitos');</script>";
             $objses->set('error', '0');
             break;
           case 5:
@@ -66,7 +66,7 @@
             $objses->set('error', '0');
             break;
           case 11:
-            echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imagenes a la vez.');</script>";
+            echo "<script type='text/javascript'>alert('Error: Solo se aceptan maximo 10 imágenes a la vez.');</script>";
             $objses->set('error', '0');
             break;
           case 12:
@@ -78,7 +78,7 @@
             $objses->set('error', '0');
             break;
         case 14:
-            echo "<script type='text/javascript'>alert('Error: No ha introducido una descripcion nueva.');</script>";
+            echo "<script type='text/javascript'>alert('Error: No ha introducido una descripción nueva.');</script>";
             $objses->set('error', '0');
             break;
 
@@ -134,7 +134,7 @@
         <link rel="stylesheet" type="text/css" href="css/estilos1.css">
         <link rel="stylesheet" type="text/css" href="dist\summernote-bs4.css">
 
-        <title>Configuracion | Smart English Institute</title>
+        <title>Configuración | Smart English Institute</title>
     </head>
 
     <body>
@@ -167,7 +167,7 @@
                             <button class="btn btn-outline-success no-border" id="dropdownmenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-fluid" src="img/sesion.png" alt="Logo SEI"  width="50"></button>
 
                             <div class="dropdown-menu" aria-labelledby="dropdownmenu1">
-                              <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuracion de la cuenta</a>
+                              <a class="dropdown-item" href="#configuracion" data-toggle="modal">Configuración de la cuenta</a>
 
                               <li class="dropdown-divider"></li>
                               
@@ -181,7 +181,7 @@
                                 <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header modal-header-custom">
-                                            <h4 class="modal-title">Configuracion de la cuenta</h4>
+                                            <h4 class="modal-title">Configuración de la cuenta</h4>
                                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                             
                                         </div>
@@ -423,7 +423,7 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      ¿Estas seguro de que deseas guardar cambios?
+                                      ¿Estás seguro de que deseas guardar cambios?
                                     </div>
                                     <div class="modal-footer">
 
@@ -438,7 +438,7 @@
                               <!-- Boton de cancelar -->
                               <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
-                              <label>Ultima modificacion: <?php
+                              <label>Última modificacion: <?php
                                             $con = new consultas();
                                             $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','regular');
 
@@ -504,7 +504,7 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      ¿Estas seguro de que deseas guardar cambios?
+                                      ¿Estás seguro de que deseas guardar cambios?
                                     </div>
                                     <div class="modal-footer">
 
@@ -519,7 +519,7 @@
                               <!-- Boton de cancelar -->
                               <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
-                              <label>Ultima modificacion: <?php
+                              <label>Última modificacion: <?php
                                             $con = new consultas();
                                             $con->recuperarMod('cursos','fecha_mod_curso','tipo_curso','club');
 
@@ -534,7 +534,7 @@
                         <div class="card-header" id="headingFour">
                           <h5 class="mb-0">
                             <button class="btn btn-link collapsed accordion-style text-admin text-subtitulo" data-toggle="collapse" data-target="#collapse_galeria" aria-expanded="false" aria-controls="collapseFour">
-                              <i class="material-icons">&#xE145;</i> Galeria 
+                              <i class="material-icons">&#xE145;</i> Galería 
                             </button>
                           </h5>
                         </div>
@@ -580,7 +580,7 @@
                                                                 <label>Seleccione Imagen</label>
                                                                 <input type="file" class="form-control-file" id="exampleFormControlFile1" accept=".png, .jpg, .jpeg, .PNG, .JPEG, .JPG" multiple="true" name="valor_imagen[]" required>
                                                                 <small class="form-text text-muted">
-                                                                      Máximo 10 imagenes por carga, formatos: .jpg, .jpeg o .png.
+                                                                      Máximo 10 imágenes por carga, formatos: .jpg, .jpeg o .png.
                                                                 </small>
                                                             </div>
                                                         </div>
@@ -588,9 +588,9 @@
 
                                                     <div class="row">
                                                         <div class="form-group col-md-7">
-                                                            <label>Descripcion</label>
+                                                            <label>Descripción</label>
                                                                 <div class="input-text">
-                                                                    <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                                    <textarea class="form-control" name="descripcion" placeholder="Escriba aquí una descripcion para sus imágenes..."></textarea>
                                                                 </div>
                                                         </div>
                                                     </div>
@@ -613,7 +613,7 @@
                                                           </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                          ¿Estas seguro de que deseas guardar cambios?
+                                                          ¿Estás seguro de que deseas guardar cambios?
                                                         </div>
                                                         <div class="modal-footer">
 
@@ -672,10 +672,10 @@
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="input-group-prepend">
-                                                                Descripcion:
+                                                                Descripción:
                                                             </div>
                                                             <div class="input-text">
-                                                                <textarea class="form-control" id ="descripcion_1"name="descripcion_1" required placeholder="Escriba aquí una descripcion para sus imagenes..."></textarea>
+                                                                <textarea class="form-control" id ="descripcion_1"name="descripcion_1" required placeholder="Escriba aquí una descripcion para sus imágenes..."></textarea>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -697,7 +697,7 @@
                                                           </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                          ¿Estas seguro de que deseas guardar cambios?
+                                                          ¿Estás seguro de que deseas guardar cambios?
                                                         </div>
                                                         <div class="modal-footer">
 
@@ -776,7 +776,7 @@
                                                           </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                          ¿Estas seguro de que deseas eliminar la foto?
+                                                          ¿Estás seguro de que deseas eliminar la foto?
                                                         </div>
                                                         <div class="modal-footer">
 
@@ -818,13 +818,13 @@
                                 <h5> Datos de Contacto </h5>
 
                                 <div class="form-group">
-                                  <label>Telefono</label>
+                                  <label>Teléfono</label>
                                   <input type="text" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto', 'boton_guardar_contacto')" id="input_tel" name="contacto_telefono" minlength="7" maxlength="20" pattern="[0-9+-]+" required value="<?php
                                             $con = new consultas();
                                             $con->recuperarContacto('telefono');
 
                                         ?>">
-                                  <small class="form-text text-muted">Introduzca solo numeros (Al menos 7 digitos). Los simbolos "-" y "+" tambien son admitidos.</small>
+                                  <small class="form-text text-muted">Introduzca solo números (Al menos 7 dígitos). Los símbolos "-" y "+" tambien son admitidos.</small>
 
                                 </div> 
 
@@ -835,12 +835,12 @@
                                             $con->recuperarContacto('celular');
 
                                         ?>">
-                                    <small class="form-text text-muted">Introduzca solo numeros (Al menos 10 digitos). Los simbolos "-" y "+" tambien son admitidos.</small>
+                                    <small class="form-text text-muted">Introduzca solo números (Al menos 10 dígitos). Los símbolos "-" y "+" tambien son admitidos.</small>
 
                                 </div>
 
                                 <div class="form-group">
-                                  <label>Correo Electronico </label>
+                                  <label>Correo Electrónico </label>
                                   <input type="email" class="form-control" oninvalid="cerrarModal(this.id, 'guardar_contacto')" id="input_email" name="contacto_email" maxlength="50" value="<?php
                                             $con = new consultas();
                                             $con->recuperarContacto('email_contacto');
@@ -849,7 +849,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                   <label>Direccion</label>
+                                   <label>Dirección</label>
                                    <textarea class="form-control summernote" rows="2" id="input_direccion" name="contacto_direccion"><?php
                                             $con = new consultas();
                                             $con->recuperarContacto('direccion_contacto');
@@ -918,7 +918,7 @@
                                       </button>
                                     </div>
                                     <div class="modal-body">
-                                      ¿Estas seguro de que deseas guardar los cambios?
+                                      ¿Estás seguro de que deseas guardar los cambios?
                                     </div>
                                     <div class="modal-footer">
 
@@ -933,7 +933,7 @@
                               <!-- Boton de cancelar -->
                               <input type="button" value="Cancelar" class="btn btn-lg btn-outline-secondary text-center text-cancel" onclick="javascript:window.location.reload();"/><br><br>
 
-                              <label>Ultima modificacion: <?php
+                              <label>Última modificacion: <?php
                                             $con = new consultas();
                                             $con->recuperarMod('contacto','fecha_mod_contacto','','');
 
