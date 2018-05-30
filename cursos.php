@@ -18,7 +18,7 @@
 </head>
 <body>
 <header>
-<div style="backgrond-color: #a2ef44" class="container-fluid">
+<div class="container-fluid">
 	<div class="row justify-content-between">
 		
 		<!-- Imagen de usuario -->
@@ -28,7 +28,7 @@
 		
 		<!-- Titulo -->
 		<div class="col-sm-12 col-md-6 align-self-center text-center">
-			<img src="SVG/cursos.png" class="img-fluid" alt="Cursos" width="40%">
+			<div><h1>Cursos</h1></div>
 		</div>
 		
 		<!-- Menu desplegable -->
@@ -39,13 +39,13 @@
 				</button>
 				<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
 					<a class="dropdown-item" href="cursos">Cursos</a>
-					<a class="dropdown-item" href="club">Club de conversacion</a>
-					<a class="dropdown-item" href="galeria">Galeria</a>
+					<a class="dropdown-item" href="club">Club de conversación</a>
+					<a class="dropdown-item" href="galeria">Galería</a>
 					<a class="dropdown-item" href="contacto">contacto</a>
 					<li class="dropdown-divider"></li>
-					<a class="dropdown-item" href="#q_somos" data-toggle="modal">¿Quienes somos?</a>
-					<a class="dropdown-item" href="#mision" data-toggle="modal">Mision</a>
-					<a class="dropdown-item" href="#vision" data-toggle="modal">Vision</a>
+					<a class="dropdown-item" href="#q_somos" data-toggle="modal">¿Quiénes somos?</a>
+					<a class="dropdown-item" href="#mision" data-toggle="modal">Misión</a>
+					<a class="dropdown-item" href="#vision" data-toggle="modal">Visión</a>
 					<a class="dropdown-item" href="#historia" data-toggle="modal">Historia</a>
 					<li class="dropdown-divider"></li>
 					<a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
@@ -194,7 +194,7 @@
 
 											<p>
 	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
-	    											Ponte en contacto con Smart English Institute aqui
+	    											Ponte en contacto con Smart English Institute aquí
 	    										</a>
 	  										</p>
 												 											
@@ -214,7 +214,9 @@
 <!-- Botones para redirigir a cada uno de los cursos -->
 <div class="container">
 	<section class="main row">
+		
 	<article class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
 	<div class="text-center">
 		<a href="regular" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 		regular
@@ -223,24 +225,7 @@
 		</p>
 		</a>
 	</div>
-	<div class="text-center">
-		<a href="verano" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
-		verano
-		<p class="text-ingles">
-			summer
-		</p>
-		</a>
-	</div>
-	</article>
-	<aside class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-	<div class="text-center">
-		<a href="semestral" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
-		Semestral
-		<p class="text-ingles">
-			biannual
-		</p>
-		</a>
-	</div>
+
 	<div class="text-center">
 		<a href="sabatino" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
 		sabatino
@@ -249,13 +234,36 @@
 		</p>
 		</a>
 	</div>
+	
+	</article>
+
+	<aside class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+
+	<div class="text-center">
+		<a href="semestral" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+		Semestral
+		<p class="text-ingles">
+			biannual
+		</p>
+		</a>
+	</div>
+
+	<div class="text-center">
+		<a href="verano" class="btn btn-lg btn-outline-success text-center text-boton btn-responsive-sm btn-responsive-md btn-responsive-lg btn-responsive-xl">
+		verano
+		<p class="text-ingles">
+			summer
+		</p>
+		</a>
+	</div>
+	
 	</aside>
 	</section>
 </div>
 <footer>
 <div class="container">
 	<!-- Marca de SEI -->
-		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center">
+		<div class="container-fluid align-self-center text-center">
 			<p style="text-align: centr;" class="footer-custom ">
 				<br> Smart English Institute &copy;
 			</p>		
@@ -264,7 +272,7 @@
 
 <!-- Boton de volver -->
 <a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
-volver </a>
+Volvér </a>
 </footer>
 <script src="js\jquery.js"></script>
 <script src="js/popper.min.js"></script>

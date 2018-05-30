@@ -16,12 +16,12 @@
 	<?php include("class/consulta.php");?>
 	
 	<!--  Titulo de la página en el navegador -->
-	<title>Galeria | Smart English Institute</title>
+	<title>Galería | Smart English Institute</title>
 </head>
 <body>
 
 	<header>
-		<div style="backgrond-color: #a2ef44" class="container-fluid">
+		<div class="container-fluid">
 			<div class="row justify-content-between">
 
 				<!-- Logo de la página -->
@@ -44,14 +44,14 @@
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
 							<a class="dropdown-item" href="cursos">Cursos</a>
-							<a class="dropdown-item" href="club">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="club">Club de conversación</a>
+							<a class="dropdown-item" href="galeria">Galería</a>
 							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
-						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
-						    <a class="dropdown-item" href="#mision" data-toggle="modal">Mision</a>
-							<a class="dropdown-item" href="#vision" data-toggle="modal">Vision</a>
+						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quiénes somos?</a>
+						    <a class="dropdown-item" href="#mision" data-toggle="modal">Misión</a>
+							<a class="dropdown-item" href="#vision" data-toggle="modal">Visión</a>
 						    <a class="dropdown-item" href="#historia" data-toggle="modal">Historia</a>
 						    <li class="dropdown-divider"></li>
 						    <a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
@@ -199,7 +199,7 @@
 
 											<p>
 	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
-	    											Ponte en contacto con Smart English Institute aqui
+	    											Ponte en contacto con Smart English Institute aquí
 	    										</a>
 	  										</p>
 												 											
@@ -296,7 +296,7 @@
 			<!-- Thumbnail de Catergoria: Eventos Especiales -->
 			<div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 justify-center">
 				<a href="#MOtros" data-toggle="modal"><img src="img/04.jpg" class="img-thumbnail img-fluid"> </a>
-				<p class="text-responsive text-center text-subtitulo">otros</p>
+				<p class="text-responsive text-center text-subtitulo">otras fotos</p>
 
 				<!-- Modal que muestra el visor de imagenes -->
 				<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="MOtros">
@@ -332,7 +332,7 @@
 
 		<!-- Botón de "volver" -->
 		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
-				volver
+				Volvér
 		</a>
 	</footer>
 

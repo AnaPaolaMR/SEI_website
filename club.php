@@ -19,7 +19,7 @@
 <body>
 
 	<header>
-		<div style="backgrond-color: #a2ef44" class="container-fluid">
+		<div class="container-fluid">
 			<div class="row justify-content-between">
 
 				<!-- Imagen de usuario -->
@@ -42,14 +42,14 @@
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
 							<a class="dropdown-item" href="cursos">Cursos</a>
-							<a class="dropdown-item" href="club">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="club">Club de conversación</a>
+							<a class="dropdown-item" href="galeria">Galería</a>
 							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
-						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
-						    <a class="dropdown-item" href="#mision" data-toggle="modal">Mision</a>
-							<a class="dropdown-item" href="#vision" data-toggle="modal">Vision</a>
+						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quiénes somos?</a>
+						    <a class="dropdown-item" href="#mision" data-toggle="modal">Misión</a>
+							<a class="dropdown-item" href="#vision" data-toggle="modal">Visión</a>
 						    <a class="dropdown-item" href="#historia" data-toggle="modal">Historia</a>
 						    <li class="dropdown-divider"></li>
 						    <a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
@@ -197,7 +197,7 @@
 
 											<p>
 	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
-	    											Ponte en contacto con Smart English Institute aqui
+	    											Ponte en contacto con Smart English Institute aquí
 	    										</a>
 	  										</p>
 												 											
@@ -231,7 +231,7 @@
 
 			</article>
 
-			<aside style="backgrond-color: #00BBF0" class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
+			<aside class="col-xs-12 col-sm-12 col-md-12 col-lg 5">
 				<div class="container container-white margin-custom border-custom rounded-custom padding-custom text text-justify">
 
 					<h3><?php
@@ -264,7 +264,7 @@
 
 		<!-- Boton de volver -->
 		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
-			volver
+			Volvér
 		</a>
 	</footer>
 	

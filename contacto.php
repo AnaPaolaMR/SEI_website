@@ -44,14 +44,14 @@
 
 						<div class="dropdown-menu" aria-labelledby="dropdownmenu1">
 							<a class="dropdown-item" href="cursos">Cursos</a>
-							<a class="dropdown-item" href="club">Club de conversacion</a>
-							<a class="dropdown-item" href="galeria">Galeria</a>
+							<a class="dropdown-item" href="club">Club de conversación</a>
+							<a class="dropdown-item" href="galeria">Galería</a>
 							<a class="dropdown-item" href="contacto">contacto</a>
 							<li class="dropdown-divider"></li>
 							
-						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quienes somos?</a>
-						    <a class="dropdown-item" href="#mision" data-toggle="modal">Mision</a>
-							<a class="dropdown-item" href="#vision" data-toggle="modal">Vision</a>
+						    <a class="dropdown-item" href="#q_somos" data-toggle="modal" >¿Quiénes somos?</a>
+						    <a class="dropdown-item" href="#mision" data-toggle="modal">Misión</a>
+							<a class="dropdown-item" href="#vision" data-toggle="modal">Visión</a>
 						    <a class="dropdown-item" href="#historia" data-toggle="modal">Historia</a>
 						    <li class="dropdown-divider"></li>
 						    <a class="dropdown-item" href="#faqs" data-toggle="modal">Preguntas Frecuentes</a>
@@ -199,7 +199,7 @@
 
 											<p>
 	  											<a class="b1 btn btn-block btn-outline-success no-border" href="contacto" role="button">
-	    											Ponte en contacto con Smart English Institute aqui
+	    											Ponte en contacto con Smart English Institute aquí
 	    										</a>
 	  										</p>
 												 											
@@ -221,7 +221,7 @@
 		<div class="row justify-content-around">
 		
 			<div class="col-sm-12 col-md-4 border border-success  container-white rounded-custom">
-					<h3><br>Telefono</h3>
+					<h3><br>Teléfono</h3>
 					<p class="contenido "><h2 style="text-align: center;"><?php
                         $con = new consultas();
                         $con->recuperarContacto('telefono');
@@ -235,7 +235,7 @@
 
                     ?></h2> </p>
 					<hr class="my-4">
-					<h3>correo electronico</h3>
+					<h3>correo electrónico</h3>
 					
 					<p class="contenido" style="text-align: center;">
 						<br> 
@@ -284,7 +284,7 @@
                         $con = new consultas();
                         $con->recuperarContacto('enlace_instagram');
 
-                    ?>"><img src="img/instagram.png" alt="Facebook/SEI"style="margin: 10px;"></a>
+                    ?>"><img src="img/instagram.png" alt="Facebook/SEI" style="margin: 10px;"></a>
 			</div>
 			
 
@@ -296,15 +296,15 @@
 	<footer>
 
 		<!-- Marca de SEI -->
-		<div style="backgrond-color: #00204A" class="container-fluid align-self-center text-center">
-			<p style="text-align: centr;" class="footer-custom ">
+		<div class="container-fluid align-self-center text-center">
+			<p class="footer-custom ">
 				<br> Smart English Institute &copy;
 			</p>		
 		</div>
 
 		<!-- Boton de volver -->
 		<a href="index" class="btn btn-lg btn-outline-success text-center justify-center text-volver">
-			Volver
+			Volvér
 		</a>
 	</footer>
 

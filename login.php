@@ -42,7 +42,7 @@
   <link rel="stylesheet" type="text/css" href="css/estilos.css">
   <link rel="stylesheet" href="venobox/venobox.css" type="text/css" media="screen" />
 
-    <title>Iniciar Sesion | Smart English Institute</title>
+    <title>Iniciar Sesión | Smart English Institute</title>
   </head>
 
   <!-- Formulario de inicio de sesion -->
