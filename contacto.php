@@ -30,8 +30,8 @@
 				</div>
 				
 				<!-- Titulo -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/contacto.png" class="img-fluid" alt="Cursos" width="50%">
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Contacto
 				</div>
 				
 				<!-- Menu desplegable -->

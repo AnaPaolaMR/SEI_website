@@ -15,8 +15,12 @@ body{
 }
 
 .title{
+	font-family: "Coiny";
+	text-transform: uppercase;
 	color: white;
-
+	font-size: 35px;
+  letter-spacing: 0;
+  text-shadow: -4px -4px 0 #088A29, 4px -4px 0 #088A29, -4px 4px 0 #088A29, 4px 4px 0 #088A29;
 }
 
 .container-white{
@@ -102,6 +106,9 @@ ul{
 /*BOTONES RESPONSIVOS*/
 
 @media (min-width: 576px) {
+  .title{
+    font-size: 3em;
+  }
   .btn-responsive-sm{
 	margin: 10px;
 	padding: 15px;
@@ -155,7 +162,7 @@ ul{
 
 @media (min-width: 992px) {
   .title-lg{
-  	font-size: 3em;
+  	font-size: 4em;
   }
   .btn-responsive-lg{
   	margin: 20px;
@@ -184,7 +191,7 @@ ul{
 
 @media (min-width: 1200px) {
   .title-xl{
-  	font-size: 3em;
+  	font-size: 5em;
   }
   .btn-responsive-xl{
   	margin: 20px;

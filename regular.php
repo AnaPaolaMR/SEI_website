@@ -26,8 +26,8 @@
 				</div>
 				
 				<!-- Titulo -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/Regular.png" class="img-fluid" alt="Regular" width="40%">
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Regular
 				</div>
 				
 				<!-- Menu desplegable -->

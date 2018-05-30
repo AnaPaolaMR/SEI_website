@@ -29,9 +29,9 @@
 					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 
-				<!-- Imagen titulo de la página -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/galeria.png" class="img-fluid" alt="Galeria" width="40%">
+				<!-- Titulo -->
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Galería
 				</div>
 
 				<!-- Menú desplegable, "explorador" del sistio -->

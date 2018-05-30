@@ -27,9 +27,9 @@
 					<a href="index"><img class="img-fluid" src="img/logo.png" alt="Logo SEI" width="100%"></a>
 				</div>
 				
-				<!-- Titulo del curso -->
-				<div class="col-sm-12 col-md-6 align-self-center text-center">
-					<img src="SVG/club_conv.png" class="img-fluid" alt="Club de Conversacion" width="40%">
+				<!-- Titulo -->
+				<div class="col-sm-12 col-md-6 align-self-center text-center title title-md title-lg title-xl">
+					Club de conversación
 				</div>
 				
 				<!-- Menu desplegable -->
