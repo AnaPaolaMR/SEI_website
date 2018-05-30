@@ -49,7 +49,7 @@
   <body class="text-center login">
     <form class="form-signin border border-success rounded" action="class/session_init" method="POST">
 
-      <a href="http://www.smartenglishinstitute.com"><img class="mb-4" src="img/Logo.png" alt="Smart English Institute" width="80%" height="autofocus"></a><br>
+      <a href="http://www.smartenglishinstitute.com"><img class="mb-4" src="img/logo.png" alt="Smart English Institute" width="80%" height="autofocus"></a><br>
       <img class="mb-4" src="img/sesion.png" alt="" width="70" height="70">
       
       <h3>Iniciar Sesión</h3>
