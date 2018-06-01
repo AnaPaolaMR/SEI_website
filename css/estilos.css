@@ -20,7 +20,7 @@ body{
 	color: white;
 	font-size: 35px;
   letter-spacing: 0;
-  text-shadow: -4px -4px 0 #088A29, 4px -4px 0 #088A29, -4px 4px 0 #088A29, 4px 4px 0 #088A29;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .container-white{
@@ -191,7 +191,7 @@ ul{
 
 @media (min-width: 1200px) {
   .title-xl{
-  	font-size: 5em;
+  	font-size: 4em;
   }
   .btn-responsive-xl{
   	margin: 20px;

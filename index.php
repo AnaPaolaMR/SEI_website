@@ -53,32 +53,6 @@
 
 					<!-- Modals del menu desplegable-->
 
-					<!-- Video de inicio -->
-					<div class="text">
-						<div class="modal fade" id="mostrarmodal">
-							<div class="modal-dialog modal-dialog-centered">
-								<div class="modal-content">
-									<div class="modal-headering">
-										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-									</div>
-
-									<!-- <img class="img-fluid" src="giphy.gif" alt="Logo SEI" width="100%">
-											<div class="embed-responsive embed-responsive-16by9">
-  												<iframe class="embed-responsive-item" src="intro.mp4" allowfullscreen = "false"></iframe>
-											</div>--> 
-
-										<video autoplay muted>
-											<source src="intro.mp4" type="video/mp4">
-										</video>
-
-
-											
-								</div>
-
-							</div>
-						</div>
-					</div>
-
 					<div class="text">
 						<div class="modal fade" id="q_somos">
 						    	<div class="modal-dialog">
@@ -292,19 +266,6 @@
 			</p>		
 		</div>
 	</footer>
-
-    <!--Scripts para auto mostrar modal de presentación-->
-    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#mostrarmodal").modal("show");
-
-		setTimeout(function() {
-		    $('#mostrarmodal').modal('hide');
-		}, 6000);
-        });
-
-	</script>
 
 	<!-- Scripts de javascript: Jquery y Bootstrap -->
 	<script src="js\jquery.js"></script>
